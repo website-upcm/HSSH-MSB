@@ -140,14 +140,14 @@
     }
 
     .hero h1 {
-      font-size: 5.5rem;
-      font-weight: 700;
+      font-size: 3.5rem;
+      font-weight: 900;
       margin-bottom: 0.5rem;
       text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
     }
 
     .hero h2 {
-      font-size: 2.2rem;
+      font-size: 1.8rem;
       /* Ito ang sukat para sa "Medical Sciences Building" */
       font-weight: 500;
       margin-bottom: 0.5rem;
@@ -155,7 +155,7 @@
     }
 
     .hero p {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       /* BAGONG SIZE (Dati: 1.5rem) */
       margin-bottom: 2rem;
       text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
@@ -499,122 +499,7 @@
       display: block;
     }
 
-    /* Rental Rates Table CSS (SAME) */
-    .rates-table-container {
-      overflow-x: auto;
-    }
 
-    .rental-rates-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 20px 0;
-      font-size: 0.9rem;
-      text-align: left;
-      min-width: 750px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      background-color: #fff;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .rental-rates-table thead tr {
-      background-color: #800000;
-      color: #ffd700;
-      text-align: center;
-      font-weight: 600;
-    }
-
-    .rental-rates-table th,
-    .rental-rates-table td {
-      padding: 12px 15px;
-      border: 1px solid #ddd;
-      vertical-align: middle;
-    }
-
-    .rental-rates-table th {
-      text-transform: uppercase;
-      font-size: 0.85rem;
-    }
-
-    .rental-rates-table tbody tr {
-      border-bottom: 1px solid #eee;
-    }
-
-    .rental-rates-table tbody tr:nth-of-type(even) {
-      background-color: #f3f3f3;
-    }
-
-    .rental-rates-table tbody tr:hover {
-      background-color: #ffefd5;
-    }
-
-    .rental-rates-table .location-cell {
-      font-weight: 600;
-      color: #800000;
-      width: 25%;
-    }
-
-    .rental-rates-table .price-cell {
-      text-align: right;
-      font-family: 'Segoe UI', Arial, sans-serif;
-    }
-
-    .rates-note {
-      text-align: left;
-      max-width: 1100px;
-      margin: 20px auto;
-      padding: 0 10px;
-      font-style: italic;
-      color: #555;
-    }
-
-    /* Extended Service Tables CSS (SAME) */
-    .overtime-rates-container {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 10px;
-    }
-
-    .overtime-rates-container h3 {
-      font-size: 1.5rem;
-      color: #800000;
-      margin-top: 30px;
-      margin-bottom: 15px;
-      text-align: center;
-      border-bottom: 2px solid #ffd700;
-      display: inline-block;
-      padding-bottom: 5px;
-    }
-
-    .overtime-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 40px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      background: #fff;
-    }
-
-    .overtime-table thead th {
-      background-color: #a52a2a;
-      color: #fff;
-      padding: 10px;
-      text-align: center;
-    }
-
-    .overtime-table tbody td {
-      padding: 10px;
-      border: 1px solid #eee;
-      text-align: left;
-    }
-
-    .overtime-table tbody td:first-child {
-      font-weight: bold;
-    }
-
-    .overtime-table tbody td:not(:first-child) {
-      text-align: right;
-      font-family: 'Consolas', 'Courier New', monospace;
-    }
 
 
     /* Timeline / Flow-style Reservation (SAME) */
@@ -1064,162 +949,6 @@
       </div>
     </div>
   </section>
-  <section id="rates">
-    <h2>💰 Room Rental & Extended Service Charges</h2>
-
-    <div class="rates-content-container" id="rates-content">
-      <div class="tab-container">
-        <div class="tab-buttons">
-          <button class="tab-btn active" onclick="openTab('rental-rates', this)">Room Rental Rates</button>
-          <button class="tab-btn" onclick="openTab('service-charges', this)">Extended Service Charges</button>
-        </div>
-
-        <div id="rental-rates" class="tab-content active">
-          <p style="margin-bottom: 20px; max-width: 900px; margin-left: auto; margin-right: auto;">
-            The following table shows the proposed revised rates for renting the various rooms and halls:
-          </p>
-          <div class="rates-table-container">
-            <h3 style="color: #800000; margin-bottom: 20px;">Multi-Functional Rooms Maintenance Rates</h3>
-            <table class="rental-rates-table">
-              <thead>
-                <tr>
-                  <th rowspan="2">Item</th>
-                  <th rowspan="2">Location</th>
-                  <th colspan="2">Rates - First 2 Hours</th>
-                  <th rowspan="2">Succeeding Hours</th>
-                  <th rowspan="2">Floor Area (SQ. M)</th>
-                </tr>
-                <tr>
-                  <th>UP</th>
-                  <th>Non-UP</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!--                 <tr>
-                                    <td>1</td>
-                                    <td class="location-cell">2F BOARDROOM</td>
-                                    <td class="price-cell">PHP 4,055.50</td>
-                                    <td class="price-cell">PHP 4,461.05</td>
-                                    <td class="price-cell">PHP 2,027.75</td>
-                                    <td class="price-cell">81.04 SQ. M</td>
-                                  </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td class="location-cell">3F RAMON ANG AUDITORIUM</td>
-                                    <td class="price-cell">PHP 6,364.54</td>
-                                    <td class="price-cell">PHP 7,000.99</td>
-                                    <td class="price-cell">PHP 3,182.27</td>
-                                    <td class="price-cell">216.04 SQ. M</td>
-                                  </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td class="location-cell">4F UPMASA AUDITORIUM</td>
-                                    <td class="price-cell">PHP 7,537.74</td>
-                                    <td class="price-cell">PHP 8,291.51</td>
-                                    <td class="price-cell">PHP 3,768.87</td>
-                                    <td class="price-cell">266.88 SQ. M</td>
-                                  </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td class="location-cell">6F UNILAB CONFERENCE ROOM</td>
-                                    <td class="price-cell">PHP 3,729.01</td>
-                                    <td class="price-cell">PHP 4,101.91</td>
-                                    <td class="price-cell">PHP 1,864.51</td>
-                                    <td class="price-cell">111.83 SQ. M</td>
-                                  </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td class="location-cell">6F VICENTE TIU LIM CONFERENCE ROOM</td>
-                                    <td class="price-cell">PHP 3,729.01</td>
-                                    <td class="price-cell">PHP 4,101.91</td>
-                                    <td class="price-cell">PHP 1,864.51</td>
-                                    <td class="price-cell">115.22 SQ. M</td>
-                                  </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td class="location-cell">7F HENRY SY SR PLENARY HALL</td>
-                                    <td class="price-cell">PHP 9,348.73</td>
-                                    <td class="price-cell">PHP 10,283.60</td>
-                                    <td class="price-cell">PHP 4,674.37</td>
-                                    <td class="price-cell">478.72 SQ. M</td>
-                                  </tr> -->
-
-              </tbody>
-            </table>
-          </div>
-          <p class="rates-note">Note: "UP" rates are for UP-based organizations/units. Rates do not include
-            charges for
-            maintenance, **Extended Services**, or other ancillary services.</p>
-        </div>
-
-        <div id="service-charges" class="tab-content">
-          <p style="max-width:800px; margin:20px auto 30px auto; line-height: 1.6; text-align: center;">
-            These are the standardized hourly rates for staff assigned to the Henry Sy Sr. Medical Sciences
-            Building for
-            work
-            performed **outside of normal operating hours** (e.g., night shifts and holidays).
-          </p>
-
-          <div class="overtime-rates-container" id="service-rates-content">
-            <h3>1. Extended Hours Service Charge (25%)</h3>
-            <table class="overtime-table">
-              <thead>
-                <!--                 <tr>
-                                    <th>Position</th>
-                                    <th>Hourly Rate (₱)</th>
-                                    <th>Service Charge Rate (₱/hr)</th>
-                                  </tr>
-                              </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Technical Staff</td>
-                                    <td>146.24</td>
-                                    <td>182.80</td>
-                                  </tr>
-                                <tr>
-                                    <td>Utility Staff</td>
-                                    <td>129.25</td>
-                                    <td>161.57</td>
-                                  </tr>
-                                <tr>
-                                    <td>Janitorial Staff</td>
-                                    <td>80.63</td>
-                                    <td>100.78</td>
-                                  </tr> -->
-                </tbody>
-            </table>
-
-            <h3>2. Holiday and Night Service Charge Rates</h3>
-            <table class="overtime-table">
-              <thead>
-                <tr>
-                  <th>Condition</th>
-                  <th>Tech Staff (₱/hr)</th>
-                  <th>Utility Staff (₱/hr)</th>
-                  <th>Janitorial Staff (₱/hr)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!--                 <tr>
-                                    <td>Rest Day Extended (30%)</td>
-                                    <td>190.11</td>
-                                    <td>168.03</td>
-                                    <td>104.81</td>
-                                  </tr>
-                                <tr>
-                                    <td>Regular Holiday (200%)</td>
-                                    <td>292.47</td>
-                                    <td>258.50</td>
-                                    <td>161.25</td>
-                                  </tr> -->
-
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <section id="schedule">
     <h2>📖 Class Schedule</h2>
@@ -1232,86 +961,57 @@
     </p>
   </section>
 
-<section id="more-visuals" style="padding-top: 40px; text-align: center;">
+  <section id="more-visuals" style="padding-top: 40px; text-align: center;">
     <h2>🖼️ More Visuals of Henry Sy Sr. Hall</h2>
     <p style="max-width: 800px; margin: auto; padding: 0 20px 20px 20px; color: #555;">
-        Check out these additional photos and video clips of the building's facilities (Source: HSS-MSB Management Team).
+      Check out these additional photos and video clips of the building's facilities (Source: HSS-MSB Management Team).
     </p>
 
     <div class="visuals-grid">
-        
-        <div class="visual-card">
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/CLIP_ID_1?controls=0" title="Clip 1: Main Lobby Area" allowfullscreen></iframe>
-            </div>
-            <p>Clip 1: Main Lobby Area</p>
-        </div>
 
-        <div class="visual-card">
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/CLIP_ID_2?controls=0" title="Clip 2: 7F Plenary Hall" allowfullscreen></iframe>
-            </div>
-            <p>Clip 2: 7F Plenary Hall</p>
+      <div class="visual-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/CLIP_ID_1?controls=0" title="Clip 1: Main Lobby Area"
+            allowfullscreen></iframe>
         </div>
+        <p>Clip 1: Main Lobby Area</p>
+      </div>
 
-        <div class="visual-card">
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/CLIP_ID_3?controls=0" title="Clip 3: UPMASA Auditorium" allowfullscreen></iframe>
-            </div>
-            <p>Clip 3: UPMASA Auditorium</p>
+      <div class="visual-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/CLIP_ID_2?controls=0" title="Clip 2: 7F Plenary Hall"
+            allowfullscreen></iframe>
         </div>
+        <p>Clip 2: 7F Plenary Hall</p>
+      </div>
 
-        <div class="visual-card">
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/CLIP_ID_4?controls=0" title="Clip 4: Boardroom Setup" allowfullscreen></iframe>
-            </div>
-            <p>Clip 4: Boardroom Setup</p>
+      <div class="visual-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/CLIP_ID_3?controls=0" title="Clip 3: UPMASA Auditorium"
+            allowfullscreen></iframe>
         </div>
+        <p>Clip 3: UPMASA Auditorium</p>
+      </div>
 
-        <div class="visual-card">
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/CLIP_ID_5?controls=0" title="Clip 5: 6F Conference Room" allowfullscreen></iframe>
-            </div>
-            <p>Clip 5: 6F Conference Room</p>
+      <div class="visual-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/CLIP_ID_4?controls=0" title="Clip 4: Boardroom Setup"
+            allowfullscreen></iframe>
         </div>
+        <p>Clip 4: Boardroom Setup</p>
+      </div>
 
-        <div class="visual-card">
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/CLIP_ID_6?controls=0" title="Clip 6: Lecture Hall" allowfullscreen></iframe>
-            </div>
-            <p>Clip 6: Lecture Hall</p>
+      <div class="visual-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/CLIP_ID_5?controls=0" title="Clip 5: 6F Conference Room"
+            allowfullscreen></iframe>
         </div>
+        <p>Clip 5: 6F Conference Room</p>
+      </div>
 
-        <div class="visual-card">
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/CLIP_ID_7?controls=0" title="Clip 7: Rooftop Garden" allowfullscreen></iframe>
-            </div>
-            <p>Clip 7: Rooftop Garden</p>
-        </div>
-
-        <div class="visual-card">
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/CLIP_ID_8?controls=0" title="Clip 8: Entrance View" allowfullscreen></iframe>
-            </div>
-            <p>Clip 8: Entrance View</p>
-        </div>
-
-        <div class="visual-card">
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/CLIP_ID_9?controls=0" title="Clip 9: Hallway View" allowfullscreen></iframe>
-            </div>
-            <p>Clip 9: Hallway View</p>
-        </div>
-
-        <div class="visual-card">
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/CLIP_ID_10?controls=0" title="Clip 10: Exterior Shot" allowfullscreen></iframe>
-            </div>
-            <p>Clip 10: Exterior Shot</p>
-        </div>
 
     </div>
-</section>
+  </section>
 
   <section id="map">
     <h2>📍 How to get here</h2>
@@ -1534,13 +1234,7 @@
     }
     window.openTab = openTab;
 
-    // Tiyakin na ang 'rental-rates' ang default tab pag-load ng page
-    document.addEventListener('DOMContentLoaded', () => {
-      const defaultTabBtn = document.querySelector('.tab-buttons .tab-btn:first-child');
-      if (defaultTabBtn) {
-        openTab('rental-rates', defaultTabBtn);
-      }
-    });
+
 
     // --- FLOWCHART MODAL
     function openFlowchartModal() {
