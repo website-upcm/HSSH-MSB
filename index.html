@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UP College of Medicine – Henry Sy Sr. Hall</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    html,
+    body {
+      scroll-behavior: smooth;
+      background: #fafafa;
+      color: #333;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(128, 0, 0, 0.97);
+      padding: 14px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 999;
+      transition: 0.3s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(128, 0, 0, 0.95);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    nav h2 {
+      color: #fff;
+      font-size: 1.2rem;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      padding: 5px 0;
+    }
+
+    nav ul li a:hover {
+      color: #ffd700;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 80%;
+        max-width: 300px;
+        background: rgba(128, 0, 0, 0.98);
+        padding: 15px 25px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      nav ul li {
+        margin: 10px 0;
+        text-align: center;
+      }
+
+      nav ul li a {
+        display: block;
+        padding: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      color: white;
+      text-align: center;
+      /* MODIFIED: Ginawang 0.5s ang transition para sa fade effect */
+      transition: opacity 0.5s ease-in-out, background-image 0.5s ease-in-out;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      animation: fadeIn 1.2s ease;
+      padding: 0 20px;
+      transform: translateY(-80px);
+    }
+
+    .hero h1 {
+      font-size: 5.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    }
+
+    .hero h2 {
+      font-size: 2.2rem;
+      /* Ito ang sukat para sa "Medical Sciences Building" */
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
+    }
+
+    .hero p {
+      font-size: 1.8rem;
+      /* BAGONG SIZE (Dati: 1.5rem) */
+      margin-bottom: 2rem;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+      /* Idagdag na rin natin ito */
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 26px;
+      border-radius: 50px;
+      background: #800000;
+      color: #fff;
+      text-decoration: none;
+      margin: 5px;
+      font-weight: 500;
+      transition: 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .btn:hover {
+      background: #a52a2a;
+      transform: scale(1.05);
+      border: 2px solid #ffd700;
+    }
+
+    .video-container {
+      max-width: 900px;
+      margin: 60px auto;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 480px;
+      border: none;
+    }
+
+    @media (max-width: 900px) {
+      .video-container {
+        margin: 40px 20px;
+      }
+
+      .video-container iframe {
+        height: 350px;
+      }
+    }
+
+    section {
+      padding: 80px 20px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: 0.8s ease;
+    }
+
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section h2 {
+      font-size: 2.2rem;
+      color: #800000;
+      margin-bottom: 20px;
+      border-bottom: 3px solid #ffd700;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .events-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .event-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      transition: 0.3s ease;
+      text-align: left;
+    }
+
+    .event-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+    }
+
+    .event-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .event-card h3 {
+      color: #800000;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .event-card p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 5px;
+    }
+
+    .notice {
+      background: #fff9e6;
+      border-left: 6px solid #800000;
+      padding: 35px;
+      width: 90%;
+      max-width: 900px;
+      margin: 40px auto;
+      border-radius: 10px;
+      text-align: left;
+      line-height: 1.6;
+    }
+
+    .notice h3 {
+      color: #800000;
+      margin-bottom: 10px;
+    }
+
+    .notice p {
+      margin-bottom: 8px;
+    }
+
+    .notice a {
+      color: #800000;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    #map iframe,
+    #schedule iframe {
+      width: 90%;
+      max-width: 1000px;
+      height: 700px;
+      border: none;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+
+    /* --- START NEW/MODIFIED CSS FOR ACCESS CONTROL --- */
+
+    /* HIDE THE RESTRICTED CONTENT BY DEFAULT (Service Rates) */
+
+
+    /* Modal/Login Form Styles (MODIFIED) */
+    #access-lock {
+      display: none;
+      /* Default state: Hidden */
+    }
+
+
+
+    .access-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .access-modal {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+    }
+
+    .access-modal h1 {
+      color: #cc0000;
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .access-modal p {
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .access-modal .contact-info {
+      margin-top: 20px;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .access-modal input[type="text"],
+    .access-modal input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .access-modal button {
+      width: 100%;
+      padding: 12px;
+      background: #800000;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .access-modal button:hover {
+      background: #a52a2a;
+    }
+
+    /* --- END NEW/MODIFIED CSS FOR ACCESS CONTROL --- */
+
+    /* --- START Flowchart Modal CSS (FINALIZED FOR SCROLL) --- */
+    .flowchart-modal-overlay {
+      display: none;
+      /* Default: Hidden */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      /* Dark overlay */
+      z-index: 1000;
+      /* Above all other content */
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .flowchart-modal-content {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      /* Maximum width na 95% at Maximum height na 95% ng viewport */
+      max-width: 100%;
+      max-height: 85vh;
+      /* Ang scroll bar ay lalabas dito */
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+    }
+
+    .flowchart-modal-content img {
+      /* Ensure image uses its full natural height but is limited by modal width */
+      max-width: 100%;
+      height: auto;
+      /* Siguraduhin na auto ang height */
+      display: block;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      color: #800000;
+      font-size: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      background: #ffd700;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      line-height: 35px;
+      text-align: center;
+      transition: 0.3s;
+      z-index: 10;
+      /* Para nasa ibabaw ng image */
+    }
+
+    .close-btn:hover {
+      background: #fff;
+    }
+
+    /* --- END Flowchart Modal CSS (FINALIZED FOR SCROLL) --- */
+
+
+    /* --- TAB CSS (SAME) --- */
+    .tab-container {
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 0 10px;
+    }
+
+    .tab-buttons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 25px;
+      border-bottom: 2px solid #ddd;
+    }
+
+    .tab-btn {
+      padding: 12px 25px;
+      margin: 0 5px;
+      cursor: pointer;
+      background: #f0f0f0;
+      border: none;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      font-weight: 600;
+      color: #555;
+      transition: all 0.3s ease;
+      transform: translateY(2px);
+    }
+
+    .tab-btn.active {
+      background: #800000;
+      color: #fff;
+      border-bottom: 4px solid #ffd700;
+      transform: translateY(0);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* Rental Rates Table CSS (SAME) */
+    .rates-table-container {
+      overflow-x: auto;
+    }
+
+    .rental-rates-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.9rem;
+      text-align: left;
+      min-width: 750px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .rental-rates-table thead tr {
+      background-color: #800000;
+      color: #ffd700;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .rental-rates-table th,
+    .rental-rates-table td {
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      vertical-align: middle;
+    }
+
+    .rental-rates-table th {
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+
+    .rental-rates-table tbody tr {
+      border-bottom: 1px solid #eee;
+    }
+
+    .rental-rates-table tbody tr:nth-of-type(even) {
+      background-color: #f3f3f3;
+    }
+
+    .rental-rates-table tbody tr:hover {
+      background-color: #ffefd5;
+    }
+
+    .rental-rates-table .location-cell {
+      font-weight: 600;
+      color: #800000;
+      width: 25%;
+    }
+
+    .rental-rates-table .price-cell {
+      text-align: right;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    .rates-note {
+      text-align: left;
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 0 10px;
+      font-style: italic;
+      color: #555;
+    }
+
+    /* Extended Service Tables CSS (SAME) */
+    .overtime-rates-container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 10px;
+    }
+
+    .overtime-rates-container h3 {
+      font-size: 1.5rem;
+      color: #800000;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      text-align: center;
+      border-bottom: 2px solid #ffd700;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .overtime-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 40px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      background: #fff;
+    }
+
+    .overtime-table thead th {
+      background-color: #a52a2a;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .overtime-table tbody td {
+      padding: 10px;
+      border: 1px solid #eee;
+      text-align: left;
+    }
+
+    .overtime-table tbody td:first-child {
+      font-weight: bold;
+    }
+
+    .overtime-table tbody td:not(:first-child) {
+      text-align: right;
+      font-family: 'Consolas', 'Courier New', monospace;
+    }
+
+
+    /* Timeline / Flow-style Reservation (SAME) */
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 50px auto 0 auto;
+      padding: 20px 0;
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background-color: #800000;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+    }
+
+    .timeline-step {
+      padding: 20px 40px;
+      position: relative;
+      width: 50%;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .timeline-step::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      right: -10px;
+      background-color: #ffd700;
+      border: 4px solid #800000;
+      top: 30px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .timeline-step.left {
+      left: 0;
+      text-align: right;
+    }
+
+    .timeline-step.right {
+      left: 50%;
+      text-align: left;
+    }
+
+    .timeline-step.left::after {
+      right: -10px;
+    }
+
+    .timeline-step.right::after {
+      left: -10px;
+    }
+
+    .timeline-step h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: #800000;
+    }
+
+    .timeline-step p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      text-align: justify;
+      color: #555;
+    }
+
+    @media screen and (max-width: 768px) {
+      .timeline::after {
+        left: 20px;
+      }
+
+      .timeline-step {
+        width: 100%;
+        padding-left: 50px;
+        padding-right: 20px;
+        margin-bottom: 30px;
+        box-shadow: none;
+      }
+
+      .timeline-step.left,
+      .timeline-step.right {
+        left: 0;
+        text-align: left;
+      }
+
+      .timeline-step.left::after,
+      .timeline-step.right::after {
+        left: 10px;
+        top: 30px;
+      }
+    }
+
+    footer {
+      background: #222;
+      color: #ccc;
+      padding: 30px 15px;
+      text-align: center;
+      line-height: 1.7;
+      font-size: 0.9rem;
+      border-top: 5px solid #800000;
+    }
+
+    footer a {
+      color: #ffd700;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Dagdag sa dulo ng CSS block */
+
+    /* NEW CSS FOR SIMULA/TOP (BACK-TO-TOP) BUTTON */
+    #back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ffd700;
+      /* Gold */
+      color: #800000;
+      /* Maroon */
+      padding: 10px 18px;
+      /* Binago ang padding para magkasya ang text */
+      border-radius: 50px;
+      /* Ginawang pill shape */
+      font-size: 1.1rem;
+      font-weight: 700;
+      /* Gawing bold para mas mabasa */
+      line-height: 1;
+      text-decoration: none;
+      z-index: 1000;
+      display: none;
+      /* Itago muna sa umpisa */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      border: 2px solid #800000;
+      transition: all 0.3s ease;
+    }
+
+    #back-to-top:hover {
+      background: #fff;
+      transform: scale(1.05);
+    }
+
+    /* Para hindi ma-override ang button styles */
+    .btn {
+      display: inline-block !important;
+    }
+
+    /* --- START QR CODE MODAL CSS (NEW) --- */
+    .qr-modal-overlay {
+      display: none;
+      /* Default: Hidden */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      /* Slightly less dark background */
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .qr-modal-content {
+      background: #fff;
+      padding: 40px 30px 20px 30px;
+      border-radius: 10px;
+      max-width: 350px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 5px 25px rgba(255, 255, 255, 0.3);
+    }
+
+    .qr-modal-content h3 {
+      color: #800000;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .qr-code-img-modal {
+      width: 200px;
+      height: 200px;
+      border: 6px solid #ffd700;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    /* Remove QR code display from footer since it's now in the modal */
+    footer .qr-code-img {
+      display: none;
+    }
+
+    /* --- END QR CODE MODAL CSS --- */
+
+    /* --- START NEW CSS FOR MULTI-VISUALS SECTION (MODIFIED FOR 3 COLUMNS) --- */
+
+    /* Para sa container na maglalaman ng 10 video/visuals */
+    .visuals-grid {
+      display: grid;
+      /* Dito, 3 columns ang default, pero magiging 1 o 2 lang sa maliit na screen */
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px 25px;
+      /* Magandang espasyo sa pagitan ng cards */
+      max-width: 1000px;
+      /* Para mas centered at hindi masyadong malapad ang 3 columns */
+      margin: 30px auto;
+      padding: 0 15px;
+    }
+
+    /* Style para sa bawat indibidwal na visual card */
+    .visual-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .visual-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Style para sa video iframe (Responsive 16:9) */
+    .visual-card .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      /* 16:9 Aspect Ratio */
+      height: 0;
+      overflow: hidden;
+    }
+
+    .visual-card .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    .visual-card p {
+      padding: 15px 10px;
+      font-size: 0.9rem;
+      color: #333;
+      margin-bottom: 0;
+      font-weight: 500;
+      text-align: center;
+      background-color: #f7f7f7;
+      border-top: 1px solid #eee;
+    }
+
+    /* --- BAGONG CSS PARA I-CENTER ANG HULING VIDEO (CLIP 10) --- */
+    /* Dahil 10 videos lang ang laman (hindi exact multiple ng 3), ang huling card (Clip 10) ay kailangan i-center */
+
+    .visuals-grid .visual-card:nth-last-child(1) {
+      /* Ang rule na ito ay mag-a-apply lang sa huling card (Clip 10) */
+      /* Para i-center ang huling card sa 3-column grid */
+      grid-column: 2 / 3;
+    }
+
+    /* Responsive adjustment */
+
+    @media (max-width: 1050px) {
+      .visuals-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* Babalik sa 2 columns sa mas maliit na screen */
+        max-width: 700px;
+      }
+
+      /* I-disable ang centering rule para sa 2-column layout para maging normal ang 9th at 10th card */
+      .visuals-grid .visual-card:nth-last-child(1) {
+        grid-column: auto;
+        /* Balik sa normal flow */
+      }
+    }
+
+    @media (max-width: 650px) {
+      .visuals-grid {
+        grid-template-columns: 1fr;
+        /* 1 column sa mobile */
+        max-width: 350px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <h2>UPCM Henry Sy Sr. Hall</h2>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul id="menu">
+      <li><a href="#room-process">Room Reservation</a></li>
+      <li><a href="#rates">Rental & Service Rates</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#map">Map</a></li>
+      <li><a href="#schedule">Schedule</a></li>
+      <li><a href="#more-visuals">Visuals</a></li>
+      <li><a href="#" onclick="openQrModal(event)">QR Site</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero" id="hero">
+    <div class="hero-content">
+      <h1>UP College of Medicine</h1>
+      <h2>Medical Sciences Building</h2>
+      <p>Henry Sy Sr. Hall</p>
+      <a href="#events" class="btn">Upcoming Events</a>
+      <a href="#room-process" class="btn">Room Reservation</a>
+      <a href="#rates" class="btn">Rates & Fees</a>
+      <a href="#map" class="btn">View Map</a>
+      <a href="#schedule" class="btn">Class Schedule</a>
+    </div>
+  </div>
+
+  <section id="video">
+    <h2>🎥 About UPCM Henry Sy Sr. Hall</h2>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/-17JBjE2j64?autoplay=1&mute=1&loop=1&playlist=-17JBjE2j64"
+        title="UPCM Henry Sy Sr. Hall" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </section>
+
+  <section id="events">
+    <h2>📅 Upcoming Events</h2>
+    <div class="events-container">
+      <div class="event-card">
+        <img src="./image/events.png" alt="Medical Conference 2025">
+        <h3>Tuesday Conference</h3>
+        <p><strong>Date:</strong> October 14, 2025</p>
+        <p><strong>Venue:</strong> 7Floor, Henry Sy Sr. Hall</p>
+      </div>
+      <div class="event-card">
+        <img src="./image/events.png" alt="Health Research Forum">
+        <h3>Faculty Research Forum</h3>
+        <p><strong>Date:</strong> October 17, 2025</p>
+        <p><strong>Venue:</strong> 7F Plenary Hall, Henry Sy Sr. Hall</p>
+      </div>
+      <div class="event-card">
+        <img src="./image/events.png" alt="Student Orientation">
+        <h3>Regular Oral Examinations (Division of Endocrinology)</h3>
+        <p><strong>Date:</strong> October 21, 2025</p>
+        <p><strong>Venue:</strong> 7F Plenary Hall, Henry Sy Sr. Hall</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="notice">
+    <h3>📧 Scheduling Requests</h3>
+    <p><strong>Office Email:</strong> Send your request to <a
+        href="mailto:hss-msb.upmanila@up.edu.ph">hss-msb.upmanila@up.edu.ph</a></p>
+    <p><strong>Address to:</strong> Dr. Arsenio Claro A. Cabungcal – Building Administrator<br>
+      Email: <a href="mailto:aacabungcal@up.edu.ph">aacabungcal@up.edu.ph</a>
+    </p>
+    <p><strong>CC:</strong> Engr. Michael Bondoc – Building Manager<br>
+      Email: <a href="mailto:mcbondoc3@up.edu.ph">mcbondoc3@up.edu.ph</a>
+    </p>
+    <p><em>For the complete room reservation process, please see the section above.</em></p>
+  </section>
+
+  <section id="room-process">
+    <h2>🏛️ How to Reserve a Room (Made Easy!)</h2>
+
+    <button class="btn" style="margin-top:0px; margin-bottom: 20px; font-size: 1.1rem; padding: 15px 30px;"
+      onclick="openFlowchartModal()">
+      📊 View Reservation Flowchart
+    </button>
+    <p style="max-width:700px;margin:auto;margin-bottom:30px;">
+      Follow these steps to reserve a room at Henry Sy Sr. Hall quickly and easily:
+    </p>
+
+    <div class="timeline">
+      <div class="timeline-step left">
+        <h3>Step 1: Prepare a Letter ✉️</h3>
+        <p>Address your request to <strong>Arsenio Claro A. Cabungcal, MD</strong> through <strong>Engr.
+            Michael
+            Bondoc</strong>. Include date/time, room, event nature, requesting office, UP/non-UP, number &
+          category of
+          participants, and signature.</p>
+      </div>
+      <div class="timeline-step right">
+        <h3>Step 2: Send the Letter 📤</h3>
+        <p>Email your request to <a href="mailto:hss-msb.upmanila@up.edu.ph">hss-msb.upmanila@up.edu.ph</a>.</p>
+      </div>
+      <div class="timeline-step left">
+        <h3>Step 3: Wait for Approval ⏳</h3>
+        <p>Once reviewed by the Building Administrator, proceed if approved. Otherwise, coordinate for
+          alternatives.</p>
+      </div>
+      <div class="timeline-step right">
+        <h3>Step 4: Check Fees 💵</h3>
+        <p>If maintenance or **extended service charges** apply, coordinate with the Building Manager and
+          <strong>Ms.
+            Lorelie
+            Alcazar</strong> for the SOA (Statement of Account).
+        </p>
+      </div>
+      <div class="timeline-step left">
+        <h3>Step 5: Payment 🧾</h3>
+        <p>Pay the required fees at the <strong>UPM Cashier</strong>.</p>
+      </div>
+      <div class="timeline-step right">
+        <h3>Step 6: Send Proof of Payment 📧</h3>
+        <p>Email the proof of payment to the same thread and CC <a
+            href="mailto:lmalcazar@up.edu.ph">lmalcazar@up.edu.ph</a>.</p>
+      </div>
+      <div class="timeline-step left">
+        <h3>✅ Done!</h3>
+        <p>Your reservation is confirmed once the process is complete. Congratulations!</p>
+      </div>
+    </div>
+
+    <a href="mailto:hss-msb.upmanila@up.edu.ph?cc=aacabungcal@up.edu.ph,mcbondoc3@up.edu.ph&subject=Room%20Reservation%20Request%20-%20Henry%20Sy%20Sr.%20Hall&body=Dear%20Dr.%20Cabungcal%20and%20Engr.%20Bondoc,%0A%0AI%20would%20like%20to%20formally%20request%20a%20room%20reservation%20at%20Henry%20Sy%20Sr.%20Hall.%20Attached%20is%20my%20signed%20formal%20letter%20for%20your%20review%20and%20approval.%0A%0A--%20Request%20Details%20--%0A%0AEvent%20Title:%0ARequesting%20Office/Unit:%0AUP%20or%20Non-UP:%0AContact%20Person%20and%20Number:%0A%0APreferred%20Date%20and%20Time:%0A%0ARoom%20Requested:%0A%0AEstimated%20Number%20of%20Participants:%0A%0ASalamat%20po%20at%20magandang%20araw.%0A%0A-%20[Your%20Name]"
+      class="btn" style="margin-top:20px;">📩 Reserve Now (Send Email)</a>
+
+    <div id="flowchartModal" class="flowchart-modal-overlay" onclick="closeFlowchartModal()">
+      <div class="flowchart-modal-content" onclick="event.stopPropagation()">
+        <span class="close-btn" onclick="closeFlowchartModal()">×</span>
+        <img src="./image/flowchart.png" alt="HSS-MSB Room Reservation Flowchart">
+      </div>
+    </div>
+  </section>
+  <section id="rates">
+    <h2>💰 Room Rental & Extended Service Charges</h2>
+
+    <div class="rates-content-container" id="rates-content">
+      <div class="tab-container">
+        <div class="tab-buttons">
+          <button class="tab-btn active" onclick="openTab('rental-rates', this)">Room Rental Rates</button>
+          <button class="tab-btn" onclick="openTab('service-charges', this)">Extended Service Charges</button>
+        </div>
+
+        <div id="rental-rates" class="tab-content active">
+          <p style="margin-bottom: 20px; max-width: 900px; margin-left: auto; margin-right: auto;">
+            The following table shows the proposed revised rates for renting the various rooms and halls:
+          </p>
+          <div class="rates-table-container">
+            <h3 style="color: #800000; margin-bottom: 20px;">Multi-Functional Rooms Maintenance Rates</h3>
+            <table class="rental-rates-table">
+              <thead>
+                <tr>
+                  <th rowspan="2">Item</th>
+                  <th rowspan="2">Location</th>
+                  <th colspan="2">Rates - First 2 Hours</th>
+                  <th rowspan="2">Succeeding Hours</th>
+                  <th rowspan="2">Floor Area (SQ. M)</th>
+                </tr>
+                <tr>
+                  <th>UP</th>
+                  <th>Non-UP</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!--                 <tr>
+                                    <td>1</td>
+                                    <td class="location-cell">2F BOARDROOM</td>
+                                    <td class="price-cell">PHP 4,055.50</td>
+                                    <td class="price-cell">PHP 4,461.05</td>
+                                    <td class="price-cell">PHP 2,027.75</td>
+                                    <td class="price-cell">81.04 SQ. M</td>
+                                  </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td class="location-cell">3F RAMON ANG AUDITORIUM</td>
+                                    <td class="price-cell">PHP 6,364.54</td>
+                                    <td class="price-cell">PHP 7,000.99</td>
+                                    <td class="price-cell">PHP 3,182.27</td>
+                                    <td class="price-cell">216.04 SQ. M</td>
+                                  </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td class="location-cell">4F UPMASA AUDITORIUM</td>
+                                    <td class="price-cell">PHP 7,537.74</td>
+                                    <td class="price-cell">PHP 8,291.51</td>
+                                    <td class="price-cell">PHP 3,768.87</td>
+                                    <td class="price-cell">266.88 SQ. M</td>
+                                  </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td class="location-cell">6F UNILAB CONFERENCE ROOM</td>
+                                    <td class="price-cell">PHP 3,729.01</td>
+                                    <td class="price-cell">PHP 4,101.91</td>
+                                    <td class="price-cell">PHP 1,864.51</td>
+                                    <td class="price-cell">111.83 SQ. M</td>
+                                  </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td class="location-cell">6F VICENTE TIU LIM CONFERENCE ROOM</td>
+                                    <td class="price-cell">PHP 3,729.01</td>
+                                    <td class="price-cell">PHP 4,101.91</td>
+                                    <td class="price-cell">PHP 1,864.51</td>
+                                    <td class="price-cell">115.22 SQ. M</td>
+                                  </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td class="location-cell">7F HENRY SY SR PLENARY HALL</td>
+                                    <td class="price-cell">PHP 9,348.73</td>
+                                    <td class="price-cell">PHP 10,283.60</td>
+                                    <td class="price-cell">PHP 4,674.37</td>
+                                    <td class="price-cell">478.72 SQ. M</td>
+                                  </tr> -->
+
+              </tbody>
+            </table>
+          </div>
+          <p class="rates-note">Note: "UP" rates are for UP-based organizations/units. Rates do not include
+            charges for
+            maintenance, **Extended Services**, or other ancillary services.</p>
+        </div>
+
+        <div id="service-charges" class="tab-content">
+          <p style="max-width:800px; margin:20px auto 30px auto; line-height: 1.6; text-align: center;">
+            These are the standardized hourly rates for staff assigned to the Henry Sy Sr. Medical Sciences
+            Building for
+            work
+            performed **outside of normal operating hours** (e.g., night shifts and holidays).
+          </p>
+
+          <div class="overtime-rates-container" id="service-rates-content">
+            <h3>1. Extended Hours Service Charge (25%)</h3>
+            <table class="overtime-table">
+              <thead>
+                <!--                 <tr>
+                                    <th>Position</th>
+                                    <th>Hourly Rate (₱)</th>
+                                    <th>Service Charge Rate (₱/hr)</th>
+                                  </tr>
+                              </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Technical Staff</td>
+                                    <td>146.24</td>
+                                    <td>182.80</td>
+                                  </tr>
+                                <tr>
+                                    <td>Utility Staff</td>
+                                    <td>129.25</td>
+                                    <td>161.57</td>
+                                  </tr>
+                                <tr>
+                                    <td>Janitorial Staff</td>
+                                    <td>80.63</td>
+                                    <td>100.78</td>
+                                  </tr> -->
+                </tbody>
+            </table>
+
+            <h3>2. Holiday and Night Service Charge Rates</h3>
+            <table class="overtime-table">
+              <thead>
+                <tr>
+                  <th>Condition</th>
+                  <th>Tech Staff (₱/hr)</th>
+                  <th>Utility Staff (₱/hr)</th>
+                  <th>Janitorial Staff (₱/hr)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!--                 <tr>
+                                    <td>Rest Day Extended (30%)</td>
+                                    <td>190.11</td>
+                                    <td>168.03</td>
+                                    <td>104.81</td>
+                                  </tr>
+                                <tr>
+                                    <td>Regular Holiday (200%)</td>
+                                    <td>292.47</td>
+                                    <td>258.50</td>
+                                    <td>161.25</td>
+                                  </tr> -->
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="schedule">
+    <h2>📖 Class Schedule</h2>
+    <p>Here’s the official Google Calendar embedded below:</p>
+    <iframe src="https://calendar.google.com/calendar/embed?src=upcm.henrysysrhall%40gmail.com&ctz=Asia%2FManila"
+      style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+    <p style="margin-top:15px;">
+      <a href="https://calendar.google.com/calendar/u/3?cid=dXBjbS5oZW5yeXN5c3JoYWxsQGdtYWlsLmNvbQ" target="_blank"
+        class="btn">Open in Google Calendar</a>
+    </p>
+  </section>
+
+<section id="more-visuals" style="padding-top: 40px; text-align: center;">
+    <h2>🖼️ More Visuals of Henry Sy Sr. Hall</h2>
+    <p style="max-width: 800px; margin: auto; padding: 0 20px 20px 20px; color: #555;">
+        Check out these additional photos and video clips of the building's facilities (Source: HSS-MSB Management Team).
+    </p>
+
+    <div class="visuals-grid">
+        
+        <div class="visual-card">
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/CLIP_ID_1?controls=0" title="Clip 1: Main Lobby Area" allowfullscreen></iframe>
+            </div>
+            <p>Clip 1: Main Lobby Area</p>
+        </div>
+
+        <div class="visual-card">
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/CLIP_ID_2?controls=0" title="Clip 2: 7F Plenary Hall" allowfullscreen></iframe>
+            </div>
+            <p>Clip 2: 7F Plenary Hall</p>
+        </div>
+
+        <div class="visual-card">
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/CLIP_ID_3?controls=0" title="Clip 3: UPMASA Auditorium" allowfullscreen></iframe>
+            </div>
+            <p>Clip 3: UPMASA Auditorium</p>
+        </div>
+
+        <div class="visual-card">
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/CLIP_ID_4?controls=0" title="Clip 4: Boardroom Setup" allowfullscreen></iframe>
+            </div>
+            <p>Clip 4: Boardroom Setup</p>
+        </div>
+
+        <div class="visual-card">
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/CLIP_ID_5?controls=0" title="Clip 5: 6F Conference Room" allowfullscreen></iframe>
+            </div>
+            <p>Clip 5: 6F Conference Room</p>
+        </div>
+
+        <div class="visual-card">
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/CLIP_ID_6?controls=0" title="Clip 6: Lecture Hall" allowfullscreen></iframe>
+            </div>
+            <p>Clip 6: Lecture Hall</p>
+        </div>
+
+        <div class="visual-card">
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/CLIP_ID_7?controls=0" title="Clip 7: Rooftop Garden" allowfullscreen></iframe>
+            </div>
+            <p>Clip 7: Rooftop Garden</p>
+        </div>
+
+        <div class="visual-card">
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/CLIP_ID_8?controls=0" title="Clip 8: Entrance View" allowfullscreen></iframe>
+            </div>
+            <p>Clip 8: Entrance View</p>
+        </div>
+
+        <div class="visual-card">
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/CLIP_ID_9?controls=0" title="Clip 9: Hallway View" allowfullscreen></iframe>
+            </div>
+            <p>Clip 9: Hallway View</p>
+        </div>
+
+        <div class="visual-card">
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/CLIP_ID_10?controls=0" title="Clip 10: Exterior Shot" allowfullscreen></iframe>
+            </div>
+            <p>Clip 10: Exterior Shot</p>
+        </div>
+
+    </div>
+</section>
+
+  <section id="map">
+    <h2>📍 How to get here</h2>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d958.5478923451993!2d120.9850683305976!3d14.57576135487109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397cb9b225db237%3A0x37d3210e26ba9ff9!2sHenry%20Sy%20Hall%20(College%20of%20Medicine%2C%20UP%20Manila)!5e0!3m2!1sen!2sph!4v1760011157397!5m2!1sen!2sph"
+      width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+    <p style="margin-top:15px;">
+      <a href="https://maps.app.goo.gl/aYGFUaGd8mvfyR4B7" target="_blank" class="btn">Open in Google Maps</a>
+    </p>
+  </section>
+
+  <a id="back-to-top" href="#hero" class="btn">
+    Back to Top ↑
+  </a>
+
+  <div id="qrCodeModal" class="qr-modal-overlay" onclick="closeQrModal()">
+    <div class="qr-modal-content" onclick="event.stopPropagation()">
+      <span class="close-btn" onclick="closeQrModal()">×</span>
+      <h3>Scan to view this site on mobile:</h3>
+      <img src="./image/HSSH-MSB.png" alt="QR Code for UPCM Henry Sy Sr. Hall Website" class="qr-code-img-modal">
+      <p>Thank you for visiting the UPCM Henry Sy Sr. Hall website.</p>
+    </div>
+  </div>
+
+
+  <footer>
+    <p>© <span id="current-year">2025</span> UP College of Medicine – Henry Sy Sr. Hall</p>
+    <p>
+      Office Email: <a href="mailto:hss-msb.upmanila@up.edu.ph">hss-msb.upmanila@up.edu.ph</a><br>
+      Address to: <strong>Dr. Arsenio Claro A. Cabungcal</strong> – Building Administrator (<a
+        href="mailto:aacabungcal@up.edu.ph">aacabungcal@up.edu.ph</a>)<br>
+      CC: <strong>Engr. Michael Bondoc</strong> – Building Manager (<a
+        href="mailto:mcbondoc3@up.edu.ph">mcbondoc3@up.edu.ph</a>)
+    </p>
+    <p>Designed by <strong>Eduardson Cortez</strong></p>
+  </footer>
+
+  <div class="access-modal-overlay" id="access-lock">
+    <div class="access-modal">
+      <h1>ACCESS DENIED: AUTHORIZATION REQUIRED</h1>
+      <p>This area contains highly sensitive corporate rates and schedules. Unauthorized access is strictly
+        prohibited
+        and monitored.</p>
+
+      <form id="access-form">
+        <input type="text" id="username" placeholder="Authorized User ID" required>
+        <input type="password" id="password" placeholder="Secure Password" required>
+        <button type="submit">AUTHENTICATE</button>
+        <p id="error-message" style="color: red; margin-top: 10px; display: none;">Invalid credentials. Please
+          try
+          again.</p>
+      </form>
+
+      <p class="contact-info">To request access credentials, please contact the designated authority:<br>
+        **I.T. Security Manager, Eduardson Cortez**.</p>
+    </div>
+  </div>
+
+
+  <script>
+    // =================================================================
+    // 1. INACTIVITY TIMER / AUTO-SCROLL TO TOP LOGIC (FOR LOBBY SCREEN)
+    // =================================================================
+
+    // Timer sa milliseconds: 3 minutes = 180,000 milliseconds
+    const IDLE_TIMEOUT_MS = 3 * 60 * 1000;
+    let timeout;
+
+    // Function na mag-i-scroll pabalik sa top
+    function resetToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+      console.log("Inactivity detected. Resetting to top.");
+    }
+
+    // Function na magre-reset o magpapalit ng timeout
+    function resetTimer() {
+      clearTimeout(timeout);
+      timeout = setTimeout(resetToTop, IDLE_TIMEOUT_MS);
+    }
+
+    // I-listen ang mga pangunahing user activity events
+    document.addEventListener('mousemove', resetTimer, false);
+    document.addEventListener('mousedown', resetTimer, false);
+    document.addEventListener('keypress', resetTimer, false);
+    document.addEventListener('scroll', resetTimer, false);
+    document.addEventListener('touchstart', resetTimer, false);
+
+    // Simulan ang initial timer pag-load ng page
+    resetTimer();
+
+    // =================================================================
+    // 2. HERO SLIDESHOW LOGIC
+    // =================================================================
+
+    const heroSection = document.getElementById('hero');
+    // I-check lang ang path: kailangan nasa 'image' folder ang mga ito
+    const images = ["./image/up.png", "./image/msb.png", "./image/artwork.png", "./image/thesis.png"];
+    let currentImageIndex = 0;
+
+    function changeHeroBackground() {
+      // I-fade out muna ang content
+      heroSection.style.opacity = 0;
+
+      setTimeout(() => {
+        // Palitan ang background-image
+        heroSection.style.backgroundImage = `url('${images[currentImageIndex]}')`;
+
+        // I-fade in ulit
+        heroSection.style.opacity = 1;
+
+        // Lumipat sa susunod na index
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+
+        // I-reset ang Inactivity Timer para tuloy-tuloy ang display sa lobby
+        resetTimer();
+
+      }, 500); // Wait for 500ms (half a second) during fade out
+    }
+
+    // Tawagin ang function sa umpisa, at i-set ang interval (e.g., every 5 seconds)
+    changeHeroBackground(); // Call immediately to set the first image
+    setInterval(changeHeroBackground, 5000); // Change image every 5000 milliseconds (5 seconds)
+
+
+    // =================================================================
+    // 3. BACK-TO-TOP BUTTON LOGIC
+    // =================================================================
+
+    const backToTopBtn = document.getElementById('back-to-top');
+
+    function toggleBackToTop() {
+      // Ipakita ang button kapag nag-scroll ng higit sa 500 pixels pababa
+      if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+        // Gumamit ng 'block' o 'flex' depende sa CSS mo. 'Flex' ang mas tama dahil naka-flex ito sa CSS mo
+        backToTopBtn.style.display = 'flex';
+      } else {
+        backToTopBtn.style.display = 'none';
+      }
+    }
+
+    // Mag-scroll pataas kapag pinindot
+    if (backToTopBtn) {
+      backToTopBtn.addEventListener('click', function (e) {
+        e.preventDefault(); // Pigilan ang default jump
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth' // Smooth scroll effect
+        });
+      });
+    }
+
+    // Makinig sa scroll event
+    window.addEventListener('scroll', toggleBackToTop);
+
+    // =================================================================
+    // 4. NAVIGATION, SCROLL, AT IBA PANG UI FUNCTIONS
+    // =================================================================
+
+    // --- MENU TOGGLE
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("active");
+    }
+    window.toggleMenu = toggleMenu;
+
+    // --- NAVBAR SCROLL EFFECT
+    window.addEventListener("scroll", function () {
+      const nav = document.querySelector("nav");
+      if (window.scrollY > 50) {
+        nav.classList.add("scrolled");
+      } else {
+        nav.classList.remove("scrolled");
+      }
+    });
+
+    // --- SCROLL REVEAL (for sections)
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            // Kung gusto mo lang isang beses lumabas, i-uncomment ito:
+            // observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    // =================================================================
+    // 5. RATES AND MODAL LOGIC (FINALIZED - NO PASSWORD LOCK)
+    // =================================================================
+
+    // --- TAB SWITCHER (Walang Access Control)
+    function openTab(tabName, element) {
+      const tabs = document.querySelectorAll(".tab-content");
+      const buttons = document.querySelectorAll(".tab-btn");
+
+      // Tanggalin ang 'active' state sa lahat ng tabs at buttons
+      tabs.forEach((tab) => {
+        tab.classList.remove("active");
+      });
+      buttons.forEach((btn) => {
+        btn.classList.remove("active");
+      });
+
+      // I-set ang 'active' state sa napiling tab at button
+      document.getElementById(tabName).classList.add("active");
+      element.classList.add("active");
+    }
+    window.openTab = openTab;
+
+    // Tiyakin na ang 'rental-rates' ang default tab pag-load ng page
+    document.addEventListener('DOMContentLoaded', () => {
+      const defaultTabBtn = document.querySelector('.tab-buttons .tab-btn:first-child');
+      if (defaultTabBtn) {
+        openTab('rental-rates', defaultTabBtn);
+      }
+    });
+
+    // --- FLOWCHART MODAL
+    function openFlowchartModal() {
+      document.getElementById("flowchartModal").style.display = "flex";
+    }
+    function closeFlowchartModal() {
+      document.getElementById("flowchartModal").style.display = "none";
+    }
+    window.openFlowchartModal = openFlowchartModal;
+    window.closeFlowchartModal = closeFlowchartModal;
+
+
+    // --- QR CODE MODAL LOGIC
+    function openQrModal(e) {
+      if (e) e.preventDefault(); // Prevents page from jumping
+      const qrModal = document.getElementById("qrCodeModal");
+      if (qrModal) qrModal.style.display = "flex";
+    }
+    function closeQrModal() {
+      const qrModal = document.getElementById("qrCodeModal");
+      if (qrModal) qrModal.style.display = "none";
+    }
+    window.openQrModal = openQrModal;
+    window.closeQrModal = closeQrModal;
+
+    // --- COPYRIGHT YEAR
+    // Hindi kasama sa HTML mo, pero maganda kung ilalagay mo ito sa footer:
+    // <span id="current-year"></span>
+    const currentYearElement = document.getElementById('current-year');
+    if (currentYearElement) {
+      currentYearElement.textContent = new Date().getFullYear();
+    }
+  </script>
+</body>
+
+</html>
