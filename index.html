@@ -314,84 +314,7 @@
       margin-top: 20px;
     }
 
-    /* --- START NEW/MODIFIED CSS FOR ACCESS CONTROL --- */
 
-    /* HIDE THE RESTRICTED CONTENT BY DEFAULT (Service Rates) */
-
-
-    /* Modal/Login Form Styles (MODIFIED) */
-    #access-lock {
-      display: none;
-      /* Default state: Hidden */
-    }
-
-
-
-    .access-modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    .access-modal {
-      background: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      text-align: center;
-      max-width: 400px;
-      width: 90%;
-    }
-
-    .access-modal h1 {
-      color: #cc0000;
-      font-size: 1.5rem;
-      margin-bottom: 15px;
-    }
-
-    .access-modal p {
-      font-size: 0.9rem;
-      margin-bottom: 10px;
-    }
-
-    .access-modal .contact-info {
-      margin-top: 20px;
-      font-size: 0.95rem;
-      font-weight: 500;
-    }
-
-    .access-modal input[type="text"],
-    .access-modal input[type="password"] {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    .access-modal button {
-      width: 100%;
-      padding: 12px;
-      background: #800000;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-
-    .access-modal button:hover {
-      background: #a52a2a;
-    }
-
-    /* --- END NEW/MODIFIED CSS FOR ACCESS CONTROL --- */
 
     /* --- START Flowchart Modal CSS (FINALIZED FOR SCROLL) --- */
     .flowchart-modal-overlay {
@@ -1185,38 +1108,22 @@
   </div>
 
 
-  <footer>
-    <p>© <span id="current-year">2025</span> UP College of Medicine – Henry Sy Sr. Hall</p>
-    <p>
-      Office Email: <a href="mailto:hss-msb.upmanila@up.edu.ph">hss-msb.upmanila@up.edu.ph</a><br>
-      Address to: <strong>Dr. Arsenio Claro A. Cabungcal</strong> – Building Administrator (<a
-        href="mailto:aacabungcal@up.edu.ph">aacabungcal@up.edu.ph</a>)<br>
-      CC: <strong>Engr. Michael Bondoc</strong> – Building Manager (<a
-        href="mailto:mcbondoc3@up.edu.ph">mcbondoc3@up.edu.ph</a>)
-    </p>
-    <p>Designed by <strong>Eduardson Cortez</strong></p>
-  </footer>
+<footer>
+    <p>© <span id="current-year">2025</span> UP College of Medicine – Henry Sy Sr. Hall</p>
+    <p>
+      Office Email: <a href="mailto:hss-msb.upmanila@up.edu.ph">hss-msb.upmanila@up.edu.ph</a><br>
+      Address to: <strong>Dr. Arsenio Claro A. Cabungcal</strong> – Building Administrator (<a
+        href="mailto:aacabungcal@up.edu.ph">aacabungcal@up.edu.ph</a>)<br>
+      CC: <strong>Engr. Michael Bondoc</strong> – Building Manager (<a
+        href="mailto:mcbondoc3@up.edu.ph">mcbondoc3@up.edu.ph</a>)
+    </p>
+    <p>
+      Design Concept by <strong>Dr. Arsenio Claro A. Cabungcal</strong><br>
+      Programmed by <strong>Eduardson Cortez</strong>
+    </p>
+</footer>
 
-  <div class="access-modal-overlay" id="access-lock">
-    <div class="access-modal">
-      <h1>ACCESS DENIED: AUTHORIZATION REQUIRED</h1>
-      <p>This area contains highly sensitive corporate rates and schedules. Unauthorized access is strictly
-        prohibited
-        and monitored.</p>
 
-      <form id="access-form">
-        <input type="text" id="username" placeholder="Authorized User ID" required>
-        <input type="password" id="password" placeholder="Secure Password" required>
-        <button type="submit">AUTHENTICATE</button>
-        <p id="error-message" style="color: red; margin-top: 10px; display: none;">Invalid credentials. Please
-          try
-          again.</p>
-      </form>
-
-      <p class="contact-info">To request access credentials, please contact the designated authority:<br>
-        **I.T. Security Manager, Eduardson Cortez**.</p>
-    </div>
-  </div>
 
 
   <script>
