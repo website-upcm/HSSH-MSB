@@ -4,7 +4,6 @@
 <head>
 
   <meta charset="UTF-8" />
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>UP College of Medicine – Henry Sy Sr. Hall</title>
 
@@ -138,14 +137,14 @@
       animation: fadeIn 1.2s ease;
       padding: 0 20px;
       transform: translateY(-80px);
-      /* Idinagdag sa nakaraang sagot: */
+      /* GINAGAWANG CENTER ANG TEXT */
       text-align: center;
       margin-left: auto;
       margin-right: auto;
     }
 
     .hero h1 {
-      /* MODIFIED: Pinalaki ang font size */
+      /* MODIFIED: Pinalaki ang font size (4.5rem) */
       font-size: 4.5rem;
       font-weight: 900;
       margin-bottom: 0.5rem;
@@ -154,7 +153,7 @@
 
     .hero h2 {
       font-size: 1.8rem;
-      /* Ito ang sukat para sa "Medical Sciences Building" */
+      /* Ito ang sukat para sa "Henry Sy Sr. Hall" */
       font-weight: 500;
       margin-bottom: 0.5rem;
       text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
@@ -162,7 +161,7 @@
 
     .hero p {
       font-size: 1.5rem;
-      /* BAGONG SIZE (Dati: 1.5rem) */
+      /* Ito ang sukat para sa "Medical Sciences Building" */
       margin-bottom: 2rem;
       text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
       /* Idagdag na rin natin ito */
@@ -506,8 +505,6 @@
     }
 
 
-
-
     /* Timeline / Flow-style Reservation (SAME) */
     .timeline {
       position: relative;
@@ -825,12 +822,12 @@
         /* Inadjust para hindi mag-break sa maliit na screen */
       }
 
-      /* Liitan din ang font size ng h2 (Medical Sciences Building) */
+      /* Liitan din ang font size ng h2 (Henry Sy Sr. Hall) */
       .hero h2 {
         font-size: 1.5rem;
       }
 
-      /* Liitan din ang font size ng p (Henry Sy Sr. Hall) */
+      /* Liitan din ang font size ng p (Medical Sciences Building) */
       .hero p {
         font-size: 1.2rem;
       }
@@ -841,6 +838,76 @@
         /* Bawasan ang translate para bumaba nang kaunti sa mobile */
       }
     }
+
+    /* --- START SCROLL INDICATOR ARROWS CSS (NEW) --- */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      /* Nasa ibabaw ng overlay (z-index: 1) */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      /* Spacing between arrows */
+      /* Animation para lumabas-pasok ang mga arrows */
+      animation: bounce 2s infinite;
+    }
+
+    .scroll-indicator .down-arrow,
+    .scroll-indicator .up-arrow {
+      background: rgba(128, 0, 0, 0.7);
+      /* Maroon na may transparency */
+      color: #ffd700;
+      /* Gold */
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1;
+      transition: background 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .scroll-indicator .down-arrow:hover,
+    .scroll-indicator .up-arrow:hover {
+      background: #a52a2a;
+      /* Lighter maroon on hover */
+    }
+
+    /* Default state: Itatago ang UP arrow sa top ng page */
+    .scroll-indicator .up-arrow {
+      display: none;
+    }
+
+    /* Keyframes para sa bounce animation */
+    @keyframes bounce {
+
+      0%,
+      20%,
+      50%,
+      80%,
+      100% {
+        transform: translateY(0);
+      }
+
+      40% {
+        transform: translateY(-10px);
+      }
+
+      60% {
+        transform: translateY(-5px);
+      }
+    }
+
+    /* --- END SCROLL INDICATOR ARROWS CSS --- */
   </style>
 </head>
 
@@ -860,15 +927,23 @@
   <div class="hero" id="hero">
     <div class="hero-content">
       <h1>UP College of Medicine</h1>
-      <h2>Henry Sy Sr</h2>
+      <h2>Henry Sy Sr. Hall</h2>
       <p>Medical Sciences Building</p>
       <a href="#events" class="btn">Upcoming Events</a>
       <a href="#room-process" class="btn">Room Reservation</a>
       <a href="#map" class="btn">View Map</a>
       <a href="#schedule" class="btn">Class Schedule</a>
     </div>
+
+    <div class="scroll-indicator">
+      <a href="#video" class="down-arrow">
+        <span class="arrow-icon">↓</span>
+      </a>
+      <a href="#hero" class="up-arrow">
+        <span class="arrow-icon">↑</span>
+      </a>
+    </div>
   </div>
-  <!-- Medical Sciences Building -->
   <section id="video">
     <h2>🎥 About UPCM Henry Sy Sr. Hall</h2>
     <div class="video-container">
@@ -1063,7 +1138,6 @@
     <div class="qr-modal-content" onclick="event.stopPropagation()">
       <span class="close-btn" onclick="closeQrModal()">×</span>
       <h3>Scan to view this site on mobile:</h3>
-      <!-- <img src="./image/HSSH-MSB.png" alt="QR Code for UPCM Henry Sy Sr. Hall Website" class="qr-code-img-modal"> -->
       <p>Thank you for visiting the UPCM Henry Sy Sr. Hall website.</p>
     </div>
   </div>
@@ -1108,7 +1182,7 @@
     // 1. INACTIVITY TIMER / AUTO-SCROLL TO TOP LOGIC (FOR LOBBY SCREEN)
     // =================================================================
 
-    // Timer sa milliseconds: 3 minutes = 180,000 milliseconds
+    // Timer sa milliseconds: 1 minuto
     const IDLE_TIMEOUT_MS = 1 * 60 * 1000;
     let timeout;
 
@@ -1172,34 +1246,37 @@
 
 
     // =================================================================
-    // 3. BACK-TO-TOP BUTTON LOGIC
+    // 3. BACK-TO-TOP BUTTON / SCROLL ARROW LOGIC (MODIFIED)
     // =================================================================
 
     const backToTopBtn = document.getElementById('back-to-top');
+    // NEW: Kinuha ang mga arrow elements
+    const upArrow = document.querySelector('.scroll-indicator .up-arrow');
+    const downArrow = document.querySelector('.scroll-indicator .down-arrow');
 
-    function toggleBackToTop() {
-      // Ipakita ang button kapag nag-scroll ng higit sa 500 pixels pababa
-      if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
-        // Gumamit ng 'block' o 'flex' depende sa CSS mo. 'Flex' ang mas tama dahil naka-flex ito sa CSS mo
-        backToTopBtn.style.display = 'flex';
-      } else {
-        backToTopBtn.style.display = 'none';
+    function toggleScrollElements() {
+      // Check kung nag-scroll na ng higit sa 500 pixels
+      const scrollPosition = document.body.scrollTop > 500 || document.documentElement.scrollTop > 500;
+
+      // BACK-TO-TOP BUTTON 
+      if (backToTopBtn) {
+        backToTopBtn.style.display = scrollPosition ? 'flex' : 'none';
+      }
+
+      // UP ARROW: Ipakita ang up arrow kapag naka-scroll na, Itago kapag nasa top
+      if (upArrow) {
+        upArrow.style.display = scrollPosition ? 'flex' : 'none';
+      }
+
+      // DOWN ARROW: Itago ang down arrow kapag naka-scroll na, Ipakita kapag nasa top
+      if (downArrow) {
+        downArrow.style.display = scrollPosition ? 'none' : 'flex';
       }
     }
 
-    // Mag-scroll pataas kapag pinindot
-    if (backToTopBtn) {
-      backToTopBtn.addEventListener('click', function (e) {
-        e.preventDefault(); // Pigilan ang default jump
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth' // Smooth scroll effect
-        });
-      });
-    }
-
     // Makinig sa scroll event
-    window.addEventListener('scroll', toggleBackToTop);
+    window.addEventListener('scroll', toggleScrollElements);
+
 
     // =================================================================
     // 4. NAVIGATION, SCROLL, AT IBA PANG UI FUNCTIONS
