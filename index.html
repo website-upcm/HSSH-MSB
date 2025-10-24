@@ -908,6 +908,33 @@
     }
 
     /* --- END SCROLL INDICATOR ARROWS CSS --- */
+
+    /* --- START ORGANIZATIONAL CHART CSS (NEW) --- */
+    #organization {
+      padding-top: 50px;
+      padding-bottom: 50px;
+      background: #f4f4f4;
+      /* Light background para maiba sa ibang sections */
+    }
+
+    .org-chart-container {
+      max-width: 800px;
+      /* Limitahan ang lapad ng chart */
+      margin: 30px auto;
+      padding: 0 15px;
+    }
+
+    .org-chart-image {
+      max-width: 100%;
+      /* Siguraduhin na responsive */
+      height: auto;
+      display: block;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      /* Konting shadow para mag-pop out */
+      border-radius: 8px;
+    }
+
+    /* --- END ORGANIZATIONAL CHART CSS --- */
   </style>
 </head>
 
@@ -921,6 +948,7 @@
       <li><a href="#map">Map</a></li>
       <li><a href="#schedule">Schedule</a></li>
       <li><a href="#more-visuals">Visuals</a></li>
+      <li><a href="#organization">Org Chart</a></li>
     </ul>
   </nav>
 
@@ -1130,6 +1158,20 @@
     </p>
   </section>
 
+  <section id="organization">
+    <h2>ORGANIZATIONAL CHART</h2>
+    <p>Henry Sy Sr. - Medical Sciences Building</p>
+
+    <div class="org-chart-container">
+      <img src="./image/org-chart.png" alt="Henry Sy Sr. Medical Sciences Building Organizational Chart"
+        class="org-chart-image">
+    </div>
+
+    <p style="margin-top:20px; font-size:0.9rem; color:#555;">
+      *University of the Philippines Manila College of Medicine
+    </p>
+  </section>
+
   <a id="back-to-top" href="#hero" class="btn">
     Back to Top ↑
   </a>
@@ -1268,8 +1310,10 @@
         upArrow.style.display = scrollPosition ? 'flex' : 'none';
       }
 
-      // DOWN ARROW: Itago ang down arrow kapag naka-scroll na, Ipakita kapag nasa top
+      // DOWN ARROW: Ipakita ang down arrow kapag nasa top, Itago kapag naka-scroll na.
+      // Ito ay idinisenyo para *huli* lang na arrow sa hero section ang makita
       if (downArrow) {
+        // Simple logic: Ipakita lang ang down arrow kung nasa tuktok (hindi naka-scroll)
         downArrow.style.display = scrollPosition ? 'none' : 'flex';
       }
     }
