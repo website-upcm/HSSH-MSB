@@ -133,14 +133,20 @@
     .hero-content {
       position: relative;
       z-index: 1;
-      max-width: 700px;
+      /* MODIFIED: Pinalaki ang max-width para magkasya ang malaking text sa isang linya */
+      max-width: 900px;
       animation: fadeIn 1.2s ease;
       padding: 0 20px;
       transform: translateY(-80px);
+      /* Idinagdag sa nakaraang sagot: */
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .hero h1 {
-      font-size: 3.5rem;
+      /* MODIFIED: Pinalaki ang font size */
+      font-size: 4.5rem;
       font-weight: 900;
       margin-bottom: 0.5rem;
       text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
@@ -809,6 +815,32 @@
         max-width: 350px;
       }
     }
+
+    /* ********** NEW MOBILE MEDIA QUERY FOR HERO TEXT ********** */
+    @media (max-width: 768px) {
+
+      /* Liitan ang font size ng h1 para magkasya sa isang linya sa mobile */
+      .hero h1 {
+        font-size: 2.8rem;
+        /* Inadjust para hindi mag-break sa maliit na screen */
+      }
+
+      /* Liitan din ang font size ng h2 (Medical Sciences Building) */
+      .hero h2 {
+        font-size: 1.5rem;
+      }
+
+      /* Liitan din ang font size ng p (Henry Sy Sr. Hall) */
+      .hero p {
+        font-size: 1.2rem;
+      }
+
+      /* Kung gusto mo ring i-adjust ang pangkalahatang layout sa mobile, dito mo ilalagay */
+      .hero-content {
+        transform: translateY(-50px);
+        /* Bawasan ang translate para bumaba nang kaunti sa mobile */
+      }
+    }
   </style>
 </head>
 
@@ -828,15 +860,15 @@
   <div class="hero" id="hero">
     <div class="hero-content">
       <h1>UP College of Medicine</h1>
-      <h2>Medical Sciences Building</h2>
-      <p>Henry Sy Sr. Hall</p>
+      <h2>Henry Sy Sr</h2>
+      <p>Medical Sciences Building</p>
       <a href="#events" class="btn">Upcoming Events</a>
       <a href="#room-process" class="btn">Room Reservation</a>
       <a href="#map" class="btn">View Map</a>
       <a href="#schedule" class="btn">Class Schedule</a>
     </div>
   </div>
-
+  <!-- Medical Sciences Building -->
   <section id="video">
     <h2>🎥 About UPCM Henry Sy Sr. Hall</h2>
     <div class="video-container">
