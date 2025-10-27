@@ -561,29 +561,38 @@
     /* Dagdag sa dulo ng CSS block */
 
     /* NEW CSS FOR SIMULA/TOP (BACK-TO-TOP) BUTTON */
+    /* NEW CSS FOR SIMULA/TOP (BACK-TO-TOP) BUTTON */
     #back-to-top {
       position: fixed;
       bottom: 20px;
       right: 20px;
       background: #ffd700;
-      /* Gold */
       color: #800000;
-      /* Maroon */
       padding: 10px 18px;
-      /* Binago ang padding para magkasya ang text */
       border-radius: 50px;
-      /* Ginawang pill shape */
       font-size: 1.1rem;
       font-weight: 700;
-      /* Gawing bold para mas mabasa */
       line-height: 1;
       text-decoration: none;
       z-index: 1000;
-      display: none;
-      /* Itago muna sa umpisa */
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
       border: 2px solid #800000;
-      transition: all 0.3s ease;
+
+      /* KEY CHANGE: Tiyakin na nakatago, at gumamit ng transition */
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      /* Para hindi ma-click kahit hindi nakikita */
+      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    }
+
+    #back-to-top.show {
+      /* Ang class na ito ang gagamitin ng JavaScript */
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+      /* Para ma-click ulit kapag nakikita */
+      transform: translateY(0);
     }
 
     #back-to-top:hover {
@@ -964,7 +973,8 @@
       </div>
       <div class="timeline-step right">
         <h3>Step 2: Send the Letter 📤</h3>
-        <p>Email your request to <a href="mailto:hss-msb.upmanila@up.edu.ph">hss-msb.upmanila@up.edu.ph</a>.</p>
+        <p>Email your request to <a href="mailto:hss-msb.upmanila@up.edu.ph">hss-msb.upmanila@up.edu.ph</a>.
+        </p>
       </div>
       <div class="timeline-step left">
         <h3>Step 3: Wait for Approval ⏳</h3>
@@ -994,7 +1004,7 @@
       </div>
     </div>
 
-    <a href="mailto:hss-msb.upmanila@up.edu.ph?cc=aacabungcal@up.edu.ph,mcbondoc3@up.edu.ph&subject=Room%20Reservation%20Request%20-%20Henry%20Sy%20Sr.%20Hall&body=Dear%20Dr.%20Cabungcal%20and%20Engr.%20Bondoc,%0A%0AI%20would%20like%20to%20formally%20request%20a%20room%20reservation%20at%20Henry%20Sy%20Sr.%20Hall.%20Attached%20is%20my%20signed%20formal%20letter%20for%20your%20review%20and%20approval.%0A%0A--%20Request%20Details%20--%0A%0AEvent%20Title:%0ARequesting%20Office/Unit:%0AUP%20or%20Non-UP:%0AContact%20Person%20and%20Number:%0A%0APreferred%20Date%20and%20Time:%0A%0ARoom%20Requested:%0A%0AEstimated%20Number%20of%20Participants:%0A%0ASalamat%20po%20at%20magandang%20araw.%0A%0A-%20[Your%20Name]"
+    <a href="mailto:hss-msb.upmanila@up.edu.ph?cc=aacabungcal@up.edu.ph,mcbondoc3@up.edu.ph&subject=Room%20Reservation%20Request%20-%20Henry%20Sy%20Sr.%20Hall&body=Dear%20Dr.%20Cabungcal%20and%20Engr.%20Bondoc,%0A%0AI%20would%20like%20to%20formally%20request%20a%20room%20reservation%20at%20Henry%20Sy%20Sr.%20Hall.%20Attached%20is%20my%20signed%20formal%20letter%20for%20your%20review%20and%20approval.%0A%0A--%20Request%20Details%20--%0A%0AEvent%20Title:%0ARequesting%20Office/Unit:%0AUP%20or%20Non-UP:%0AContact%20Person%20and%20Number:%0A%0APreferred%20Date%20and%20Time:%0A%0ARoom%20Requested:%0A%0AEestimated%20Number%20of%20Participants:%0A%0ASalamat%20po%20at%20magandang%20araw.%0A%0A-%20[Your%20Name]"
       class="btn" style="margin-top:20px;">📩 Reserve Now (Send Email)</a>
 
     <div id="flowchartModal" class="flowchart-modal-overlay" onclick="closeFlowchartModal()">
@@ -1019,7 +1029,8 @@
   <section id="more-visuals" style="padding-top: 40px; text-align: center;">
     <h2>🖼️ More Visuals of Henry Sy Sr. Hall</h2>
     <p style="max-width: 800px; margin: auto; padding: 0 20px 20px 20px; color: #555;">
-      Check out these additional photos and video clips of the building's facilities (Source: HSS-MSB Management Team).
+      Check out these additional photos and video clips of the building's facilities (Source: HSS-MSB Management
+      Team).
     </p>
 
     <div class="visuals-grid">
@@ -1108,20 +1119,20 @@
   </div>
 
 
-<footer>
-    <p>© <span id="current-year">2025</span> UP College of Medicine – Henry Sy Sr. Hall</p>
-    <p>
-      Office Email: <a href="mailto:hss-msb.upmanila@up.edu.ph">hss-msb.upmanila@up.edu.ph</a><br>
-      Address to: <strong>Dr. Arsenio Claro A. Cabungcal</strong> – Building Administrator (<a
-        href="mailto:aacabungcal@up.edu.ph">aacabungcal@up.edu.ph</a>)<br>
-      CC: <strong>Engr. Michael Bondoc</strong> – Building Manager (<a
-        href="mailto:mcbondoc3@up.edu.ph">mcbondoc3@up.edu.ph</a>)
-    </p>
-    <p>
-      Design Concept by <strong>Dr. Arsenio Claro A. Cabungcal</strong><br>
-      Programmed by <strong>Eduardson Cortez</strong>
-    </p>
-</footer>
+  <footer>
+    <p>© <span id="current-year">2025</span> UP College of Medicine – Henry Sy Sr. Hall</p>
+    <p>
+      Office Email: <a href="mailto:hss-msb.upmanila@up.edu.ph">hss-msb.upmanila@up.edu.ph</a><br>
+      Address to: <strong>Dr. Arsenio Claro A. Cabungcal</strong> – Building Administrator (<a
+        href="mailto:aacabungcal@up.edu.ph">aacabungcal@up.edu.ph</a>)<br>
+      CC: <strong>Engr. Michael Bondoc</strong> – Building Manager (<a
+        href="mailto:mcbondoc3@up.edu.ph">mcbondoc3@up.edu.ph</a>)
+    </p>
+    <p>
+      Design Concept by <strong>Dr. Arsenio Claro A. Cabungcal</strong><br>
+      Programmed by <strong>Eduardson Cortez</strong>
+    </p>
+  </footer>
 
 
 
@@ -1195,7 +1206,7 @@
 
 
     // =================================================================
-    // 3. BACK-TO-TOP BUTTON / SCROLL ARROW LOGIC (MODIFIED)
+    // 3. BACK-TO-TOP BUTTON / SCROLL ARROW LOGIC (MODIFIED for CSS Class)
     // =================================================================
 
     const backToTopBtn = document.getElementById('back-to-top');
@@ -1207,9 +1218,13 @@
       // Check kung nag-scroll na ng higit sa 500 pixels
       const scrollPosition = document.body.scrollTop > 500 || document.documentElement.scrollTop > 500;
 
-      // BACK-TO-TOP BUTTON 
+      // BACK-TO-TOP BUTTON: Gamitin ang 'show' class
       if (backToTopBtn) {
-        backToTopBtn.style.display = scrollPosition ? 'flex' : 'none';
+        if (scrollPosition) {
+          backToTopBtn.classList.add('show');
+        } else {
+          backToTopBtn.classList.remove('show');
+        }
       }
 
       // UP ARROW: Ipakita ang up arrow kapag naka-scroll na, Itago kapag nasa top
@@ -1218,16 +1233,15 @@
       }
 
       // DOWN ARROW: Ipakita ang down arrow kapag nasa top, Itago kapag naka-scroll na.
-      // Ito ay idinisenyo para *huli* lang na arrow sa hero section ang makita
       if (downArrow) {
-        // Simple logic: Ipakita lang ang down arrow kung nasa tuktok (hindi naka-scroll)
         downArrow.style.display = scrollPosition ? 'none' : 'flex';
       }
     }
 
     // Makinig sa scroll event
     window.addEventListener('scroll', toggleScrollElements);
-
+    // Tawagin sa umpisa para ma-check ang initial state
+    toggleScrollElements();
 
     // =================================================================
     // 4. NAVIGATION, SCROLL, AT IBA PANG UI FUNCTIONS
