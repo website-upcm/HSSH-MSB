@@ -304,16 +304,17 @@
       text-decoration: underline;
     }
 
+    /* UPDATED CSS HERE for maximum calendar width */
     #map iframe,
-    #schedule iframe {
-      width: 90%;
-      max-width: 1000px;
-      height: 700px;
+    #schedule-check iframe {
+      width: 95%; /* Increased from 90% */
+      max-width: 1200px; /* Increased the hard limit */
+      height: 700px; /* Panatilihin ang height sa CSS */
       border: none;
       border-radius: 12px;
       margin-top: 20px;
     }
-
+    /* END UPDATED CSS */
 
 
     /* --- START Flowchart Modal CSS (FINALIZED FOR SCROLL) --- */
@@ -873,10 +874,10 @@
     <h2>UPCM Henry Sy Sr. Hall</h2>
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     <ul id="menu">
+      <li><a href="#schedule-check">Availability</a></li>
       <li><a href="#room-process">Reservation</a></li>
       <li><a href="#events">Events</a></li>
       <li><a href="#map">Map</a></li>
-      <li><a href="#schedule">Schedule</a></li>
       <li><a href="#more-visuals">Visuals</a></li>
       <li><a href="#organization">Org Chart</a></li>
     </ul>
@@ -890,7 +891,6 @@
       <a href="#events" class="btn">Upcoming Events</a>
       <a href="#room-process" class="btn">Room Reservation</a>
       <a href="#map" class="btn">View Map</a>
-      <a href="#schedule" class="btn">Class Schedule</a>
     </div>
 
     <div class="scroll-indicator">
@@ -940,7 +940,7 @@
     <h3>📧 General Scheduling Requests Contact</h3>
     <p>Please send your **formal reservation request letter** to the office and relevant personnel below:</p>
     <p><strong>Office Email:</strong> Send your request to <a
-        href="mailto:hss-msb.upmanila@up.edu.ph">hss-msb.upmanila@up.edu.ph</a></p>
+      href="mailto:hss-msb.upmanila@up.edu.ph">hss-msb.upmanila@up.edu.ph</a></p>
     <p><strong>Address to:</strong> Dr. Arsenio Claro A. Cabungcal – Building Administrator<br>
       Email: <a href="mailto:aacabungcal@up.edu.ph">aacabungcal@up.edu.ph</a>
     </p>
@@ -949,6 +949,17 @@
     </p>
   </section>
 
+  <section id="schedule-check">
+    <h2>🗓️ CHECK VENUE AVAILABILITY FIRST</h2>
+    <p>Before preparing your formal letter, please **check the official calendar** below to confirm the desired date and time is available. </p>
+    <p><strong>(Note: The calendar may not show pending requests.)</strong></p>
+    <iframe src="https://calendar.google.com/calendar/embed?src=upcm.henrysysrhall%40gmail.com&ctz=Asia%2FManila&hl=en"
+      style="border: 0" width="100%" height="800" frameborder="0" scrolling="no"></iframe>
+
+    <a href="#room-process" class="btn" style="margin-top: 30px; font-size: 1.2rem; padding: 15px 35px; background: #008000; border: 2px solid #ffd700;">
+        ✅ Confirmed Availability? Proceed to Reservation Steps ↓
+    </a>
+  </section>
   <section id="room-process">
     <h2>🏛️ How to Reserve a Room (Made Easy!)</h2>
 
@@ -964,8 +975,8 @@
       <div class="timeline-step left">
         <h3>Step 1: Prepare a Letter ✉️</h3>
         <p>Address your request to <strong>Arsenio Claro A. Cabungcal, MD</strong> through <strong>Engr.
-            Michael
-            Bondoc</strong>. Include date/time, room, event nature, requesting office, UP/non-UP status, number &
+          Michael
+          Bondoc</strong>. Include date/time, room, event nature, requesting office, UP/non-UP status, number &
           category of
           participants, and signature.</p>
       </div>
@@ -980,7 +991,8 @@
           alternatives.</p>
       </div>
       <div class="timeline-step right">
-        <h3>Step 4: Check Fees 💵</h3>
+        <h3>Step 4: Check Fees 💵
+        </p>
         <p>If maintenance or **extended service charges** apply, coordinate with the Building Manager and
           **Ms.
           Lorelie
@@ -994,7 +1006,7 @@
       <div class="timeline-step right">
         <h3>Step 6: Send Proof of Payment 📧</h3>
         <p>Email the proof of payment to the same thread and CC <a
-            href="mailto:lmalcazar@up.edu.ph">lmalcazar@up.edu.ph</a>.</p>
+          href="mailto:lmalcazar@up.edu.ph">lmalcazar@up.edu.ph</a>.</p>
       </div>
       <div class="timeline-step left">
         <h3>✅ Done!</h3>
@@ -1016,11 +1028,10 @@
   <section class="notice show" style="opacity: 1; transform: translateY(0);">
     <h3>💰 Maintenance and Rental Fees Inquiry</h3>
 
-    <p>For further inquiries regarding **Maintenance Fees** or other **Rental Rates**, please email the Office directly:
-    </p>
+    <p>For further inquiries regarding **Maintenance Fees** or other **Rental Rates**, please email the Office directly:</p>
 
     <p><strong>Direct Email for Fees Inquiry:</strong> <a
-        href="mailto:hss-msb.upmanila@up.edu.ph">hss-msb.upmanila@up.edu.ph</a></p>
+      href="mailto:hss-msb.upmanila@up.edu.ph">hss-msb.upmanila@up.edu.ph</a></p>
 
     <p>You may also coordinate with the following personnel:</p>
     <p style="margin-bottom: 5px;">
@@ -1032,17 +1043,6 @@
       Email: <a href="mailto:mcbondoc3@up.edu.ph">mcbondoc3@up.edu.ph</a>
     </p>
     <p><em>Note: The formal reservation process must be completed before payment of any required fees.</em></p>
-  </section>
-
-  <section id="schedule">
-    <h2>📖 Class Schedule</h2>
-    <p>Here’s the official Google Calendar embedded below:</p>
-    <iframe src="https://calendar.google.com/calendar/embed?src=upcm.henrysysrhall%40gmail.com&ctz=Asia%2FManila"
-      style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-    <p style="margin-top:15px;">
-      <a href="https://calendar.google.com/calendar/u/3?cid=dXBjbS5oZW5yeXN5c3JoYWxsQGdtYWlsLmNvbQ" target="_blank"
-        class="btn">Open in Google Calendar</a>
-    </p>
   </section>
 
   <section id="more-visuals" style="padding-top: 40px; text-align: center;">
