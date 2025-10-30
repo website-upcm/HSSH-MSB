@@ -307,9 +307,9 @@
     /* UPDATED CSS HERE for maximum calendar width */
     #map iframe,
     #schedule-check iframe {
-      width: 95%; /* Increased from 90% */
-      max-width: 1200px; /* Increased the hard limit */
-      height: 700px; /* Panatilihin ang height sa CSS */
+      width: 95%; 
+      max-width: 1200px; 
+      height: 700px; 
       border: none;
       border-radius: 12px;
       margin-top: 20px;
@@ -866,6 +866,24 @@
     }
 
     /* --- END ORGANIZATIONAL CHART CSS --- */
+    
+    /* ********** NEW MEDIA QUERY FOR CALENDAR RESPONSIVENESS ********** */
+    @media (max-width: 1050px) {
+      /* Adjust height for tablets/smaller desktops */
+      #schedule-check iframe {
+        height: 600px !important; 
+      }
+    }
+
+    @media (max-width: 768px) {
+      /* Adjust height and width for mobile phones */
+      #schedule-check iframe {
+        width: 100% !important; /* Para sagad sa mobile width */
+        max-width: 100% !important;
+        height: 500px !important; /* Liitan pa ang taas sa mobile */
+      }
+    }
+    /* ********** END MEDIA QUERY ********** */
   </style>
 </head>
 
@@ -954,7 +972,7 @@
     <p>Before preparing your formal letter, please **check the official calendar** below to confirm the desired date and time is available. </p>
     <p><strong>(Note: The calendar may not show pending requests.)</strong></p>
     <iframe src="https://calendar.google.com/calendar/embed?src=upcm.henrysysrhall%40gmail.com&ctz=Asia%2FManila&hl=en"
-      style="border: 0" width="100%" height="800" frameborder="0" scrolling="no"></iframe>
+      style="border: 0" width="100%" frameborder="0" scrolling="no"></iframe>
 
     <a href="#room-process" class="btn" style="margin-top: 30px; font-size: 1.2rem; padding: 15px 35px; background: #008000; border: 2px solid #ffd700;">
         ✅ Confirmed Availability? Proceed to Reservation Steps ↓
