@@ -8,6 +8,7 @@
   <title>UP College of Medicine – Henry Sy Sr. Hall</title>
 
   <style>
+    /* CSS Code remains exactly the same as the previous English version */
     * {
       margin: 0;
       padding: 0;
@@ -118,7 +119,7 @@
       position: relative;
       color: white;
       text-align: center;
-      /* MODIFIED: Ginawang 0.5s ang transition para sa fade effect */
+      /* MODIFIED: Set transition to 0.5s for fade effect */
       transition: opacity 0.5s ease-in-out, background-image 0.5s ease-in-out;
     }
 
@@ -132,19 +133,19 @@
     .hero-content {
       position: relative;
       z-index: 1;
-      /* MODIFIED: Pinalaki ang max-width para magkasya ang malaking text sa isang linya */
+      /* MODIFIED: Increased max-width to allow larger text on one line */
       max-width: 900px;
       animation: fadeIn 1.2s ease;
       padding: 0 20px;
       transform: translateY(-80px);
-      /* GINAGAWANG CENTER ANG TEXT */
+      /* Centering the text */
       text-align: center;
       margin-left: auto;
       margin-right: auto;
     }
 
     .hero h1 {
-      /* MODIFIED: Pinalaki ang font size (4.5rem) */
+      /* MODIFIED: Increased font size (4.5rem) */
       font-size: 4.5rem;
       font-weight: 900;
       margin-bottom: 0.5rem;
@@ -153,7 +154,7 @@
 
     .hero h2 {
       font-size: 1.8rem;
-      /* Ito ang sukat para sa "Henry Sy Sr. Hall" */
+      /* Size for "Henry Sy Sr. Hall" */
       font-weight: 500;
       margin-bottom: 0.5rem;
       text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
@@ -161,10 +162,9 @@
 
     .hero p {
       font-size: 1.5rem;
-      /* Ito ang sukat para sa "Medical Sciences Building" */
+      /* Size for "Medical Sciences Building" */
       margin-bottom: 2rem;
       text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
-      /* Idagdag na rin natin ito */
     }
 
     .btn {
@@ -338,10 +338,10 @@
       background: #fff;
       padding: 15px;
       border-radius: 10px;
-      /* Maximum width na 95% at Maximum height na 95% ng viewport */
+      /* Max width 95% and Max height 95% of viewport */
       max-width: 100%;
       max-height: 85vh;
-      /* Ang scroll bar ay lalabas dito */
+      /* Scroll bar appears here */
       overflow-y: auto;
       position: relative;
       box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
@@ -351,7 +351,6 @@
       /* Ensure image uses its full natural height but is limited by modal width */
       max-width: 100%;
       height: auto;
-      /* Siguraduhin na auto ang height */
       display: block;
       border-radius: 8px;
       cursor: pointer;
@@ -373,7 +372,7 @@
       text-align: center;
       transition: 0.3s;
       z-index: 10;
-      /* Para nasa ibabaw ng image */
+      /* Above the image */
     }
 
     .close-btn:hover {
@@ -558,10 +557,9 @@
       }
     }
 
-    /* Dagdag sa dulo ng CSS block */
+    /* Added at the end of the CSS block */
 
-    /* NEW CSS FOR SIMULA/TOP (BACK-TO-TOP) BUTTON */
-    /* NEW CSS FOR SIMULA/TOP (BACK-TO-TOP) BUTTON */
+    /* NEW CSS FOR BACK-TO-TOP BUTTON */
     #back-to-top {
       position: fixed;
       bottom: 20px;
@@ -578,20 +576,20 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
       border: 2px solid #800000;
 
-      /* KEY CHANGE: Tiyakin na nakatago, at gumamit ng transition */
+      /* KEY CHANGE: Ensure it's hidden, and use transition */
       visibility: hidden;
       opacity: 0;
       pointer-events: none;
-      /* Para hindi ma-click kahit hindi nakikita */
+      /* Prevents clicking when invisible */
       transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
     }
 
     #back-to-top.show {
-      /* Ang class na ito ang gagamitin ng JavaScript */
+      /* This class will be used by JavaScript */
       visibility: visible;
       opacity: 1;
       pointer-events: auto;
-      /* Para ma-click ulit kapag nakikita */
+      /* Allows clicking when visible */
       transform: translateY(0);
     }
 
@@ -600,7 +598,7 @@
       transform: scale(1.05);
     }
 
-    /* Para hindi ma-override ang button styles */
+    /* Prevents button styles from being overridden */
     .btn {
       display: inline-block !important;
     }
@@ -655,20 +653,20 @@
 
     /* --- START NEW CSS FOR MULTI-VISUALS SECTION (MODIFIED FOR 3 COLUMNS) --- */
 
-    /* Para sa container na maglalaman ng 10 video/visuals */
+    /* Container for 10 videos/visuals */
     .visuals-grid {
       display: grid;
-      /* Dito, 3 columns ang default, pero magiging 1 o 2 lang sa maliit na screen */
+      /* Default is 3 columns, changes to 1 or 2 on smaller screens */
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px 25px;
-      /* Magandang espasyo sa pagitan ng cards */
+      /* Good spacing between cards */
       max-width: 1000px;
-      /* Para mas centered at hindi masyadong malapad ang 3 columns */
+      /* To keep 3 columns centered and not too wide */
       margin: 30px auto;
       padding: 0 15px;
     }
 
-    /* Style para sa bawat indibidwal na visual card */
+    /* Style for each individual visual card */
     .visual-card {
       background: #fff;
       border-radius: 12px;
@@ -682,7 +680,7 @@
       box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
     }
 
-    /* Style para sa video iframe (Responsive 16:9) */
+    /* Style for video iframe (Responsive 16:9) */
     .visual-card .video-wrapper {
       position: relative;
       padding-bottom: 56.25%;
@@ -712,12 +710,12 @@
       border-top: 1px solid #eee;
     }
 
-    /* --- BAGONG CSS PARA I-CENTER ANG HULING VIDEO (CLIP 10) --- */
-    /* Dahil 10 videos lang ang laman (hindi exact multiple ng 3), ang huling card (Clip 10) ay kailangan i-center */
+    /* CSS TO CENTER THE LAST VIDEO (CLIP 10) */
+    /* Since there are only 10 videos (not an exact multiple of 3), the last card (Clip 10) needs to be centered */
 
     .visuals-grid .visual-card:nth-last-child(1) {
-      /* Ang rule na ito ay mag-a-apply lang sa huling card (Clip 10) */
-      /* Para i-center ang huling card sa 3-column grid */
+      /* This rule applies only to the last card (Clip 10) */
+      /* To center the last card in the 3-column grid */
       grid-column: 2 / 3;
     }
 
@@ -726,21 +724,21 @@
     @media (max-width: 1050px) {
       .visuals-grid {
         grid-template-columns: repeat(2, 1fr);
-        /* Babalik sa 2 columns sa mas maliit na screen */
+        /* Revert to 2 columns on smaller screens */
         max-width: 700px;
       }
 
-      /* I-disable ang centering rule para sa 2-column layout para maging normal ang 9th at 10th card */
+      /* Disable the centering rule for the 2-column layout to normalize the 9th and 10th cards */
       .visuals-grid .visual-card:nth-last-child(1) {
         grid-column: auto;
-        /* Balik sa normal flow */
+        /* Revert to normal flow */
       }
     }
 
     @media (max-width: 650px) {
       .visuals-grid {
         grid-template-columns: 1fr;
-        /* 1 column sa mobile */
+        /* 1 column on mobile */
         max-width: 350px;
       }
     }
@@ -748,26 +746,26 @@
     /* ********** NEW MOBILE MEDIA QUERY FOR HERO TEXT ********** */
     @media (max-width: 768px) {
 
-      /* Liitan ang font size ng h1 para magkasya sa isang linya sa mobile */
+      /* Reduce h1 font size to fit on one line on mobile */
       .hero h1 {
         font-size: 2.8rem;
-        /* Inadjust para hindi mag-break sa maliit na screen */
+        /* Adjusted so it doesn't break on small screens */
       }
 
-      /* Liitan din ang font size ng h2 (Henry Sy Sr. Hall) */
+      /* Reduce h2 font size (Henry Sy Sr. Hall) */
       .hero h2 {
         font-size: 1.5rem;
       }
 
-      /* Liitan din ang font size ng p (Medical Sciences Building) */
+      /* Reduce p font size (Medical Sciences Building) */
       .hero p {
         font-size: 1.2rem;
       }
 
-      /* Kung gusto mo ring i-adjust ang pangkalahatang layout sa mobile, dito mo ilalagay */
+      /* Adjust the overall layout on mobile if needed */
       .hero-content {
         transform: translateY(-50px);
-        /* Bawasan ang translate para bumaba nang kaunti sa mobile */
+        /* Less translate to move it down slightly on mobile */
       }
     }
 
@@ -778,20 +776,20 @@
       left: 50%;
       transform: translateX(-50%);
       z-index: 2;
-      /* Nasa ibabaw ng overlay (z-index: 1) */
+      /* Above the overlay (z-index: 1) */
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 5px;
       /* Spacing between arrows */
-      /* Animation para lumabas-pasok ang mga arrows */
+      /* Animation for the arrows to bounce in and out */
       animation: bounce 2s infinite;
     }
 
     .scroll-indicator .down-arrow,
     .scroll-indicator .up-arrow {
       background: rgba(128, 0, 0, 0.7);
-      /* Maroon na may transparency */
+      /* Maroon with transparency */
       color: #ffd700;
       /* Gold */
       width: 45px;
@@ -814,12 +812,12 @@
       /* Lighter maroon on hover */
     }
 
-    /* Default state: Itatago ang UP arrow sa top ng page */
+    /* Default state: Hide the UP arrow at the top of the page */
     .scroll-indicator .up-arrow {
       display: none;
     }
 
-    /* Keyframes para sa bounce animation */
+    /* Keyframes for the bounce animation */
     @keyframes bounce {
 
       0%,
@@ -846,23 +844,23 @@
       padding-top: 50px;
       padding-bottom: 50px;
       background: #f4f4f4;
-      /* Light background para maiba sa ibang sections */
+      /* Light background to distinguish it from other sections */
     }
 
     .org-chart-container {
       max-width: 800px;
-      /* Limitahan ang lapad ng chart */
+      /* Limit the chart width */
       margin: 30px auto;
       padding: 0 15px;
     }
 
     .org-chart-image {
       max-width: 100%;
-      /* Siguraduhin na responsive */
+      /* Ensure it's responsive */
       height: auto;
       display: block;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      /* Konting shadow para mag-pop out */
+      /* Slight shadow to make it pop out */
       border-radius: 8px;
     }
 
@@ -875,7 +873,7 @@
     <h2>UPCM Henry Sy Sr. Hall</h2>
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     <ul id="menu">
-      <li><a href="#room-process">Room Reservation</a></li>
+      <li><a href="#room-process">Reservation</a></li>
       <li><a href="#events">Events</a></li>
       <li><a href="#map">Map</a></li>
       <li><a href="#schedule">Schedule</a></li>
@@ -921,7 +919,7 @@
         <img src="./image/events.png" alt="Medical Conference 2025">
         <h3>Tuesday Conference</h3>
         <p><strong>Date:</strong> October 14, 2025</p>
-        <p><strong>Venue:</strong> 7Floor, Henry Sy Sr. Hall</p>
+        <p><strong>Venue:</strong> 7th Floor, Henry Sy Sr. Hall</p>
       </div>
       <div class="event-card">
         <img src="./image/events.png" alt="Health Research Forum">
@@ -939,7 +937,8 @@
   </section>
 
   <section class="notice">
-    <h3>📧 Scheduling Requests</h3>
+    <h3>📧 General Scheduling Requests Contact</h3>
+    <p>Please send your **formal reservation request letter** to the office and relevant personnel below:</p>
     <p><strong>Office Email:</strong> Send your request to <a
         href="mailto:hss-msb.upmanila@up.edu.ph">hss-msb.upmanila@up.edu.ph</a></p>
     <p><strong>Address to:</strong> Dr. Arsenio Claro A. Cabungcal – Building Administrator<br>
@@ -948,7 +947,6 @@
     <p><strong>CC:</strong> Engr. Michael Bondoc – Building Manager<br>
       Email: <a href="mailto:mcbondoc3@up.edu.ph">mcbondoc3@up.edu.ph</a>
     </p>
-    <p><em>For the complete room reservation process, please see the section above.</em></p>
   </section>
 
   <section id="room-process">
@@ -967,7 +965,7 @@
         <h3>Step 1: Prepare a Letter ✉️</h3>
         <p>Address your request to <strong>Arsenio Claro A. Cabungcal, MD</strong> through <strong>Engr.
             Michael
-            Bondoc</strong>. Include date/time, room, event nature, requesting office, UP/non-UP, number &
+            Bondoc</strong>. Include date/time, room, event nature, requesting office, UP/non-UP status, number &
           category of
           participants, and signature.</p>
       </div>
@@ -984,14 +982,14 @@
       <div class="timeline-step right">
         <h3>Step 4: Check Fees 💵</h3>
         <p>If maintenance or **extended service charges** apply, coordinate with the Building Manager and
-          <strong>Ms.
-            Lorelie
-            Alcazar</strong> for the SOA (Statement of Account).
+          **Ms.
+          Lorelie
+          Alcazar** for the SOA (Statement of Account).
         </p>
       </div>
       <div class="timeline-step left">
         <h3>Step 5: Payment 🧾</h3>
-        <p>Pay the required fees at the <strong>UPM Cashier</strong>.</p>
+        <p>Pay the required fees at the **UPM Cashier**.</p>
       </div>
       <div class="timeline-step right">
         <h3>Step 6: Send Proof of Payment 📧</h3>
@@ -1004,7 +1002,7 @@
       </div>
     </div>
 
-    <a href="mailto:hss-msb.upmanila@up.edu.ph?cc=aacabungcal@up.edu.ph,mcbondoc3@up.edu.ph&subject=Room%20Reservation%20Request%20-%20Henry%20Sy%20Sr.%20Hall&body=Dear%20Dr.%20Cabungcal%20and%20Engr.%20Bondoc,%0A%0AI%20would%20like%20to%20formally%20request%20a%20room%20reservation%20at%20Henry%20Sy%20Sr.%20Hall.%20Attached%20is%20my%20signed%20formal%20letter%20for%20your%20review%20and%20approval.%0A%0A--%20Request%20Details%20--%0A%0AEvent%20Title:%0ARequesting%20Office/Unit:%0AUP%20or%20Non-UP:%0AContact%20Person%20and%20Number:%0A%0APreferred%20Date%20and%20Time:%0A%0ARoom%20Requested:%0A%0AEestimated%20Number%20of%20Participants:%0A%0ASalamat%20po%20at%20magandang%20araw.%0A%0A-%20[Your%20Name]"
+    <a href="mailto:hss-msb.upmanila@up.edu.ph?cc=aacabungcal@up.edu.ph,mcbondoc3@up.edu.ph&subject=Room%20Reservation%20Request%20-%20Henry%20Sy%20Sr.%20Hall&body=Dear%20Dr.%20Cabungcal%20and%20Engr.%20Bondoc,%0A%0AI%20would%20like%20to%20formally%20request%20a%20room%20reservation%20at%20Henry%20Sy%20Sr.%20Hall.%20Attached%20is%20my%20signed%20formal%20letter%20for%20your%20review%20and%20approval.%0A%0A--%20Request%20Details%20--%0A%0AEvent%20Title:%0ARequesting%20Office/Unit:%0AUP%20or%20Non-UP:%0AContact%20Person%20and%20Number:%0A%0APreferred%20Date%20and%20Time:%0A%0ARoom%20Requested:%0A%0AEestimated%20Number%20of%20Participants:%0A%0ARegards,%0A%0A-%20[Your%20Name]"
       class="btn" style="margin-top:20px;">📩 Reserve Now (Send Email)</a>
 
     <div id="flowchartModal" class="flowchart-modal-overlay" onclick="closeFlowchartModal()">
@@ -1013,6 +1011,27 @@
         <img src="./image/flowchart.png" alt="HSS-MSB Room Reservation Flowchart">
       </div>
     </div>
+  </section>
+
+  <section class="notice show" style="opacity: 1; transform: translateY(0);">
+    <h3>💰 Maintenance and Rental Fees Inquiry</h3>
+
+    <p>For further inquiries regarding **Maintenance Fees** or other **Rental Rates**, please email the Office directly:
+    </p>
+
+    <p><strong>Direct Email for Fees Inquiry:</strong> <a
+        href="mailto:hss-msb.upmanila@up.edu.ph">hss-msb.upmanila@up.edu.ph</a></p>
+
+    <p>You may also coordinate with the following personnel:</p>
+    <p style="margin-bottom: 5px;">
+      <strong>Building Administrator:</strong> Dr. Arsenio Claro A. Cabungcal <br>
+      Email: <a href="mailto:aacabungcal@up.edu.ph">aacabungcal@up.edu.ph</a>
+    </p>
+    <p>
+      <strong>Building Manager (CC):</strong> Engr. Michael Bondoc <br>
+      Email: <a href="mailto:mcbondoc3@up.edu.ph">mcbondoc3@up.edu.ph</a>
+    </p>
+    <p><em>Note: The formal reservation process must be completed before payment of any required fees.</em></p>
   </section>
 
   <section id="schedule">
@@ -1142,11 +1161,11 @@
     // 1. INACTIVITY TIMER / AUTO-SCROLL TO TOP LOGIC (FOR LOBBY SCREEN)
     // =================================================================
 
-    // Timer sa milliseconds: 1 minuto
+    // Timer in milliseconds: 1 minute
     const IDLE_TIMEOUT_MS = 1 * 60 * 1000;
     let timeout;
 
-    // Function na mag-i-scroll pabalik sa top
+    // Function to scroll back to the top
     function resetToTop() {
       window.scrollTo({
         top: 0,
@@ -1155,20 +1174,20 @@
       console.log("Inactivity detected. Resetting to top.");
     }
 
-    // Function na magre-reset o magpapalit ng timeout
+    // Function to reset or change the timeout
     function resetTimer() {
       clearTimeout(timeout);
       timeout = setTimeout(resetToTop, IDLE_TIMEOUT_MS);
     }
 
-    // I-listen ang mga pangunahing user activity events
+    // Listen to major user activity events
     document.addEventListener('mousemove', resetTimer, false);
     document.addEventListener('mousedown', resetTimer, false);
     document.addEventListener('keypress', resetTimer, false);
     document.addEventListener('scroll', resetTimer, false);
     document.addEventListener('touchstart', resetTimer, false);
 
-    // Simulan ang initial timer pag-load ng page
+    // Start the initial timer upon page load
     resetTimer();
 
     // =================================================================
@@ -1176,31 +1195,31 @@
     // =================================================================
 
     const heroSection = document.getElementById('hero');
-    // I-check lang ang path: kailangan nasa 'image' folder ang mga ito
+    // Check path: images need to be in the 'image' folder
     const images = ["./image/up.png", "./image/msb.png", "./image/artwork.png", "./image/portico1.png"];
     let currentImageIndex = 0;
 
     function changeHeroBackground() {
-      // I-fade out muna ang content
+      // Fade out the content first
       heroSection.style.opacity = 0;
 
       setTimeout(() => {
-        // Palitan ang background-image
+        // Change the background-image
         heroSection.style.backgroundImage = `url('${images[currentImageIndex]}')`;
 
-        // I-fade in ulit
+        // Fade back in
         heroSection.style.opacity = 1;
 
-        // Lumipat sa susunod na index
+        // Move to the next index
         currentImageIndex = (currentImageIndex + 1) % images.length;
 
-        // I-reset ang Inactivity Timer para tuloy-tuloy ang display sa lobby
+        // Reset the Inactivity Timer to maintain display in the lobby
         resetTimer();
 
       }, 500); // Wait for 500ms (half a second) during fade out
     }
 
-    // Tawagin ang function sa umpisa, at i-set ang interval (e.g., every 5 seconds)
+    // Call the function at the start, and set the interval (e.g., every 5 seconds)
     changeHeroBackground(); // Call immediately to set the first image
     setInterval(changeHeroBackground, 5000); // Change image every 5000 milliseconds (5 seconds)
 
@@ -1210,15 +1229,15 @@
     // =================================================================
 
     const backToTopBtn = document.getElementById('back-to-top');
-    // NEW: Kinuha ang mga arrow elements
+    // NEW: Get the arrow elements
     const upArrow = document.querySelector('.scroll-indicator .up-arrow');
     const downArrow = document.querySelector('.scroll-indicator .down-arrow');
 
     function toggleScrollElements() {
-      // Check kung nag-scroll na ng higit sa 500 pixels
+      // Check if scrolled more than 500 pixels
       const scrollPosition = document.body.scrollTop > 500 || document.documentElement.scrollTop > 500;
 
-      // BACK-TO-TOP BUTTON: Gamitin ang 'show' class
+      // BACK-TO-TOP BUTTON: Use the 'show' class
       if (backToTopBtn) {
         if (scrollPosition) {
           backToTopBtn.classList.add('show');
@@ -1227,24 +1246,24 @@
         }
       }
 
-      // UP ARROW: Ipakita ang up arrow kapag naka-scroll na, Itago kapag nasa top
+      // UP ARROW: Show the up arrow when scrolled, Hide when at the top
       if (upArrow) {
         upArrow.style.display = scrollPosition ? 'flex' : 'none';
       }
 
-      // DOWN ARROW: Ipakita ang down arrow kapag nasa top, Itago kapag naka-scroll na.
+      // DOWN ARROW: Show the down arrow when at the top, Hide when scrolled
       if (downArrow) {
         downArrow.style.display = scrollPosition ? 'none' : 'flex';
       }
     }
 
-    // Makinig sa scroll event
+    // Listen for the scroll event
     window.addEventListener('scroll', toggleScrollElements);
-    // Tawagin sa umpisa para ma-check ang initial state
+    // Call at the start to check the initial state
     toggleScrollElements();
 
     // =================================================================
-    // 4. NAVIGATION, SCROLL, AT IBA PANG UI FUNCTIONS
+    // 4. NAVIGATION, SCROLL, AND OTHER UI FUNCTIONS
     // =================================================================
 
     // --- MENU TOGGLE
@@ -1270,7 +1289,7 @@
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("show");
-            // Kung gusto mo lang isang beses lumabas, i-uncomment ito:
+            // If you only want it to appear once, uncomment this:
             // observer.unobserve(entry.target);
           }
         });
@@ -1286,12 +1305,12 @@
     // 5. RATES AND MODAL LOGIC (FINALIZED - NO PASSWORD LOCK)
     // =================================================================
 
-    // --- TAB SWITCHER (Walang Access Control)
+    // --- TAB SWITCHER (No Access Control)
     function openTab(tabName, element) {
       const tabs = document.querySelectorAll(".tab-content");
       const buttons = document.querySelectorAll(".tab-btn");
 
-      // Tanggalin ang 'active' state sa lahat ng tabs at buttons
+      // Remove 'active' state from all tabs and buttons
       tabs.forEach((tab) => {
         tab.classList.remove("active");
       });
@@ -1299,7 +1318,7 @@
         btn.classList.remove("active");
       });
 
-      // I-set ang 'active' state sa napiling tab at button
+      // Set 'active' state for the selected tab and button
       document.getElementById(tabName).classList.add("active");
       element.classList.add("active");
     }
@@ -1332,8 +1351,6 @@
     window.closeQrModal = closeQrModal;
 
     // --- COPYRIGHT YEAR
-    // Hindi kasama sa HTML mo, pero maganda kung ilalagay mo ito sa footer:
-    // <span id="current-year"></span>
     const currentYearElement = document.getElementById('current-year');
     if (currentYearElement) {
       currentYearElement.textContent = new Date().getFullYear();
