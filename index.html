@@ -927,6 +927,7 @@
       </a>
     </div>
   </div>
+
   <section id="video">
     <h2>🎥 About UPCM Henry Sy Sr. Hall</h2>
     <div class="video-container">
@@ -987,6 +988,7 @@
       ✅ Confirmed Availability? Proceed to Reservation Steps ↓
     </a>
   </section>
+
   <section id="room-process">
     <h2>🏛️ How to Reserve a Room (Made Easy!)</h2>
 
@@ -1120,6 +1122,7 @@
       </div>
     </div>
   </section>
+
   <section id="more-visuals" style="padding-top: 40px; text-align: center;">
     <h2>🖼️ More Visuals of Henry Sy Sr. Hall</h2>
     <p style="max-width: 800px; margin: auto; padding: 0 20px 20px 20px; color: #555;">
@@ -1213,7 +1216,6 @@
     </div>
   </div>
 
-
   <footer>
     <p>© <span id="current-year">2025</span> UP College of Medicine – Henry Sy Sr. Hall</p>
     <p style="margin-top: 10px;">
@@ -1233,9 +1235,6 @@
       Programmed by <strong>Eduardson Cortez</strong>
     </p>
   </footer>
-
-
-
 
   <script>
     // =================================================================
@@ -1383,10 +1382,10 @@
     });
 
     // =================================================================
-    // 5. RATES AND MODAL LOGIC (FINALIZED - NO PASSWORD LOCK)
+    // 5. MODAL AND TAB LOGIC (FINALIZED - NO PASSWORD LOCK)
     // =================================================================
 
-    // --- TAB SWITCHER (No Access Control)
+    // --- GENERIC TAB SWITCHER (Rates/Fees tab was removed, but function is kept if needed)
     function openTab(tabName, element) {
       const tabs = document.querySelectorAll(".tab-content");
       const buttons = document.querySelectorAll(".tab-btn");
@@ -1405,7 +1404,7 @@
     }
     window.openTab = openTab;
 
-    // --- DRRM TAB SWITCHER (NEW)
+    // --- DRRM TAB SWITCHER
     function openDrrmTab(tabName, element) {
       const tabs = document.querySelectorAll(".drrm-tab-content");
       const buttons = document.querySelectorAll(".drrm-tab-btn");
