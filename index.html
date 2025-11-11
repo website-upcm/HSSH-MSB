@@ -793,12 +793,63 @@
     }
 
     /* ********** END MEDIA QUERY ********** */
+
+    /* MGA BAGONG DAGDAG: CSS para sa Confetti/Snow Effect */
+    .confetti-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 10;
+      /* Mas mataas sa hero content (z-index: 1) pero mas mababa sa nav (z-index: 999) */
+      pointer-events: none;
+      /* Para ma-click pa rin ang mga buttons sa hero */
+      opacity: 0;
+      /* Default na nakatago */
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .confetti-overlay.active {
+      opacity: 1;
+    }
+
+    .snowflake {
+      position: absolute;
+      width: 10px;
+      /* Liit ng snowflake */
+      height: 10px;
+      background: #ffd700;
+      /* Ginto */
+      border-radius: 50%;
+      transform: translateY(-100vh);
+      /* Simulan sa taas ng screen */
+      animation: fall linear 10s forwards;
+      /* 10s duration para bumagsak, forwards para manatili sa dulo */
+      box-shadow: 0 0 5px #fff;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+        /* Unti-unting mawawala pagdating sa baba */
+      }
+    }
+
+    /* END MGA BAGONG DAGDAG */
   </style>
 </head>
 
 <body>
   <nav>
-    <h2>UPCM - MSB</h2>
+    <h2>UPCM -MSB</h2>
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     <ul id="menu">
       <li><a href="#hero">Home Page</a></li>
@@ -812,6 +863,7 @@
   </nav>
 
   <div class="hero" id="hero">
+    <div class="confetti-overlay" id="confetti-container"></div>
     <div class="hero-content">
       <h1>UP College of Medicine</h1>
       <h2>Henry Sy Sr</h2>
@@ -890,7 +942,8 @@
       </div>
 
       <div id="view-calendar" class="tab-content calendar-tab-content active">
-        <p>Before preparing your formal letter, please **check the official calendar** below to confirm the desired date
+        <p>Before preparing your formal letter, please **check the official calendar** below to confirm the
+          desired date
           and
           time is available. </p>
         <p><strong>(Note: The calendar may not show pending requests.)</strong></p>
@@ -944,7 +997,8 @@
         <h3>Step 1: Prepare a Letter ✉️</h3>
         <p>Address your request to <strong>Arsenio Claro A. Cabungcal, MD</strong> through <strong>Engr.
             Michael
-            Bondoc</strong>. Include date/time, room, event nature, requesting office, UP/non-UP status, number &
+            Bondoc</strong>. Include date/time, room, event nature, requesting office, UP/non-UP status, number
+          &
           category of
           participants, and signature.</p>
       </div>
@@ -996,7 +1050,8 @@
   <section class="notice show" style="opacity: 1; transform: translateY(0);">
     <h3>💰 Maintenance and Rental Fees Inquiry</h3>
 
-    <p>For further inquiries regarding **Maintenance Fees** or other **Rental Rates**, please email the Office directly:
+    <p>For further inquiries regarding **Maintenance Fees** or other **Rental Rates**, please email the Office
+      directly:
     </p>
 
     <p><strong>Direct Email for Fees Inquiry:</strong> <a
@@ -1038,7 +1093,8 @@
           <img src="./image/earthquick.jpg" alt="Earthquake Drill Procedure"
             style="max-width: 100%; height: auto; margin-top: 15px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
           <p style="margin-top: 15px; font-size: 0.85rem; color: #800000; font-weight: bold;">
-            Please follow the instructions from the Disaster Risk Reduction Management in Health Program (DRRMHP).
+            Please follow the instructions from the Disaster Risk Reduction Management in Health Program
+            (DRRMHP).
           </p>
         </div>
       </div>
@@ -1047,10 +1103,12 @@
         <div class="notice" style="text-align: left; background: #fff; border-left: 6px solid #ff4500;">
           <h3>In Case of Fire: **RACE** Protocol</h3>
           <p><strong>R - Rescue:</strong> Rescue persons in immediate danger. Do not put yourself at risk.</p>
-          <p><strong>A - Alarm:</strong> Activate the nearest fire alarm and call the Emergency Hotline (e.g., UP
+          <p><strong>A - Alarm:</strong> Activate the nearest fire alarm and call the Emergency Hotline (e.g.,
+            UP
             Manila: 141).</p>
           <p><strong>C - Confine:</strong> Close doors and windows to contain the fire/smoke.</p>
-          <p><strong>E - Evacuate/Extinguish:</strong> Attempt to extinguish the fire only if it is small and safe to do
+          <p><strong>E - Evacuate/Extinguish:</strong> Attempt to extinguish the fire only if it is small and
+            safe to do
             so. Otherwise, proceed immediately to the designated muster area.</p>
           <h3 style="margin-top: 20px;">Using a Fire Extinguisher: **PASS**</h3>
           <p><strong>P - Pull:</strong> Pull the pin.</p>
@@ -1191,7 +1249,66 @@
     setInterval(changeHeroBackground, 5000); // Change image every 5000 milliseconds (5 seconds)
 
     // =================================================================
-    // 3. BACK-TO-TOP BUTTON / SCROLL ARROW LOGIC (MODIFIED for CSS Class)
+    // 3. CHRISTMAS CONFETTI/SNOW BURST LOGIC (UPDATED: Dami na Confetti)
+    // =================================================================
+    const confettiContainer = document.getElementById('confetti-container');
+    // Ginamitan ng 100 para mas madami ang lalabas
+    const CONFFETTI_COUNT = 100;
+    const BURST_DURATION_MS = 10000; // Duration ng pag-ulit (10 seconds)
+
+    function createConfetti() {
+      const snowflake = document.createElement('div');
+      snowflake.classList.add('snowflake');
+
+      // Random position (left)
+      const startX = Math.random() * 100;
+      snowflake.style.left = `${startX}vw`;
+
+      // Random size
+      const size = Math.random() * 8 + 5; // 5px to 13px
+      snowflake.style.width = `${size}px`;
+      snowflake.style.height = `${size}px`;
+
+      // Random animation duration (mas mabilis bumagsak)
+      const duration = Math.random() * 5 + 5; // 5s to 10s
+      snowflake.style.animationDuration = `${duration}s`;
+
+      confettiContainer.appendChild(snowflake);
+
+      // Tanggalin ang confetti object pagkatapos ng animation para hindi bumagal
+      setTimeout(() => {
+        snowflake.remove();
+      }, duration * 1000);
+    }
+
+    function burstConfetti() {
+      // 1. I-clear muna lahat ng lumang confetti
+      confettiContainer.innerHTML = '';
+
+      // 2. I-activate ang opacity ng container
+      confettiContainer.classList.add('active');
+
+      // 3. I-create ang mga bagong confetti
+      for (let i = 0; i < CONFFETTI_COUNT; i++) {
+        // Ginawang 300ms na lang ang delay para mas mabilis mag-appear lahat
+        setTimeout(createConfetti, Math.random() * 300);
+      }
+
+      // 4. I-deactivate ang opacity ng container pagkatapos ng 2 segundo
+      setTimeout(() => {
+        confettiContainer.classList.remove('active');
+      }, 2000);
+    }
+
+    // Simulan ang unang pagsabog
+    burstConfetti();
+
+    // I-ulit ang pagsabog every 10 seconds
+    setInterval(burstConfetti, BURST_DURATION_MS);
+    // =================================================================
+
+    // =================================================================
+    // 4. BACK-TO-TOP BUTTON / SCROLL ARROW LOGIC (MODIFIED for CSS Class)
     // =================================================================
 
     const backToTopBtn = document.getElementById('back-to-top');
@@ -1228,7 +1345,7 @@
     toggleScrollElements();
 
     // =================================================================
-    // 4. NAVIGATION, SCROLL, AND OTHER UI FUNCTIONS
+    // 5. NAVIGATION, SCROLL, AND OTHER UI FUNCTIONS
     // =================================================================
 
     // --- MENU TOGGLE
@@ -1267,7 +1384,7 @@
     });
 
     // =================================================================
-    // 5. MODAL AND TAB LOGIC (FINALIZED - NO PASSWORD LOCK)
+    // 6. MODAL AND TAB LOGIC (FINALIZED - NO PASSWORD LOCK)
     // =================================================================
 
     // --- GENERIC TAB SWITCHER (Rates/Fees tab was removed, but function is kept if needed)
