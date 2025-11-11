@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>UP College of Medicine – Henry Sy Sr. Hall</title>
-
   <style>
     /* CSS Code remains exactly the same as the previous English version */
     * {
@@ -15,14 +12,12 @@
       box-sizing: border-box;
       font-family: "Segoe UI", Arial, sans-serif;
     }
-
     html,
     body {
       scroll-behavior: smooth;
       background: #fafafa;
       color: #333;
     }
-
     nav {
       position: fixed;
       top: 0;
@@ -36,25 +31,21 @@
       z-index: 999;
       transition: 0.3s ease;
     }
-
     nav.scrolled {
       background: rgba(128, 0, 0, 0.95);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
-
     nav h2 {
       color: #fff;
       font-size: 1.2rem;
       letter-spacing: 0.5px;
       font-weight: 600;
     }
-
     nav ul {
       list-style: none;
       display: flex;
       gap: 20px;
     }
-
     nav ul li a {
       color: #fff;
       text-decoration: none;
@@ -62,18 +53,15 @@
       transition: color 0.3s ease;
       padding: 5px 0;
     }
-
     nav ul li a:hover {
       color: #ffd700;
     }
-
     .menu-toggle {
       display: none;
       font-size: 1.8rem;
       color: #fff;
       cursor: pointer;
     }
-
     @media (max-width: 768px) {
       nav ul {
         display: none;
@@ -88,27 +76,22 @@
         border-radius: 5px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       }
-
       nav ul.active {
         display: flex;
       }
-
       nav ul li {
         margin: 10px 0;
         text-align: center;
       }
-
       nav ul li a {
         display: block;
         padding: 10px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       }
-
       .menu-toggle {
         display: block;
       }
     }
-
     .hero {
       height: 100vh;
       display: flex;
@@ -122,14 +105,12 @@
       /* MODIFIED: Set transition to 0.5s for fade effect */
       transition: opacity 0.5s ease-in-out, background-image 0.5s ease-in-out;
     }
-
     .hero::after {
       content: "";
       position: absolute;
       inset: 0;
       background: rgba(0, 0, 0, 0.6);
     }
-
     .hero-content {
       position: relative;
       z-index: 1;
@@ -143,7 +124,6 @@
       margin-left: auto;
       margin-right: auto;
     }
-
     .hero h1 {
       /* MODIFIED: Increased font size (4.5rem) */
       font-size: 4.5rem;
@@ -151,7 +131,6 @@
       margin-bottom: 0.5rem;
       text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
     }
-
     .hero h2 {
       font-size: 1.8rem;
       /* Size for "Henry Sy Sr. Hall" */
@@ -159,14 +138,12 @@
       margin-bottom: 0.5rem;
       text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
     }
-
     .hero p {
       font-size: 1.5rem;
       /* Size for "Medical Sciences Building" */
       margin-bottom: 2rem;
       text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
     }
-
     .btn {
       display: inline-block;
       padding: 12px 26px;
@@ -179,13 +156,11 @@
       transition: 0.3s ease;
       border: 2px solid transparent;
     }
-
     .btn:hover {
       background: #a52a2a;
       transform: scale(1.05);
       border: 2px solid #ffd700;
     }
-
     .video-container {
       max-width: 900px;
       margin: 60px auto;
@@ -193,23 +168,19 @@
       overflow: hidden;
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
     }
-
     .video-container iframe {
       width: 100%;
       height: 480px;
       border: none;
     }
-
     @media (max-width: 900px) {
       .video-container {
         margin: 40px 20px;
       }
-
       .video-container iframe {
         height: 350px;
       }
     }
-
     section {
       padding: 80px 20px;
       text-align: center;
@@ -217,12 +188,10 @@
       transform: translateY(40px);
       transition: 0.8s ease;
     }
-
     section.show {
       opacity: 1;
       transform: translateY(0);
     }
-
     section h2 {
       font-size: 2.2rem;
       color: #800000;
@@ -231,7 +200,6 @@
       display: inline-block;
       padding-bottom: 5px;
     }
-
     .events-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -241,7 +209,6 @@
       margin-left: auto;
       margin-right: auto;
     }
-
     .event-card {
       background: #fff;
       border-radius: 12px;
@@ -250,12 +217,10 @@
       transition: 0.3s ease;
       text-align: left;
     }
-
     .event-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
     }
-
     .event-card img {
       width: 100%;
       height: 180px;
@@ -263,20 +228,17 @@
       border-radius: 8px;
       margin-bottom: 15px;
     }
-
     .event-card h3 {
       color: #800000;
       font-size: 1.3rem;
       margin-bottom: 10px;
       line-height: 1.4;
     }
-
     .event-card p {
       font-size: 0.95rem;
       color: #555;
       margin-bottom: 5px;
     }
-
     .notice {
       background: #fff9e6;
       border-left: 6px solid #800000;
@@ -288,25 +250,21 @@
       text-align: left;
       line-height: 1.6;
     }
-
     .notice h3 {
       color: #800000;
       margin-bottom: 10px;
     }
-
     .notice p {
       margin-bottom: 8px;
     }
-
     .notice a {
       color: #800000;
       font-weight: bold;
       text-decoration: underline;
     }
-
     /* UPDATED CSS HERE for maximum calendar width */
-    #map iframe,
-    #schedule-check iframe {
+    /* #map iframe, #schedule-check iframe { */
+    #map iframe, #calendar-section iframe {
       width: 95%;
       max-width: 1200px;
       height: 700px;
@@ -314,9 +272,7 @@
       border-radius: 12px;
       margin-top: 20px;
     }
-
     /* END UPDATED CSS */
-
 
     /* --- START Flowchart Modal CSS (FINALIZED FOR SCROLL) --- */
     .flowchart-modal-overlay {
@@ -335,7 +291,6 @@
       align-items: center;
       padding: 20px;
     }
-
     .flowchart-modal-content {
       background: #fff;
       padding: 15px;
@@ -348,7 +303,6 @@
       position: relative;
       box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
     }
-
     .flowchart-modal-content img {
       /* Ensure image uses its full natural height but is limited by modal width */
       max-width: 100%;
@@ -357,7 +311,6 @@
       border-radius: 8px;
       cursor: pointer;
     }
-
     .close-btn {
       position: absolute;
       top: 10px;
@@ -376,28 +329,23 @@
       z-index: 10;
       /* Above the image */
     }
-
     .close-btn:hover {
       background: #fff;
     }
-
     /* --- END Flowchart Modal CSS (FINALIZED FOR SCROLL) --- */
 
-
-    /* --- TAB CSS (SAME) --- */
+    /* --- TAB CSS (MODIFIED FOR CALENDAR TABS) --- */
     .tab-container {
       max-width: 1100px;
       margin: 20px auto;
       padding: 0 10px;
     }
-
     .tab-buttons {
       display: flex;
       justify-content: center;
       margin-bottom: 25px;
       border-bottom: 2px solid #ddd;
     }
-
     .tab-btn {
       padding: 12px 25px;
       margin: 0 5px;
@@ -411,7 +359,6 @@
       transition: all 0.3s ease;
       transform: translateY(2px);
     }
-
     .tab-btn.active {
       background: #800000;
       color: #fff;
@@ -419,15 +366,13 @@
       transform: translateY(0);
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
-
     .tab-content {
       display: none;
+      padding-top: 20px;
     }
-
     .tab-content.active {
       display: block;
     }
-
 
     /* Timeline / Flow-style Reservation (SAME) */
     .timeline {
@@ -436,7 +381,6 @@
       margin: 50px auto 0 auto;
       padding: 20px 0;
     }
-
     .timeline::after {
       content: '';
       position: absolute;
@@ -447,7 +391,6 @@
       left: 50%;
       margin-left: -2px;
     }
-
     .timeline-step {
       padding: 20px 40px;
       position: relative;
@@ -457,7 +400,6 @@
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       margin-bottom: 20px;
     }
-
     .timeline-step::after {
       content: '';
       position: absolute;
@@ -470,43 +412,35 @@
       border-radius: 50%;
       z-index: 1;
     }
-
     .timeline-step.left {
       left: 0;
       text-align: right;
     }
-
     .timeline-step.right {
       left: 50%;
       text-align: left;
     }
-
     .timeline-step.left::after {
       right: -10px;
     }
-
     .timeline-step.right::after {
       left: -10px;
     }
-
     .timeline-step h3 {
       font-size: 1.3rem;
       margin-bottom: 10px;
       color: #800000;
     }
-
     .timeline-step p {
       font-size: 0.95rem;
       line-height: 1.6;
       text-align: justify;
       color: #555;
     }
-
     @media screen and (max-width: 768px) {
       .timeline::after {
         left: 20px;
       }
-
       .timeline-step {
         width: 100%;
         padding-left: 50px;
@@ -514,20 +448,17 @@
         margin-bottom: 30px;
         box-shadow: none;
       }
-
       .timeline-step.left,
       .timeline-step.right {
         left: 0;
         text-align: left;
       }
-
       .timeline-step.left::after,
       .timeline-step.right::after {
         left: 10px;
         top: 30px;
       }
     }
-
     footer {
       background: #222;
       color: #ccc;
@@ -537,30 +468,24 @@
       font-size: 0.9rem;
       border-top: 5px solid #800000;
     }
-
     footer a {
       color: #ffd700;
       text-decoration: none;
     }
-
     footer a:hover {
       text-decoration: underline;
     }
-
     @keyframes fadeIn {
       from {
         opacity: 0;
         transform: translateY(20px);
       }
-
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
-
     /* Added at the end of the CSS block */
-
     /* NEW CSS FOR BACK-TO-TOP BUTTON */
     #back-to-top {
       position: fixed;
@@ -577,7 +502,6 @@
       z-index: 1000;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
       border: 2px solid #800000;
-
       /* KEY CHANGE: Ensure it's hidden, and use transition */
       visibility: hidden;
       opacity: 0;
@@ -585,7 +509,6 @@
       /* Prevents clicking when invisible */
       transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
     }
-
     #back-to-top.show {
       /* This class will be used by JavaScript */
       visibility: visible;
@@ -594,17 +517,14 @@
       /* Allows clicking when visible */
       transform: translateY(0);
     }
-
     #back-to-top:hover {
       background: #fff;
       transform: scale(1.05);
     }
-
     /* Prevents button styles from being overridden */
     .btn {
       display: inline-block !important;
     }
-
     /* --- START QR CODE MODAL CSS (NEW) --- */
     .qr-modal-overlay {
       display: none;
@@ -620,7 +540,6 @@
       justify-content: center;
       align-items: center;
     }
-
     .qr-modal-content {
       background: #fff;
       padding: 40px 30px 20px 30px;
@@ -631,13 +550,11 @@
       position: relative;
       box-shadow: 0 5px 25px rgba(255, 255, 255, 0.3);
     }
-
     .qr-modal-content h3 {
       color: #800000;
       font-size: 1.2rem;
       margin-bottom: 20px;
     }
-
     .qr-code-img-modal {
       width: 200px;
       height: 200px;
@@ -645,16 +562,12 @@
       border-radius: 8px;
       margin-bottom: 15px;
     }
-
     /* Remove QR code display from footer since it's now in the modal */
     footer .qr-code-img {
       display: none;
     }
-
     /* --- END QR CODE MODAL CSS --- */
-
     /* --- START NEW CSS FOR MULTI-VISUALS SECTION (MODIFIED FOR 3 COLUMNS) --- */
-
     /* Container for 10 videos/visuals */
     .visuals-grid {
       display: grid;
@@ -667,7 +580,6 @@
       margin: 30px auto;
       padding: 0 15px;
     }
-
     /* Style for each individual visual card */
     .visual-card {
       background: #fff;
@@ -676,12 +588,10 @@
       overflow: hidden;
       transition: transform 0.3s ease;
     }
-
     .visual-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
     }
-
     /* Style for video iframe (Responsive 16:9) */
     .visual-card .video-wrapper {
       position: relative;
@@ -690,7 +600,6 @@
       height: 0;
       overflow: hidden;
     }
-
     .visual-card .video-wrapper iframe {
       position: absolute;
       top: 0;
@@ -700,7 +609,6 @@
       border: none;
       display: block;
     }
-
     .visual-card p {
       padding: 15px 10px;
       font-size: 0.9rem;
@@ -711,32 +619,26 @@
       background-color: #f7f7f7;
       border-top: 1px solid #eee;
     }
-
     /* CSS TO CENTER THE LAST VIDEO (CLIP 10) */
     /* Since there are only 10 videos (not an exact multiple of 3), the last card (Clip 10) needs to be centered */
-
     .visuals-grid .visual-card:nth-last-child(1) {
       /* This rule applies only to the last card (Clip 10) */
       /* To center the last card in the 3-column grid */
       grid-column: 2 / 3;
     }
-
     /* Responsive adjustment */
-
     @media (max-width: 1050px) {
       .visuals-grid {
         grid-template-columns: repeat(2, 1fr);
         /* Revert to 2 columns on smaller screens */
         max-width: 700px;
       }
-
       /* Disable the centering rule for the 2-column layout to normalize the 9th and 10th cards */
       .visuals-grid .visual-card:nth-last-child(1) {
         grid-column: auto;
         /* Revert to normal flow */
       }
     }
-
     @media (max-width: 650px) {
       .visuals-grid {
         grid-template-columns: 1fr;
@@ -744,33 +646,27 @@
         max-width: 350px;
       }
     }
-
     /* ********** NEW MOBILE MEDIA QUERY FOR HERO TEXT ********** */
     @media (max-width: 768px) {
-
       /* Reduce h1 font size to fit on one line on mobile */
       .hero h1 {
         font-size: 2.8rem;
         /* Adjusted so it doesn't break on small screens */
       }
-
       /* Reduce h2 font size (Henry Sy Sr. Hall) */
       .hero h2 {
         font-size: 1.5rem;
       }
-
       /* Reduce p font size (Medical Sciences Building) */
       .hero p {
         font-size: 1.2rem;
       }
-
       /* Adjust the overall layout on mobile if needed */
       .hero-content {
         transform: translateY(-50px);
         /* Less translate to move it down slightly on mobile */
       }
     }
-
     /* --- START SCROLL INDICATOR ARROWS CSS (NEW) --- */
     .scroll-indicator {
       position: absolute;
@@ -787,7 +683,6 @@
       /* Animation for the arrows to bounce in and out */
       animation: bounce 2s infinite;
     }
-
     .scroll-indicator .down-arrow,
     .scroll-indicator .up-arrow {
       background: rgba(128, 0, 0, 0.7);
@@ -807,21 +702,17 @@
       transition: background 0.3s ease;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
-
     .scroll-indicator .down-arrow:hover,
     .scroll-indicator .up-arrow:hover {
       background: #a52a2a;
       /* Lighter maroon on hover */
     }
-
     /* Default state: Hide the UP arrow at the top of the page */
     .scroll-indicator .up-arrow {
       display: none;
     }
-
     /* Keyframes for the bounce animation */
     @keyframes bounce {
-
       0%,
       20%,
       50%,
@@ -829,18 +720,14 @@
       100% {
         transform: translateY(0);
       }
-
       40% {
         transform: translateY(-10px);
       }
-
       60% {
         transform: translateY(-5px);
       }
     }
-
     /* --- END SCROLL INDICATOR ARROWS CSS --- */
-
     /* --- START ORGANIZATIONAL CHART CSS (NEW) --- */
     #organization {
       padding-top: 50px;
@@ -848,14 +735,12 @@
       background: #f4f4f4;
       /* Light background to distinguish it from other sections */
     }
-
     .org-chart-container {
       max-width: 800px;
       /* Limit the chart width */
       margin: 30px auto;
       padding: 0 15px;
     }
-
     .org-chart-image {
       max-width: 100%;
       /* Ensure it's responsive */
@@ -865,22 +750,19 @@
       /* Slight shadow to make it pop out */
       border-radius: 8px;
     }
-
     /* --- END ORGANIZATIONAL CHART CSS --- */
-
     /* ********** NEW MEDIA QUERY FOR CALENDAR RESPONSIVENESS ********** */
     @media (max-width: 1050px) {
-
       /* Adjust height for tablets/smaller desktops */
-      #schedule-check iframe {
+      /* #schedule-check iframe { */
+      #calendar-section iframe {
         height: 600px !important;
       }
     }
-
     @media (max-width: 768px) {
-
       /* Adjust height and width for mobile phones */
-      #schedule-check iframe {
+      /* #schedule-check iframe { */
+      #calendar-section iframe {
         width: 100% !important;
         /* Para sagad sa mobile width */
         max-width: 100% !important;
@@ -888,17 +770,16 @@
         /* Liitan pa ang taas sa mobile */
       }
     }
-
     /* ********** END MEDIA QUERY ********** */
   </style>
 </head>
-
 <body>
   <nav>
     <h2>UPCM Henry Sy Sr. Hall</h2>
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     <ul id="menu">
-      <li><a href="#schedule-check">Availability</a></li>
+      <li><a href="#hero">Home Page</a></li>
+      <li><a href="#calendar-section">Availability</a></li>
       <li><a href="#room-process">Reservation</a></li>
       <li><a href="#drrm-guide">Safety Guide</a></li>
       <li><a href="#events">Events</a></li>
@@ -913,11 +794,10 @@
       <h1>UP College of Medicine</h1>
       <h2>Henry Sy Sr. Hall</h2>
       <p>Medical Sciences Building</p>
-      <a href="#events" class="btn">Upcoming Events</a>
+      <a href="#calendar-section" class="btn">View Calendar</a>
       <a href="#room-process" class="btn">Room Reservation</a>
       <a href="#map" class="btn">View Map</a>
     </div>
-
     <div class="scroll-indicator">
       <a href="#video" class="down-arrow">
         <span class="arrow-icon">↓</span>
@@ -975,20 +855,55 @@
     </p>
   </section>
 
-  <section id="schedule-check">
-    <h2>🗓️ CHECK VENUE AVAILABILITY FIRST</h2>
-    <p>Before preparing your formal letter, please **check the official calendar** below to confirm the desired date and
-      time is available. </p>
-    <p><strong>(Note: The calendar may not show pending requests.)</strong></p>
-    <iframe src="https://calendar.google.com/calendar/embed?src=upcm.henrysysrhall%40gmail.com&ctz=Asia%2FManila&hl=en"
-      style="border: 0" width="100%" frameborder="0" scrolling="no"></iframe>
+  <section id="calendar-section">
+    <h2>🗓️ CALENDAR & AVAILABILITY</h2>
+    <div class="tab-container" style="max-width: 1000px; margin-top: 40px;">
+      <div class="tab-buttons">
+        <button class="tab-btn calendar-tab-btn active" onclick="openCalendarTab('view-calendar', this)">
+          <span style="margin-right: 5px;">📅</span> View Calendar
+        </button>
+        <button class="tab-btn calendar-tab-btn" onclick="openCalendarTab('upcoming-events-tab', this)">
+          <span style="margin-right: 5px;">📢</span> Upcoming Events
+        </button>
+      </div>
 
-    <a href="#room-process" class="btn"
-      style="margin-top: 30px; font-size: 1.2rem; padding: 15px 35px; background: #008000; border: 2px solid #ffd700;">
-      ✅ Confirmed Availability? Proceed to Reservation Steps ↓
-    </a>
+      <div id="view-calendar" class="tab-content calendar-tab-content active">
+        <p>Before preparing your formal letter, please **check the official calendar** below to confirm the desired date and
+          time is available. </p>
+        <p><strong>(Note: The calendar may not show pending requests.)</strong></p>
+        <iframe src="https://calendar.google.com/calendar/embed?src=upcm.henrysysrhall%40gmail.com&ctz=Asia%2FManila&hl=en"
+          style="border: 0" width="100%" frameborder="0" scrolling="no"></iframe>
+
+        <a href="#room-process" class="btn"
+          style="margin-top: 30px; font-size: 1.2rem; padding: 15px 35px; background: #008000; border: 2px solid #ffd700;">
+          ✅ Confirmed Availability? Proceed to Reservation Steps ↓
+        </a>
+      </div>
+
+      <div id="upcoming-events-tab" class="tab-content calendar-tab-content">
+        <div class="events-container" style="margin-top: 0px;">
+          <div class="event-card">
+            <img src="./image/events.png" alt="Medical Conference 2025">
+            <h3>Tuesday Conference</h3>
+            <p><strong>Date:</strong> October 14, 2025</p>
+            <p><strong>Venue:</strong> 7th Floor, Henry Sy Sr. Hall</p>
+          </div>
+          <div class="event-card">
+            <img src="./image/events.png" alt="Health Research Forum">
+            <h3>Faculty Research Forum</h3>
+            <p><strong>Date:</strong> October 17, 2025</p>
+            <p><strong>Venue:</strong> 7F Plenary Hall, Henry Sy Sr. Hall</p>
+          </div>
+          <div class="event-card">
+            <img src="./image/events.png" alt="Student Orientation">
+            <h3>Regular Oral Examinations (Division of Endocrinology)</h3>
+            <p><strong>Date:</strong> October 21, 2025</p>
+            <p><strong>Venue:</strong> 7F Plenary Hall, Henry Sy Sr. Hall</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
-
   <section id="room-process">
     <h2>🏛️ How to Reserve a Room (Made Easy!)</h2>
 
@@ -1131,7 +1046,6 @@
     </p>
 
     <div class="visuals-grid">
-
       <div class="visual-card">
         <div class="video-wrapper">
           <iframe src="https://www.youtube.com/embed/CLIP_ID_1?controls=0" title="Clip 1: Main Lobby Area"
@@ -1172,7 +1086,6 @@
         <p>Clip 5: 6F Conference Room</p>
       </div>
 
-
     </div>
   </section>
 
@@ -1183,7 +1096,6 @@
       width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
       referrerpolicy="no-referrer-when-downgrade">
     </iframe>
-
     <p style="margin-top:15px;">
       <a href="https://maps.app.goo.gl/aYGFUaGd8mvfyR4B7" target="_blank" class="btn">Open in Google Maps</a>
     </p>
@@ -1303,7 +1215,6 @@
     changeHeroBackground(); // Call immediately to set the first image
     setInterval(changeHeroBackground, 5000); // Change image every 5000 milliseconds (5 seconds)
 
-
     // =================================================================
     // 3. BACK-TO-TOP BUTTON / SCROLL ARROW LOGIC (MODIFIED for CSS Class)
     // =================================================================
@@ -1336,7 +1247,6 @@
         downArrow.style.display = scrollPosition ? 'none' : 'flex';
       }
     }
-
     // Listen for the scroll event
     window.addEventListener('scroll', toggleScrollElements);
     // Call at the start to check the initial state
@@ -1423,6 +1333,25 @@
     }
     window.openDrrmTab = openDrrmTab;
 
+    // --- CALENDAR TAB SWITCHER (NEW FUNCTION)
+    function openCalendarTab(tabName, element) {
+      const tabs = document.querySelectorAll(".calendar-tab-content");
+      const buttons = document.querySelectorAll(".calendar-tab-btn");
+
+      // Remove 'active' state from all tabs and buttons
+      tabs.forEach((tab) => {
+        tab.classList.remove("active");
+      });
+      buttons.forEach((btn) => {
+        btn.classList.remove("active");
+      });
+
+      // Set 'active' state for the selected tab and button
+      document.getElementById(tabName).classList.add("active");
+      element.classList.add("active");
+    }
+    window.openCalendarTab = openCalendarTab;
+
 
     // --- FLOWCHART MODAL
     function openFlowchartModal() {
@@ -1433,7 +1362,6 @@
     }
     window.openFlowchartModal = openFlowchartModal;
     window.closeFlowchartModal = closeFlowchartModal;
-
 
     // --- QR CODE MODAL LOGIC
     function openQrModal(e) {
@@ -1447,7 +1375,7 @@
     }
     window.openQrModal = openQrModal;
     window.closeQrModal = closeQrModal;
-
+    
     // --- COPYRIGHT YEAR
     const currentYearElement = document.getElementById('current-year');
     if (currentYearElement) {
@@ -1455,5 +1383,4 @@
     }
   </script>
 </body>
-
 </html>
