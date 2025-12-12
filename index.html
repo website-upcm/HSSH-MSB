@@ -1180,43 +1180,110 @@
       Programmed by <strong>Eduardson Cortez</strong>
     </p>
   </footer>
-
-  <script>
+    <script>
     // =================================================================
-    // 1. INACTIVITY TIMER / AUTO-SCROLL TO TOP LOGIC (FOR LOBBY SCREEN)
+    // 1. EXISTING GENERAL INACTIVITY TIMER / AUTO-RESET-TO-TOP (kept as-is)
     // =================================================================
 
-    // Timer in milliseconds: 1 minute
+    // Timer in milliseconds: 1 minute (original general timer kept)
     const IDLE_TIMEOUT_MS = 1 * 60 * 1000;
     let timeout;
 
-    // Function to scroll back to the top
+    // Function to scroll back to the top (general)
     function resetToTop() {
       window.scrollTo({
         top: 0,
         behavior: 'smooth'
       });
-      console.log("Inactivity detected. Resetting to top.");
+      console.log("General inactivity detected. Resetting to top.");
     }
 
-    // Function to reset or change the timeout
+    // Function to reset or change the general timeout
     function resetTimer() {
       clearTimeout(timeout);
       timeout = setTimeout(resetToTop, IDLE_TIMEOUT_MS);
     }
 
-    // Listen to major user activity events
+    // Listen to major user activity events for the general timer
     document.addEventListener('mousemove', resetTimer, false);
     document.addEventListener('mousedown', resetTimer, false);
     document.addEventListener('keypress', resetTimer, false);
     document.addEventListener('scroll', resetTimer, false);
     document.addEventListener('touchstart', resetTimer, false);
 
-    // Start the initial timer upon page load
+    // Start the initial general timer upon page load
     resetTimer();
 
     // =================================================================
-    // 2. HERO SLIDESHOW LOGIC
+    // 1b. CALENDAR-SPECIFIC INACTIVITY TIMER (NEW REQUIREMENT)
+    // =================================================================
+
+    // Timeout for calendar viewers: 30 seconds (DOC requirement)
+    const CALENDAR_IDLE_TIMEOUT_MS = 30 * 1000;
+    let calendarTimeout = null;
+    let isCalendarActive = false;
+
+    // Start calendar idle timer
+    function startCalendarIdleTimer() {
+      cancelCalendarIdleTimer(); // ensure no duplicate
+      isCalendarActive = true;
+      calendarTimeout = setTimeout(() => {
+        console.log("Calendar idle timeout reached — returning to Home (#hero).");
+        // Redirect/Scroll to home section
+        // Use hash to stay on same site but change view
+        location.hash = '#hero';
+        // Smooth scroll to top to ensure view goes to hero
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // clear flag
+        cancelCalendarIdleTimer();
+      }, CALENDAR_IDLE_TIMEOUT_MS);
+      // Also log the start for debugging
+      console.log("Calendar idle timer started (30s).");
+    }
+
+    // Cancel calendar idle timer
+    function cancelCalendarIdleTimer() {
+      if (calendarTimeout) {
+        clearTimeout(calendarTimeout);
+        calendarTimeout = null;
+      }
+      isCalendarActive = false;
+      // console log
+      // console.log("Calendar idle timer cancelled.");
+    }
+
+    // Reset calendar idle timer if active
+    function resetCalendarIdleTimerIfActive() {
+      if (!isCalendarActive) return;
+      // restart timer
+      startCalendarIdleTimer();
+    }
+
+    // Events that reset the calendar timer (only matter when calendar active)
+    ['mousemove', 'mousedown', 'keypress', 'scroll', 'touchstart'].forEach(evt => {
+      document.addEventListener(evt, () => {
+        resetCalendarIdleTimerIfActive();
+      }, { passive: true });
+    });
+
+    // If user navigates by hash to calendar-section, start the calendar timer
+    function checkHashForCalendar() {
+      const h = location.hash || '';
+      if (h.includes('calendar-section') || h.includes('view-calendar')) {
+        // start calendar timer
+        startCalendarIdleTimer();
+      } else {
+        // cancel calendar timer if they leave
+        cancelCalendarIdleTimer();
+      }
+    }
+    // listen for hash changes (e.g., clicking nav link)
+    window.addEventListener('hashchange', checkHashForCalendar);
+    // Also check on load
+    window.addEventListener('load', checkHashForCalendar);
+
+    // =================================================================
+    // 2. HERO SLIDESHOW LOGIC (unchanged but keep resetTimer calls)
     // =================================================================
 
     const heroSection = document.getElementById('hero');
@@ -1238,7 +1305,7 @@
         // Move to the next index
         currentImageIndex = (currentImageIndex + 1) % images.length;
 
-        // Reset the Inactivity Timer to maintain display in the lobby
+        // Reset the general Inactivity Timer to maintain display in the lobby
         resetTimer();
 
       }, 500); // Wait for 500ms (half a second) during fade out
@@ -1249,10 +1316,9 @@
     setInterval(changeHeroBackground, 5000); // Change image every 5000 milliseconds (5 seconds)
 
     // =================================================================
-    // 3. CHRISTMAS CONFETTI/SNOW BURST LOGIC (UPDATED: Dami na Confetti)
+    // 3. CHRISTMAS CONFETTI/SNOW BURST LOGIC (unchanged)
     // =================================================================
     const confettiContainer = document.getElementById('confetti-container');
-    // Ginamitan ng 100 para mas madami ang lalabas
     const CONFFETTI_COUNT = 100;
     const BURST_DURATION_MS = 10000; // Duration ng pag-ulit (10 seconds)
 
@@ -1260,67 +1326,48 @@
       const snowflake = document.createElement('div');
       snowflake.classList.add('snowflake');
 
-      // Random position (left)
       const startX = Math.random() * 100;
       snowflake.style.left = `${startX}vw`;
 
-      // Random size
       const size = Math.random() * 8 + 5; // 5px to 13px
       snowflake.style.width = `${size}px`;
       snowflake.style.height = `${size}px`;
 
-      // Random animation duration (mas mabilis bumagsak)
       const duration = Math.random() * 5 + 5; // 5s to 10s
       snowflake.style.animationDuration = `${duration}s`;
 
       confettiContainer.appendChild(snowflake);
 
-      // Tanggalin ang confetti object pagkatapos ng animation para hindi bumagal
       setTimeout(() => {
         snowflake.remove();
       }, duration * 1000);
     }
 
     function burstConfetti() {
-      // 1. I-clear muna lahat ng lumang confetti
       confettiContainer.innerHTML = '';
-
-      // 2. I-activate ang opacity ng container
       confettiContainer.classList.add('active');
-
-      // 3. I-create ang mga bagong confetti
       for (let i = 0; i < CONFFETTI_COUNT; i++) {
-        // Ginawang 300ms na lang ang delay para mas mabilis mag-appear lahat
         setTimeout(createConfetti, Math.random() * 300);
       }
-
-      // 4. I-deactivate ang opacity ng container pagkatapos ng 2 segundo
       setTimeout(() => {
         confettiContainer.classList.remove('active');
       }, 2000);
     }
 
-    // Simulan ang unang pagsabog
     burstConfetti();
-
-    // I-ulit ang pagsabog every 10 seconds
     setInterval(burstConfetti, BURST_DURATION_MS);
-    // =================================================================
 
     // =================================================================
-    // 4. BACK-TO-TOP BUTTON / SCROLL ARROW LOGIC (MODIFIED for CSS Class)
+    // 4. BACK-TO-TOP BUTTON / SCROLL ARROW LOGIC (unchanged)
     // =================================================================
 
     const backToTopBtn = document.getElementById('back-to-top');
-    // NEW: Get the arrow elements
     const upArrow = document.querySelector('.scroll-indicator .up-arrow');
     const downArrow = document.querySelector('.scroll-indicator .down-arrow');
 
     function toggleScrollElements() {
-      // Check if scrolled more than 500 pixels
       const scrollPosition = document.body.scrollTop > 500 || document.documentElement.scrollTop > 500;
 
-      // BACK-TO-TOP BUTTON: Use the 'show' class
       if (backToTopBtn) {
         if (scrollPosition) {
           backToTopBtn.classList.add('show');
@@ -1329,32 +1376,26 @@
         }
       }
 
-      // UP ARROW: Show the up arrow when scrolled, Hide when at the top
       if (upArrow) {
         upArrow.style.display = scrollPosition ? 'flex' : 'none';
       }
 
-      // DOWN ARROW: Show the down arrow when at the top, Hide when scrolled
       if (downArrow) {
         downArrow.style.display = scrollPosition ? 'none' : 'flex';
       }
     }
-    // Listen for the scroll event
     window.addEventListener('scroll', toggleScrollElements);
-    // Call at the start to check the initial state
     toggleScrollElements();
 
     // =================================================================
-    // 5. NAVIGATION, SCROLL, AND OTHER UI FUNCTIONS
+    // 5. NAVIGATION, SCROLL, AND OTHER UI FUNCTIONS (with calendar hook)
     // =================================================================
 
-    // --- MENU TOGGLE
     function toggleMenu() {
       document.getElementById("menu").classList.toggle("active");
     }
     window.toggleMenu = toggleMenu;
 
-    // --- NAVBAR SCROLL EFFECT
     window.addEventListener("scroll", function () {
       const nav = document.querySelector("nav");
       if (window.scrollY > 50) {
@@ -1364,14 +1405,12 @@
       }
     });
 
-    // --- SCROLL REVEAL (for sections)
     const sections = document.querySelectorAll("section");
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("show");
-            // If you only want it to appear once, uncomment this:
             // observer.unobserve(entry.target);
           }
         });
@@ -1384,15 +1423,13 @@
     });
 
     // =================================================================
-    // 6. MODAL AND TAB LOGIC (FINALIZED - NO PASSWORD LOCK)
+    // 6. MODAL AND TAB LOGIC (updated: calendar tab hooking into timer)
     // =================================================================
 
-    // --- GENERIC TAB SWITCHER (Rates/Fees tab was removed, but function is kept if needed)
     function openTab(tabName, element) {
       const tabs = document.querySelectorAll(".tab-content");
       const buttons = document.querySelectorAll(".tab-btn");
 
-      // Remove 'active' state from all tabs and buttons
       tabs.forEach((tab) => {
         tab.classList.remove("active");
       });
@@ -1400,18 +1437,15 @@
         btn.classList.remove("active");
       });
 
-      // Set 'active' state for the selected tab and button
       document.getElementById(tabName).classList.add("active");
       element.classList.add("active");
     }
     window.openTab = openTab;
 
-    // --- DRRM TAB SWITCHER
     function openDrrmTab(tabName, element) {
       const tabs = document.querySelectorAll(".drrm-tab-content");
       const buttons = document.querySelectorAll(".drrm-tab-btn");
 
-      // Remove 'active' state from all tabs and buttons
       tabs.forEach((tab) => {
         tab.classList.remove("active");
       });
@@ -1419,18 +1453,16 @@
         btn.classList.remove("active");
       });
 
-      // Set 'active' state for the selected tab and button
       document.getElementById(tabName).classList.add("active");
       element.classList.add("active");
     }
     window.openDrrmTab = openDrrmTab;
 
-    // --- CALENDAR TAB SWITCHER (NEW FUNCTION)
+    // --- CALENDAR TAB SWITCHER (UPDATED to start/cancel calendar idle timer)
     function openCalendarTab(tabName, element) {
       const tabs = document.querySelectorAll(".calendar-tab-content");
       const buttons = document.querySelectorAll(".calendar-tab-btn");
 
-      // Remove 'active' state from all tabs and buttons
       tabs.forEach((tab) => {
         tab.classList.remove("active");
       });
@@ -1438,12 +1470,33 @@
         btn.classList.remove("active");
       });
 
-      // Set 'active' state for the selected tab and button
       document.getElementById(tabName).classList.add("active");
       element.classList.add("active");
+
+      // If user opened the view-calendar tab, start the calendar-specific idle timer
+      if (tabName === 'view-calendar') {
+        // mark calendar active and start timer
+        startCalendarIdleTimer();
+      } else {
+        // if other tab opened, cancel calendar timer
+        cancelCalendarIdleTimer();
+      }
     }
     window.openCalendarTab = openCalendarTab;
 
+    // Also: if user clicks the in-page anchor to the calendar section, start calendar timer
+    // We handle anchor clicks for any element linking to '#calendar-section' or '#view-calendar'
+    document.querySelectorAll('a[href="#calendar-section"], a[href="#view-calendar"]').forEach(a => {
+      a.addEventListener('click', () => {
+        // small delay to allow hash to change and tab to open
+        setTimeout(() => {
+          startCalendarIdleTimer();
+        }, 300);
+      });
+    });
+
+    // If user scrolls manually to the calendar section (e.g., clicking nav), check hash once more
+    // (note: hashchange listener set earlier will call checkHashForCalendar)
 
     // --- FLOWCHART MODAL
     function openFlowchartModal() {
