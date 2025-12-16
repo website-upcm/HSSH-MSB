@@ -844,6 +844,46 @@
     }
 
     /* END MGA BAGONG DAGDAG */
+
+    /* ===============================
+   WIFI GUIDE IMAGE SECTION
+================================ */
+
+    #wifi-guide {
+      padding: 90px 20px 40px;
+      background: #f4f4f4;
+      text-align: center;
+    }
+
+    #wifi-guide h2 {
+      font-size: 2.2rem;
+      color: #800000;
+      margin-bottom: 25px;
+      border-bottom: 3px solid #ffd700;
+      display: inline-block;
+      padding-bottom: 6px;
+    }
+
+    .wifi-guide-img {
+      max-width: 1200px;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      background: #fff;
+      padding: 10px;
+    }
+
+    /* Mobile optimization */
+    @media (max-width: 768px) {
+      #wifi-guide {
+        padding-top: 70px;
+      }
+
+      .wifi-guide-img {
+        padding: 5px;
+      }
+    }
   </style>
 </head>
 
@@ -856,11 +896,14 @@
       <li><a href="#calendar-section">Availability</a></li>
       <li><a href="#room-process">Reservation</a></li>
       <li><a href="#drrm-guide">Safety Guide</a></li>
+      <li><a href="#wifi-guide">Wi-Fi Access</a></li>
       <li><a href="#events">Events</a></li>
       <li><a href="#map">Map</a></li>
       <li><a href="#organization">Org Chart</a></li>
     </ul>
   </nav>
+
+
 
   <div class="hero" id="hero">
     <div class="confetti-overlay" id="confetti-container"></div>
@@ -881,6 +924,9 @@
       </a>
     </div>
   </div>
+
+
+
 
   <section id="video">
     <h2>🎥 About UPCM Henry Sy Sr. Hall</h2>
@@ -1120,6 +1166,12 @@
     </div>
   </section>
 
+  <section id="wifi-guide" class="wifi-guide">
+    <h2>📶 How to Connect to UPM Wi-Fi</h2>
+
+    <img src="./image/wifi-guide.png" alt="How to Connect to UPM Wi-Fi Step by Step" class="wifi-guide-img" />
+  </section>
+
 
 
   <section id="map">
@@ -1180,7 +1232,7 @@
       Programmed by <strong>Eduardson Cortez</strong>
     </p>
   </footer>
-    <script>
+  <script>
     // =================================================================
     // 1. EXISTING GENERAL INACTIVITY TIMER / AUTO-RESET-TO-TOP (kept as-is)
     // =================================================================
