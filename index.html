@@ -38,14 +38,16 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 1001; /* Higher than confetti and modals */
+      z-index: 1001;
+      /* Higher than confetti and modals */
       transition: 0.3s ease;
     }
 
     nav.scrolled {
       background: rgba(128, 0, 0, 0.98);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      padding: 10px 25px; /* Slight shrink effect */
+      padding: 10px 25px;
+      /* Slight shrink effect */
     }
 
     nav h2 {
@@ -101,12 +103,14 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.55); /* Slightly lighter overlay for better visibility */
+      background: rgba(0, 0, 0, 0.55);
+      /* Slightly lighter overlay for better visibility */
     }
 
     .hero-content {
       position: relative;
-      z-index: 2; /* Ensure text is above overlay/confetti */
+      z-index: 2;
+      /* Ensure text is above overlay/confetti */
       max-width: 900px;
       animation: fadeIn 1.2s ease;
       padding: 0 20px;
@@ -150,14 +154,14 @@
       font-weight: 600;
       transition: 0.3s ease;
       border: 2px solid transparent;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     }
 
     .btn:hover {
       background: #a52a2a;
       transform: translateY(-3px);
       border: 2px solid #ffd700;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
 
     /* =========================================
@@ -169,7 +173,8 @@
       opacity: 0;
       transform: translateY(40px);
       transition: 0.8s ease;
-      overflow: hidden; /* Prevent spillover */
+      overflow: hidden;
+      /* Prevent spillover */
     }
 
     section.show {
@@ -200,7 +205,8 @@
 
     .video-container iframe {
       width: 100%;
-      aspect-ratio: 16/9; /* Modern aspect ratio handling */
+      aspect-ratio: 16/9;
+      /* Modern aspect ratio handling */
       height: auto;
       min-height: 400px;
       border: none;
@@ -269,7 +275,7 @@
       border-radius: 8px;
       text-align: left;
       line-height: 1.7;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     }
 
     .notice h3 {
@@ -295,8 +301,9 @@
       border: none;
       border-radius: 12px;
       margin-top: 25px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      background: #fff; /* Placeholder while loading */
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      background: #fff;
+      /* Placeholder while loading */
     }
 
     /* =========================================
@@ -355,9 +362,9 @@
       margin-bottom: 30px;
       transition: transform 0.3s;
     }
-    
+
     .timeline-step:hover {
-        transform: scale(1.02);
+      transform: scale(1.02);
     }
 
     .timeline-step::after {
@@ -373,13 +380,35 @@
       z-index: 1;
     }
 
-    .timeline-step.left { left: 0; text-align: right; }
-    .timeline-step.right { left: 50%; text-align: left; }
-    .timeline-step.left::after { right: -12px; }
-    .timeline-step.right::after { left: -12px; }
+    .timeline-step.left {
+      left: 0;
+      text-align: right;
+    }
 
-    .timeline-step h3 { font-size: 1.3rem; margin-bottom: 10px; color: #800000; }
-    .timeline-step p { font-size: 0.95rem; line-height: 1.6; color: #555; }
+    .timeline-step.right {
+      left: 50%;
+      text-align: left;
+    }
+
+    .timeline-step.left::after {
+      right: -12px;
+    }
+
+    .timeline-step.right::after {
+      left: -12px;
+    }
+
+    .timeline-step h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: #800000;
+    }
+
+    .timeline-step p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #555;
+    }
 
     /* =========================================
        ORG CHART
@@ -387,15 +416,17 @@
     #organization {
       background: #fff;
     }
+
     .org-chart-container {
       max-width: 900px;
       margin: 30px auto;
       padding: 10px;
     }
+
     .org-chart-image {
       width: 100%;
       height: auto;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
       border-radius: 8px;
     }
 
@@ -412,13 +443,21 @@
       border-top: 5px solid #800000;
     }
 
-    footer a { color: #ffd700; text-decoration: none; }
-    footer a:hover { text-decoration: underline; color: #fff; }
+    footer a {
+      color: #ffd700;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+      color: #fff;
+    }
 
     /* =========================================
        MODALS & TABS
        ========================================= */
-    .flowchart-modal-overlay, .qr-modal-overlay {
+    .flowchart-modal-overlay,
+    .qr-modal-overlay {
       display: none;
       position: fixed;
       top: 0;
@@ -432,7 +471,8 @@
       padding: 20px;
     }
 
-    .flowchart-modal-content, .qr-modal-content {
+    .flowchart-modal-content,
+    .qr-modal-content {
       background: #fff;
       padding: 20px;
       border-radius: 12px;
@@ -441,8 +481,11 @@
       overflow-y: auto;
       position: relative;
     }
-    
-    .qr-modal-content { max-width: 350px; text-align: center; }
+
+    .qr-modal-content {
+      max-width: 350px;
+      text-align: center;
+    }
 
     .close-btn {
       position: absolute;
@@ -460,11 +503,27 @@
       text-align: center;
       transition: 0.3s;
     }
-    .close-btn:hover { background: #fff; color: #000; }
+
+    .close-btn:hover {
+      background: #fff;
+      color: #000;
+    }
 
     /* TABS */
-    .tab-container { max-width: 1100px; margin: 20px auto; padding: 0 10px; }
-    .tab-buttons { display: flex; justify-content: center; margin-bottom: 25px; border-bottom: 2px solid #ddd; flex-wrap: wrap; }
+    .tab-container {
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 0 10px;
+    }
+
+    .tab-buttons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 25px;
+      border-bottom: 2px solid #ddd;
+      flex-wrap: wrap;
+    }
+
     .tab-btn {
       padding: 12px 25px;
       margin: 0 5px 5px 5px;
@@ -477,37 +536,59 @@
       color: #555;
       transition: all 0.3s ease;
     }
+
     .tab-btn.active {
       background: #800000;
       color: #fff;
       border-bottom: 4px solid #ffd700;
     }
-    .tab-content { display: none; animation: fadeIn 0.5s; }
-    .tab-content.active { display: block; }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.5s;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
 
     /* =========================================
        ANIMATIONS & EFFECTS
        ========================================= */
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* Confetti */
     .confetti-overlay {
       position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       overflow: hidden;
       z-index: 1;
       pointer-events: none;
       opacity: 0;
       transition: opacity 0.3s ease-in-out;
     }
-    .confetti-overlay.active { opacity: 1; }
+
+    .confetti-overlay.active {
+      opacity: 1;
+    }
 
     .snowflake {
       position: absolute;
-      width: 10px; height: 10px;
+      width: 10px;
+      height: 10px;
       background: #ffd700;
       border-radius: 50%;
       transform: translateY(-100vh);
@@ -516,8 +597,15 @@
     }
 
     @keyframes fall {
-      0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+      0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+      }
     }
 
     /* Back to Top */
@@ -537,8 +625,17 @@
       transition: all 0.3s ease;
       border: 2px solid #800000;
     }
-    #back-to-top.show { visibility: visible; opacity: 1; transform: translateY(0); }
-    #back-to-top:hover { background: #fff; transform: scale(1.1); }
+
+    #back-to-top.show {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #back-to-top:hover {
+      background: #fff;
+      transform: scale(1.1);
+    }
 
     /* Scroll Indicator (Bouncing Arrows) */
     .scroll-indicator {
@@ -552,35 +649,62 @@
       gap: 10px;
       animation: bounce 2s infinite;
     }
+
     .scroll-indicator a {
       background: rgba(128, 0, 0, 0.8);
       color: #ffd700;
-      width: 45px; height: 45px;
+      width: 45px;
+      height: 45px;
       border-radius: 50%;
-      display: flex; justify-content: center; align-items: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       text-decoration: none;
       font-size: 1.5rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
+
     @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
-      40% { transform: translateY(-10px) translateX(-50%); }
-      60% { transform: translateY(-5px) translateX(-50%); }
+
+      0%,
+      20%,
+      50%,
+      80%,
+      100% {
+        transform: translateY(0) translateX(-50%);
+      }
+
+      40% {
+        transform: translateY(-10px) translateX(-50%);
+      }
+
+      60% {
+        transform: translateY(-5px) translateX(-50%);
+      }
     }
-    
+
     /* Initially hide up arrow */
-    .scroll-indicator .up-arrow { display: none; }
+    .scroll-indicator .up-arrow {
+      display: none;
+    }
 
 
     /* =========================================
        MEDIA QUERIES (RESPONSIVENESS)
        ========================================= */
-    
+
     /* MOBILE DEVICES (Max 768px) */
     @media (max-width: 768px) {
+
       /* Navigation */
-      nav { padding: 10px 15px; }
-      .menu-toggle { display: block; }
+      nav {
+        padding: 10px 15px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
       nav ul {
         display: none;
         flex-direction: column;
@@ -592,42 +716,106 @@
         padding: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       }
-      nav ul.active { display: flex; }
-      nav ul li { text-align: center; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      nav ul li {
+        text-align: center;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
 
       /* Hero */
-      .hero h1 { font-size: 2.8rem; }
-      .hero h2 { font-size: 1.5rem; }
-      .hero p { font-size: 1.1rem; }
-      
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+
+      .hero h2 {
+        font-size: 1.5rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
       /* Timeline */
-      .timeline::after { left: 20px; }
-      .timeline-step { width: 100%; padding-left: 50px; padding-right: 20px; margin-bottom: 30px; }
-      .timeline-step.left, .timeline-step.right { left: 0; text-align: left; }
-      .timeline-step.left::after, .timeline-step.right::after { left: 10px; right: auto; }
-      
+      .timeline::after {
+        left: 20px;
+      }
+
+      .timeline-step {
+        width: 100%;
+        padding-left: 50px;
+        padding-right: 20px;
+        margin-bottom: 30px;
+      }
+
+      .timeline-step.left,
+      .timeline-step.right {
+        left: 0;
+        text-align: left;
+      }
+
+      .timeline-step.left::after,
+      .timeline-step.right::after {
+        left: 10px;
+        right: auto;
+      }
+
       /* Calendar/Map */
-      #map iframe, #calendar-section iframe { height: 500px; }
+      #map iframe,
+      #calendar-section iframe {
+        height: 500px;
+      }
 
       /* General Padding */
-      section { padding: 60px 15px; }
+      section {
+        padding: 60px 15px;
+      }
     }
 
     /* KIOSK / TV SCREENS (Min 1600px) */
     @media (min-width: 1600px) {
-      body { font-size: 1.2rem; } /* Base font size increase */
-      .hero h1 { font-size: 6rem; }
-      .hero h2 { font-size: 2.5rem; }
-      .btn { padding: 15px 40px; font-size: 1.2rem; }
-      section h2 { font-size: 3rem; }
-      
-      .event-card h3 { font-size: 1.6rem; }
-      .event-card p { font-size: 1.1rem; }
-      
-      #calendar-section iframe { height: 900px; }
-      
+      body {
+        font-size: 1.2rem;
+      }
+
+      /* Base font size increase */
+      .hero h1 {
+        font-size: 6rem;
+      }
+
+      .hero h2 {
+        font-size: 2.5rem;
+      }
+
+      .btn {
+        padding: 15px 40px;
+        font-size: 1.2rem;
+      }
+
+      section h2 {
+        font-size: 3rem;
+      }
+
+      .event-card h3 {
+        font-size: 1.6rem;
+      }
+
+      .event-card p {
+        font-size: 1.1rem;
+      }
+
+      #calendar-section iframe {
+        height: 900px;
+      }
+
       /* Enhance visibility for standing viewers */
-      .notice, .timeline-step, .wifi-guide-container {
+      .notice,
+      .timeline-step,
+      .wifi-guide-container {
         padding: 40px;
       }
     }
@@ -656,14 +844,14 @@
       <h1>UP College of Medicine</h1>
       <h2>Henry Sy Sr.</h2>
       <p>Medical Sciences Building</p>
-      
+
       <div style="margin-top: 30px;">
         <a href="#calendar-section" class="btn">View Calendar</a>
         <a href="#room-process" class="btn">Room Reservation</a>
         <a href="#map" class="btn">View Map</a>
       </div>
     </div>
-    
+
     <div class="scroll-indicator">
       <a href="#video" class="down-arrow">↓</a>
       <a href="#hero" class="up-arrow">↑</a>
@@ -684,19 +872,22 @@
     <h2>📅 Upcoming Events</h2>
     <div class="events-container">
       <div class="event-card">
-        <img src="./image/events.png" alt="Medical Conference 2025" onerror="this.src='https://via.placeholder.com/300x200?text=Event+Image'">
+        <img src="./image/events.png" alt="Medical Conference 2025"
+          onerror="this.src='https://via.placeholder.com/300x200?text=Event+Image'">
         <h3>Department of Medicine Research Forum</h3>
         <p><strong>Date:</strong> December 2, 2025</p>
         <p><strong>Venue:</strong> 7th Floor, Henry Sy Sr. Hall</p>
       </div>
       <div class="event-card">
-        <img src="./image/events.png" alt="Year-End Celebration" onerror="this.src='https://via.placeholder.com/300x200?text=Event+Image'">
+        <img src="./image/events.png" alt="Year-End Celebration"
+          onerror="this.src='https://via.placeholder.com/300x200?text=Event+Image'">
         <h3>UPCM Admin Staff and REPS Year-End Celebration</h3>
         <p><strong>Date:</strong> December 16, 2025</p>
         <p><strong>Venue:</strong> 7F Plenary Hall</p>
       </div>
       <div class="event-card">
-        <img src="./image/events.png" alt="Symposium" onerror="this.src='https://via.placeholder.com/300x200?text=Event+Image'">
+        <img src="./image/events.png" alt="Symposium"
+          onerror="this.src='https://via.placeholder.com/300x200?text=Event+Image'">
         <h3>UPMAS GRAND SCIENTIFIC SYMPOSIUM</h3>
         <p><strong>Date:</strong> December 15, 2025</p>
         <p><strong>Venue:</strong> 7F Plenary Hall</p>
@@ -734,7 +925,7 @@
         <iframe
           src="https://calendar.google.com/calendar/embed?src=upcm.henrysysrhall%40gmail.com&ctz=Asia%2FManila&hl=en"
           scrolling="no"></iframe>
-          
+
         <div style="margin-top: 30px;">
           <a href="#room-process" class="btn" style="background: #008000; border: 2px solid #ffd700;">
             ✅ Confirmed Availability? Proceed to Reservation
@@ -744,19 +935,19 @@
 
       <div id="upcoming-events-tab" class="tab-content calendar-tab-content">
         <div class="events-container" style="margin-top: 0;">
-            <div class="event-card">
-              <h3>Department of Medicine Research Forum</h3>
-              <p>Dec 2, 2025 @ 7th Floor</p>
-            </div>
-            <div class="event-card">
-              <h3>Year-End Celebration</h3>
-              <p>Dec 16, 2025 @ Plenary Hall</p>
-            </div>
-            <div class="event-card">
-              <h3>UPMAS Symposium</h3>
-              <p>Dec 15, 2025 @ Plenary Hall</p>
-            </div>
-         </div>
+          <div class="event-card">
+            <h3>Department of Medicine Research Forum</h3>
+            <p>Dec 2, 2025 @ 7th Floor</p>
+          </div>
+          <div class="event-card">
+            <h3>Year-End Celebration</h3>
+            <p>Dec 16, 2025 @ Plenary Hall</p>
+          </div>
+          <div class="event-card">
+            <h3>UPMAS Symposium</h3>
+            <p>Dec 15, 2025 @ Plenary Hall</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -766,11 +957,12 @@
     <button class="btn" onclick="openFlowchartModal()">
       📊 View Reservation Flowchart
     </button>
-    
+
     <div class="timeline">
       <div class="timeline-step left">
         <h3>Step 1: Prepare a Letter ✉️</h3>
-        <p>Address request to <strong>Dr. Arsenio Claro A. Cabungcal</strong> thru <strong>Engr. Michael Bondoc</strong>. Include details: Date, Time, Room, Event Nature, Participants.</p>
+        <p>Address request to <strong>Dr. Arsenio Claro A. Cabungcal</strong> thru <strong>Engr. Michael
+            Bondoc</strong>. Include details: Date, Time, Room, Event Nature, Participants.</p>
       </div>
       <div class="timeline-step right">
         <h3>Step 2: Send the Letter 📤</h3>
@@ -782,7 +974,8 @@
       </div>
       <div class="timeline-step right">
         <h3>Step 4: Check Fees 💵</h3>
-        <p>Coordinate with Building Manager and <strong>Ms. Lorelie Alcazar</strong> for the Statement of Account (SOA).</p>
+        <p>Coordinate with Building Manager and <strong>Ms. Lorelie Alcazar</strong> for the Statement of Account (SOA).
+        </p>
       </div>
       <div class="timeline-step left">
         <h3>Step 5: Payment 🧾</h3>
@@ -802,15 +995,16 @@
       📩 Draft Email Now
     </a>
   </section>
-  
+
   <section class="notice show" style="opacity: 1; transform: translateY(0);">
     <h3>💰 Maintenance and Rental Fees Inquiry</h3>
-    <p>For inquiries regarding Maintenance Fees or Rental Rates, email: <a href="mailto:hss-msb.upmanila@up.edu.ph">hss-msb.upmanila@up.edu.ph</a></p>
+    <p>For inquiries regarding Maintenance Fees or Rental Rates, email: <a
+        href="mailto:hss-msb.upmanila@up.edu.ph">hss-msb.upmanila@up.edu.ph</a></p>
   </section>
 
   <section id="drrm-guide">
     <h2>🚨 Disaster Risk Reduction Guide</h2>
-    
+
     <div class="tab-container">
       <div class="tab-buttons">
         <button class="tab-btn drrm-tab-btn active" onclick="openDrrmTab('earthquake', this)">
@@ -824,7 +1018,9 @@
       <div id="earthquake" class="tab-content drrm-tab-content active">
         <div class="notice" style="background: #fff; border-left: 6px solid #ffd700;">
           <h3>Nationwide Simultaneous Earthquake Drill (NSED)</h3>
-          <img src="./image/earthquick.jpg" alt="Earthquake Drill" style="max-width: 100%; height: auto; margin-top: 15px; border-radius: 8px;" onerror="this.src='https://via.placeholder.com/600x400?text=Earthquake+Drill+Infographic'">
+          <img src="./image/earthquick.jpg" alt="Earthquake Drill"
+            style="max-width: 100%; height: auto; margin-top: 15px; border-radius: 8px;"
+            onerror="this.src='https://via.placeholder.com/600x400?text=Earthquake+Drill+Infographic'">
         </div>
       </div>
 
@@ -846,28 +1042,30 @@
 
   <section id="wifi-guide">
     <h2>📶 How to Connect to UPM Wi-Fi</h2>
-    <p style="margin-bottom: 25px; color: #555;">Follow this step-by-step guide to connect your devices to the University network.</p>
-    
+    <p style="margin-bottom: 25px; color: #555;">Follow this step-by-step guide to connect your devices to the
+      University network.</p>
+
     <div class="wifi-guide-container">
-      <img src="./image/wifi-guide.png" alt="How to Connect to UPM Wi-Fi Step by Step" class="wifi-guide-img" onerror="this.src='https://via.placeholder.com/1000x600?text=Insert+Wifi+Guide+Image+Here'" />
+      <img src="./image/wifi-guide.png" alt="How to Connect to UPM Wi-Fi Step by Step" class="wifi-guide-img"
+        onerror="this.src='https://via.placeholder.com/1000x600?text=Insert+Wifi+Guide+Image+Here'" />
     </div>
   </section>
 
   <section id="map">
     <h2>📍 Location Map</h2>
-    <iframe
-      src="https://maps.google.com/maps?q=UP+Manila+Henry+Sy+Sr+Hall&t=&z=15&ie=UTF8&iwloc=&output=embed"
+    <iframe src="https://maps.google.com/maps?q=UP+Manila+Henry+Sy+Sr+Hall&t=&z=15&ie=UTF8&iwloc=&output=embed"
       width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
     </iframe>
     <div style="margin-top: 15px;">
-        <a href="https://goo.gl/maps/xyz" target="_blank" class="btn">Open in Google Maps</a>
+      <a href="https://goo.gl/maps/xyz" target="_blank" class="btn">Open in Google Maps</a>
     </div>
   </section>
 
   <section id="organization">
     <h2>ORGANIZATIONAL CHART</h2>
     <div class="org-chart-container">
-      <img src="./image/org-chart.png" alt="Organizational Chart" class="org-chart-image" onerror="this.src='https://via.placeholder.com/800x600?text=Org+Chart'">
+      <img src="./image/org-chart.png" alt="Organizational Chart" class="org-chart-image"
+        onerror="this.src='https://via.placeholder.com/800x600?text=Org+Chart'">
     </div>
   </section>
 
@@ -889,7 +1087,8 @@
   <div id="flowchartModal" class="flowchart-modal-overlay" onclick="closeFlowchartModal()">
     <div class="flowchart-modal-content" onclick="event.stopPropagation()">
       <span class="close-btn" onclick="closeFlowchartModal()">×</span>
-      <img src="./image/flowchart.png" alt="Reservation Flowchart" style="width:100%; height:auto;" onerror="this.src='https://via.placeholder.com/600x800?text=Flowchart+Image'">
+      <img src="./image/flowchart.png" alt="Reservation Flowchart" style="width:100%; height:auto;"
+        onerror="this.src='https://via.placeholder.com/600x800?text=Flowchart+Image'">
     </div>
   </div>
 
@@ -897,7 +1096,8 @@
     <div class="qr-modal-content" onclick="event.stopPropagation()">
       <span class="close-btn" onclick="closeQrModal()">×</span>
       <h3 style="color:#800000; margin-bottom:15px;">Scan to view on mobile</h3>
-      <img src="./image/qrcode.png" alt="QR Code" style="width:200px; height:200px; border:4px solid #ffd700;" onerror="this.src='https://via.placeholder.com/200x200?text=QR+Code'">
+      <img src="./image/qrcode.png" alt="QR Code" style="width:200px; height:200px; border:4px solid #ffd700;"
+        onerror="this.src='https://via.placeholder.com/200x200?text=QR+Code'">
       <p style="margin-top:10px;">Thank you for visiting!</p>
     </div>
   </div>
@@ -928,32 +1128,32 @@
       confettiContainer.appendChild(snowflake);
       setTimeout(() => snowflake.remove(), 10000);
     }
-    
+
     function burstConfetti() {
-        confettiContainer.innerHTML = '';
-        confettiContainer.classList.add('active');
-        for(let i=0; i<50; i++) setTimeout(createConfetti, Math.random() * 500);
-        setTimeout(() => confettiContainer.classList.remove('active'), 5000); // Stop after 5s
+      confettiContainer.innerHTML = '';
+      confettiContainer.classList.add('active');
+      for (let i = 0; i < 50; i++) setTimeout(createConfetti, Math.random() * 500);
+      setTimeout(() => confettiContainer.classList.remove('active'), 5000); // Stop after 5s
     }
     // Run confetti every 15 seconds so it's not annoying on Kiosk
     setInterval(burstConfetti, 15000);
     burstConfetti();
 
-    // 3. IDLE TIMER (Kiosk Mode)
-    // Returns to top if no activity for 60 seconds
-    let idleTimer;
-    function resetTimer() {
-        clearTimeout(idleTimer);
-        idleTimer = setTimeout(() => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            // Also reset calendar tab if open
-            if(document.querySelector('#view-calendar.active')) {
-                 location.reload(); // Hard refresh to reset state for next user
-            }
-        }, 60000); 
-    }
-    document.onmousemove = document.onkeypress = document.ontouchstart = resetTimer;
-    resetTimer();
+    // // 3. IDLE TIMER (Kiosk Mode)
+    // // Returns to top if no activity for 60 seconds
+    // let idleTimer;
+    // function resetTimer() {
+    //   clearTimeout(idleTimer);
+    //   idleTimer = setTimeout(() => {
+    //     window.scrollTo({ top: 0, behavior: 'smooth' });
+    //     // Also reset calendar tab if open
+    //     if (document.querySelector('#view-calendar.active')) {
+    //       location.reload(); // Hard refresh to reset state for next user
+    //     }
+    //   }, 60000);
+    // }
+    // document.onmousemove = document.onkeypress = document.ontouchstart = resetTimer;
+    // resetTimer();
 
     // 4. SCROLL ELEMENTS (Back to top / Arrows)
     const backToTopBtn = document.getElementById('back-to-top');
@@ -961,42 +1161,42 @@
     const downArrow = document.querySelector('.down-arrow');
 
     window.addEventListener('scroll', () => {
-        const scrollPos = window.scrollY;
-        // Nav transparency
-        document.querySelector('nav').classList.toggle('scrolled', scrollPos > 50);
-        
-        // Buttons visibility
-        if (scrollPos > 400) {
-            backToTopBtn.classList.add('show');
-            if(upArrow) upArrow.style.display = 'flex';
-            if(downArrow) downArrow.style.display = 'none';
-        } else {
-            backToTopBtn.classList.remove('show');
-            if(upArrow) upArrow.style.display = 'none';
-            if(downArrow) downArrow.style.display = 'flex';
-        }
+      const scrollPos = window.scrollY;
+      // Nav transparency
+      document.querySelector('nav').classList.toggle('scrolled', scrollPos > 50);
+
+      // Buttons visibility
+      if (scrollPos > 400) {
+        backToTopBtn.classList.add('show');
+        if (upArrow) upArrow.style.display = 'flex';
+        if (downArrow) downArrow.style.display = 'none';
+      } else {
+        backToTopBtn.classList.remove('show');
+        if (upArrow) upArrow.style.display = 'none';
+        if (downArrow) downArrow.style.display = 'flex';
+      }
     });
 
     // 5. OBSERVER (Fade-in on scroll)
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('show');
-        });
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
     }, { threshold: 0.1 });
     document.querySelectorAll('section').forEach(sec => observer.observe(sec));
 
     // 6. UI FUNCTIONS
     function toggleMenu() {
-        document.getElementById("menu").classList.toggle("active");
+      document.getElementById("menu").classList.toggle("active");
     }
 
     function openTab(tabName, btn, tabClass, btnClass) {
-        document.querySelectorAll('.' + tabClass).forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.' + btnClass).forEach(b => b.classList.remove('active'));
-        document.getElementById(tabName).classList.add('active');
-        btn.classList.add('active');
+      document.querySelectorAll('.' + tabClass).forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.' + btnClass).forEach(b => b.classList.remove('active'));
+      document.getElementById(tabName).classList.add('active');
+      btn.classList.add('active');
     }
-    
+
     // Wrapper functions for specific sections
     window.openCalendarTab = (name, btn) => openTab(name, btn, 'calendar-tab-content', 'calendar-tab-btn');
     window.openDrrmTab = (name, btn) => openTab(name, btn, 'drrm-tab-content', 'drrm-tab-btn');
@@ -1004,10 +1204,10 @@
     // Modals
     function openFlowchartModal() { document.getElementById("flowchartModal").style.display = "flex"; }
     function closeFlowchartModal() { document.getElementById("flowchartModal").style.display = "none"; }
-    
-    function openQrModal(e) { 
-        if(e) e.preventDefault(); 
-        document.getElementById("qrCodeModal").style.display = "flex"; 
+
+    function openQrModal(e) {
+      if (e) e.preventDefault();
+      document.getElementById("qrCodeModal").style.display = "flex";
     }
     function closeQrModal() { document.getElementById("qrCodeModal").style.display = "none"; }
 
@@ -1015,4 +1215,5 @@
     document.getElementById('current-year').textContent = new Date().getFullYear();
   </script>
 </body>
+
 </html>
