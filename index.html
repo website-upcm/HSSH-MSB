@@ -959,10 +959,13 @@
 
   <section id="room-process">
     <h2>🏛️ How to Reserve a Room</h2>
-    <button class="btn" onclick="openFlowchartModal()">
-      📊 View Reservation Flowchart
-    </button>
-
+    <!-- FLOWCHART DISPLAYED HERE -->
+    <div style="max-width:900px;margin:20px auto;">
+      <img src="./image/flowchart.png" alt="Reservation Flowchart"
+        style="width:100%;border-radius:15px;box-shadow:0 8px 20px rgba(0,0,0,0.15);"
+        onerror="this.src='https://via.placeholder.com/600x800?text=Flowchart+Image'">
+    </div>
+    <!-- END FLOWCHART -->
     <div class="timeline">
       <div class="timeline-step left">
         <h3>Step 1: Prepare a Letter ✉️</h3>
