@@ -819,19 +819,26 @@
         padding: 40px;
       }
     }
+
+    .aed-image {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
   </style>
 </head>
 
 <body>
   <nav>
     <h2>UPCM HSS-MSB</h2>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle navigation menu">☰</div>
     <ul id="menu">
-       <li>
-        <a href="https://cm.upm.edu.ph/p/henry-sy-medical-sciences-building/" target="_blank">
+      <li>
+        <a href="https://cm.upm.edu.ph/" target="_blank">
           ← Back to Main UPCM Website
         </a>
       </li>
+
       <li><a href="#hero">Home Page</a></li>
       <li><a href="#calendar-section">Availability</a></li>
       <li><a href="#room-process">Reservation</a></li>
@@ -966,6 +973,7 @@
         onerror="this.src='https://via.placeholder.com/600x800?text=Flowchart+Image'">
     </div>
     <!-- END FLOWCHART -->
+
     <div class="timeline">
       <div class="timeline-step left">
         <h3>Step 1: Prepare a Letter ✉️</h3>
@@ -1010,6 +1018,26 @@
         href="mailto:hss-msb.upmanila@up.edu.ph">hss-msb.upmanila@up.edu.ph</a></p>
   </section>
 
+
+  <section id="aed-guide">
+    <h2>❤️ Automated External Defibrillator (AED) Guide</h2>
+
+    <p style="max-width:900px;margin:0 auto 25px;color:#555;">
+      This guide shows the proper steps on how to use an Automated External Defibrillator (AED) during cardiac
+      emergencies.
+    </p>
+
+    <div style="max-width:900px;margin:0 auto;cursor:pointer;" onclick="openAedModal()">
+      <img src="./image/aed-guide.png" class="aed-image" alt="AED Step-by-Step Guide">
+      <p style="margin-top:10px;color:#800000;font-weight:600;">
+        🔍 Click image to enlarge
+      </p>
+    </div>
+  </section>
+
+
+
+
   <section id="drrm-guide">
     <h2>🚨 Disaster Risk Reduction Guide</h2>
 
@@ -1047,6 +1075,11 @@
       </div>
     </div>
   </section>
+
+
+
+
+
 
   <section id="wifi-guide">
     <h2>📶 How to Connect to UPM Wi-Fi</h2>
@@ -1110,7 +1143,36 @@
     </div>
   </div>
 
+  <div id="aedModal" class="flowchart-modal-overlay" onclick="closeAedModal()">
+    <div class="flowchart-modal-content" onclick="event.stopPropagation()">
+      <span class="close-btn" onclick="closeAedModal()">×</span>
+      <img src="./image/aed-guide.png" alt="AED Guide" style="width:100%;height:auto;">
+    </div>
+  </div>
+
+
   <script>
+
+    // Mobile menu auto-close when link is clicked
+    document.querySelectorAll('#menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById("menu").classList.remove("active");
+      });
+    });
+
+
+
+
+
+
+    function openAedModal() {
+      document.getElementById("aedModal").style.display = "flex";
+    }
+
+    function closeAedModal() {
+      document.getElementById("aedModal").style.display = "none";
+    }
+
     // 1. HERO SLIDESHOW
     const heroSection = document.getElementById('hero');
     // Ensure these image paths are correct
