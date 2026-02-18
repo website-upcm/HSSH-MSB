@@ -892,6 +892,7 @@
       <h2 style="color:#800000;text-align:center;">Select Floor</h2>
 
       <div style="display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-top:20px;">
+        <button class="btn" onclick="openGroundFloor()">Ground Floor</button>
         <button class="btn" onclick="openSecondFloor()">2nd Floor</button>
         <button class="btn" onclick="openThirdFloor()">3rd Floor</button>
         <button class="btn" onclick="openFourthFloor()">4th Floor</button>
@@ -905,6 +906,37 @@
       </div>
     </div>
   </div>
+
+  <!-- GROUND FLOOR MODAL -->
+  <div id="groundFloorModal" class="flowchart-modal-overlay" onclick="closeGroundFloor()">
+    <div class="flowchart-modal-content" onclick="event.stopPropagation()">
+      <span class="close-btn" onclick="closeGroundFloor()">×</span>
+
+      <h2 style="color:#800000;">Ground Floor – Facilities</h2>
+
+      <!-- FLOOR PLAN -->
+      <img src="./image/ground-floor-plan.png" style="width:100%;margin:20px 0;border-radius:12px;">
+
+      <div class="events-container">
+
+        <!-- LOBBY -->
+        <div class="event-card">
+          <h3>Lobby</h3>
+          <img src="./image/ground-lobby-1.png">
+          <img src="./image/ground-lobby-2.png" style="margin-top:10px;">
+        </div>
+
+        <!-- PORTICO -->
+        <div class="event-card">
+          <h3>Portico</h3>
+          <img src="./image/ground-portico-1.png">
+          <img src="./image/ground-portico-2.png" style="margin-top:10px;">
+        </div>
+
+      </div>
+    </div>
+  </div>
+
 
   <div id="secondFloorModal" class="flowchart-modal-overlay" onclick="closeSecondFloor()">
     <div class="flowchart-modal-content" onclick="event.stopPropagation()">
@@ -920,7 +952,7 @@
 
         <!-- ROOM 201 -->
         <div class="event-card">
-          <h3>Room 201 – Boardroom</h3>
+          <h3>Room 201,202,203 – Boardroom</h3>
           <p><strong>Capacity:</strong> 40 persons</p>
           <img src="./image/room201-1.png">
           <img src="./image/room201-2.png" style="margin-top:10px;">
@@ -1884,6 +1916,17 @@
         document.getElementById("menu").classList.remove("active");
       });
     });
+
+    // GROUND FLOOR FUNCTIONS
+    function openGroundFloor() {
+      closeFloorSelector();
+      document.getElementById("groundFloorModal").style.display = "flex";
+    }
+
+    function closeGroundFloor() {
+      document.getElementById("groundFloorModal").style.display = "none";
+    }
+
 
 
     // STEP 3: 3RD FLOOR FUNCTIONS
