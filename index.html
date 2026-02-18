@@ -844,7 +844,7 @@
       <li><a href="#room-process">Reservation</a></li>
       <li><a href="#drrm-guide">Safety Guide</a></li>
       <li><a href="#wifi-guide">Wi-Fi Access</a></li>
-      <li><a href="#events">Events</a></li>
+      <li><a href="#building-directory">Building Room Directory</a></li>
       <li><a href="#map">Map</a></li>
       <li><a href="#organization">Org Chart</a></li>
     </ul>
@@ -860,7 +860,7 @@
       <div style="margin-top: 30px;">
         <a href="#calendar-section" class="btn">View Calendar</a>
         <a href="#room-process" class="btn">Room Reservation</a>
-        <a href="#map" class="btn">View Map</a>
+        <a href="#building-directory" class="btn">Building Room Directory</a>
       </div>
     </div>
 
@@ -870,42 +870,763 @@
     </div>
   </div>
 
-  <section id="video">
-    <h2>🎥 About UPCM Henry Sy Sr. Hall</h2>
-    <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/-17JBjE2j64?autoplay=1&mute=1&loop=1&playlist=-17JBjE2j64"
-        title="UPCM Henry Sy Sr. Hall" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
-        allowfullscreen>
-      </iframe>
+
+
+  <section id="building-directory">
+    <h2>🏢 Building Room Directory</h2>
+
+    <!-- BUILDING IMAGE -->
+    <div style="max-width:900px;margin:0 auto;cursor:pointer;" onclick="openFloorSelector()">
+      <img src="./image/building.png" alt="UPCM Building"
+        style="width:100%;border-radius:15px;box-shadow:0 8px 20px rgba(0,0,0,0.2);">
+      <p style="margin-top:10px;color:#800000;font-weight:600;">
+        👆 Click the building to view floors & rooms
+      </p>
     </div>
   </section>
 
-  <section id="events">
-    <h2>📅 Upcoming Events</h2>
-    <div class="events-container">
-      <div class="event-card">
-        <img src="./image/events.png" alt="7F Plenary Hall - Tuesday Conference"
-          onerror="this.src='https://via.placeholder.com/300x200?text=Event+Image'">
-        <h3>7F Plenary Hall - Tuesday Conference</h3>
-        <p><strong>Date:</strong> January 13, 2026</p>
-        <p><strong>Venue:</strong> 7th Floor, Henry Sy Sr. Hall</p>
-      </div>
-      <div class="event-card">
-        <img src="./image/events.png" alt="UPCM AUN-QA Re-Accreditation Sub-Committee Meeting"
-          onerror="this.src='https://via.placeholder.com/300x200?text=Event+Image'">
-        <h3>UPCM AUN-QA Re-Accreditation Sub-Committee Meeting</h3>
-        <p><strong>Date:</strong> January 12, 2026</p>
-        <p><strong>Venue:</strong> 6F UNILAB MPH</p>
-      </div>
-      <div class="event-card">
-        <img src="./image/events.png" alt="Consolidated Integrated Faculty Development Program"
-          onerror="this.src='https://via.placeholder.com/300x200?text=Event+Image'">
-        <h3>Consolidated Integrated Faculty Development Program</h3>
-        <p><strong>Date:</strong> January 14, 2026</p>
-        <p><strong>Venue:</strong> 6F UNILAB MPH </p>
+  <div id="floorModal" class="flowchart-modal-overlay" onclick="closeFloorSelector()">
+    <div class="flowchart-modal-content" onclick="event.stopPropagation()">
+      <span class="close-btn" onclick="closeFloorSelector()">×</span>
+
+      <h2 style="color:#800000;text-align:center;">Select Floor</h2>
+
+      <div style="display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-top:20px;">
+        <button class="btn" onclick="openSecondFloor()">2nd Floor</button>
+        <button class="btn" onclick="openThirdFloor()">3rd Floor</button>
+        <button class="btn" onclick="openFourthFloor()">4th Floor</button>
+        <button class="btn" onclick="openFifthFloor()">5th Floor</button>
+        <button class="btn" onclick="openSixthFloor()">6th Floor</button>
+        <button class="btn" onclick="openSeventhFloor()">7th Floor</button>
+        <button class="btn" onclick="openEighthFloor()">8th Floor</button>
+        <button class="btn" onclick="openNinthFloor()">9th Floor</button>
+        <button class="btn" onclick="openTenthFloor()">10th Floor</button>
+        <button class="btn" onclick="openEleventhFloor()">11th Floor</button>
       </div>
     </div>
-  </section>
+  </div>
+
+  <div id="secondFloorModal" class="flowchart-modal-overlay" onclick="closeSecondFloor()">
+    <div class="flowchart-modal-content" onclick="event.stopPropagation()">
+      <span class="close-btn" onclick="closeSecondFloor()">×</span>
+
+      <h2 style="color:#800000;">2nd Floor – Room Directory</h2>
+
+      <!-- FLOOR PLAN -->
+      <img src="./image/2nd-floor-plan.png" style="width:100%;margin:20px 0;border-radius:12px;">
+
+      <!-- ROOMS -->
+      <div class="events-container">
+
+        <!-- ROOM 201 -->
+        <div class="event-card">
+          <h3>Room 201 – Boardroom</h3>
+          <p><strong>Capacity:</strong> 40 persons</p>
+          <img src="./image/room201-1.png">
+          <img src="./image/room201-2.png" style="margin-top:10px;">
+        </div>
+
+        <!-- ROOM 204 -->
+        <div class="event-card">
+          <h3>Room 204</h3>
+          <p><strong>Capacity:</strong> 14 persons</p>
+          <img src="./image/room204.png">
+        </div>
+
+        <!-- ROOM 205 -->
+        <div class="event-card">
+          <h3>Room 205</h3>
+          <p><strong>Capacity:</strong> 10 persons</p>
+          <img src="./image/room205.png">
+        </div>
+
+        <!-- ROOM 206 -->
+        <div class="event-card">
+          <h3>Room 206 – Alumni Lounge</h3>
+          <p><strong>Capacity:</strong> 10 persons</p>
+          <img src="./image/room206.png">
+        </div>
+
+        <!-- ROOM 207 -->
+        <div class="event-card">
+          <h3>Room 207 – Cardio Room</h3>
+          <p><strong>Capacity:</strong> 10 persons</p>
+          <img src="./image/room207.png">
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="thirdFloorModal" class="flowchart-modal-overlay" onclick="closeThirdFloor()">
+    <div class="flowchart-modal-content" onclick="event.stopPropagation()">
+      <span class="close-btn" onclick="closeThirdFloor()">×</span>
+
+      <h2 style="color:#800000;">3rd Floor – Room Directory</h2>
+
+      <!-- FLOOR PLAN -->
+      <img src="./image/3rd-floor-plan.png" style="width:100%;margin:20px 0;border-radius:12px;">
+
+      <div class="events-container">
+
+        <!-- STANDARD ROOMS -->
+        <div class="event-card">
+          <h3>Room 301</h3>
+          <p><strong>Capacity:</strong> 10</p><img src="./image/301.png">
+        </div>
+        <div class="event-card">
+          <h3>Room 302</h3>
+          <p><strong>Capacity:</strong> 10</p><img src="./image/302.png">
+        </div>
+        <div class="event-card">
+          <h3>Room 303</h3>
+          <p><strong>Capacity:</strong> 15</p><img src="./image/303.png">
+        </div>
+        <div class="event-card">
+          <h3>Room 304</h3>
+          <p><strong>Capacity:</strong> 24</p><img src="./image/304.png">
+        </div>
+        <div class="event-card">
+          <h3>Room 305</h3>
+          <p><strong>Capacity:</strong> 24</p><img src="./image/305.png">
+        </div>
+
+        <!-- MERGED ROOMS -->
+        <div class="event-card">
+          <h3>Room 304 & 305 (Merged)</h3>
+          <p><strong>Capacity:</strong> 50</p>
+          <img src="./image/304-305-1.png">
+          <img src="./image/304-305-2.png" style="margin-top:10px;">
+          <img src="./image/304-305-3.png" style="margin-top:10px;">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 306 & 313 (Merged)</h3>
+          <p><strong>Capacity:</strong> 16</p>
+          <img src="./image/306-313.png">
+        </div>
+
+        <!-- OTHER ROOMS -->
+        <div class="event-card">
+          <h3>Room 307</h3>
+          <p><strong>Capacity:</strong> 8</p><img src="./image/307.png">
+        </div>
+        <div class="event-card">
+          <h3>Room 308</h3>
+          <p><strong>Capacity:</strong> 16</p><img src="./image/308.png">
+        </div>
+        <div class="event-card">
+          <h3>Room 309</h3>
+          <p><strong>Capacity:</strong> 12</p><img src="./image/309.png">
+        </div>
+        <div class="event-card">
+          <h3>Room 310</h3>
+          <p><strong>Capacity:</strong> 24</p><img src="./image/310.png">
+        </div>
+        <div class="event-card">
+          <h3>Room 311</h3>
+          <p><strong>Capacity:</strong> 24</p><img src="./image/311.png">
+        </div>
+        <div class="event-card">
+          <h3>Room 312</h3>
+          <p><strong>Capacity:</strong> 8</p><img src="./image/312.png">
+        </div>
+        <div class="event-card">
+          <h3>Room 313</h3>
+          <p><strong>Capacity:</strong> 8</p><img src="./image/313.png">
+        </div>
+
+        <!-- AUDITORIUM -->
+        <div class="event-card" style="border:2px solid #800000;">
+          <h3>🎭 RAMON ANG AUDITORIUM</h3>
+          <p><strong>Capacity:</strong> 218 persons</p>
+          <img src="./image/auditorium-1.png">
+          <img src="./image/auditorium-2.png" style="margin-top:10px;">
+          <img src="./image/auditorium-3.png" style="margin-top:10px;">
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 4TH FLOOR MODAL -->
+  <div id="fourthFloorModal" class="flowchart-modal-overlay" onclick="closeFourthFloor()">
+    <div class="flowchart-modal-content" onclick="event.stopPropagation()">
+      <span class="close-btn" onclick="closeFourthFloor()">×</span>
+
+      <h2 style="color:#800000;">4th Floor – Room Directory</h2>
+
+      <!-- FLOOR PLAN -->
+      <img src="./image/4th-floor-plan.png" style="width:100%;margin:20px 0;border-radius:12px;">
+
+      <div class="events-container">
+
+        <div class="event-card">
+          <h3>Room 401</h3>
+          <p><strong>Capacity:</strong> 16</p>
+          <img src="./image/401.png">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 402</h3>
+          <p><strong>Capacity:</strong> 16</p>
+          <img src="./image/402.png">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 401 & 402 (Merged)</h3>
+          <p><strong>Capacity:</strong> 32</p>
+          <img src="./image/401-402-1.png">
+          <img src="./image/401-402-2.png" style="margin-top:10px;">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 403</h3>
+          <p><strong>Capacity:</strong> 16</p>
+          <img src="./image/403.png">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 404</h3>
+          <p><strong>Capacity:</strong> 16</p>
+          <img src="./image/404.png">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 403 & 404 (Merged)</h3>
+          <p><strong>Capacity:</strong> 32</p>
+          <img src="./image/403-404-1.png">
+          <img src="./image/403-404-2.png" style="margin-top:10px;">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 405</h3>
+          <p><strong>Capacity:</strong> 8</p>
+          <img src="./image/405.png">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 406</h3>
+          <p><strong>Capacity:</strong> 8</p>
+          <img src="./image/406.png">
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- 5TH FLOOR MODAL -->
+  <div id="fifthFloorModal" class="flowchart-modal-overlay" onclick="closeFifthFloor()">
+    <div class="flowchart-modal-content" onclick="event.stopPropagation()">
+      <span class="close-btn" onclick="closeFifthFloor()">×</span>
+
+      <h2 style="color:#800000;">5th Floor – Room Directory</h2>
+
+      <!-- FLOOR PLAN -->
+      <img src="./image/5th-floor-plan.png" style="width:100%;margin:20px 0;border-radius:12px;">
+
+      <div class="events-container">
+
+        <!-- INDIVIDUAL ROOMS -->
+        <div class="event-card">
+          <h3>Room 501</h3>
+          <p><strong>Capacity:</strong> 10</p><img src="./image/501.png">
+        </div>
+        <div class="event-card">
+          <h3>Room 502</h3>
+          <p><strong>Capacity:</strong> 10</p><img src="./image/502.png">
+        </div>
+        <div class="event-card">
+          <h3>Room 503</h3>
+          <p><strong>Capacity:</strong> 24</p><img src="./image/503.png">
+        </div>
+        <div class="event-card">
+          <h3>Room 504</h3>
+          <p><strong>Capacity:</strong> 16</p><img src="./image/504.png">
+        </div>
+        <div class="event-card">
+          <h3>Room 505</h3>
+          <p><strong>Capacity:</strong> 16</p><img src="./image/505.png">
+        </div>
+
+        <!-- MERGED -->
+        <div class="event-card">
+          <h3>Room 504 & 505 (Merged)</h3>
+          <p><strong>Capacity:</strong> 32</p>
+          <img src="./image/504-505-1.png">
+          <img src="./image/504-505-2.png" style="margin-top:10px;">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 506</h3>
+          <p><strong>Capacity:</strong> 16</p><img src="./image/506.png">
+        </div>
+        <div class="event-card">
+          <h3>Room 507</h3>
+          <p><strong>Capacity:</strong> 16</p><img src="./image/507.png">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 506 & 507 (Merged)</h3>
+          <p><strong>Capacity:</strong> 32</p>
+          <img src="./image/506-507-1.png">
+          <img src="./image/506-507-2.png" style="margin-top:10px;">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 508</h3>
+          <p><strong>Capacity:</strong> 8</p><img src="./image/508.png">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 508 & 515 (Merged)</h3>
+          <p><strong>Capacity:</strong> 16</p>
+          <img src="./image/508-515-1.png">
+          <img src="./image/508-515-2.png" style="margin-top:10px;">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 509</h3>
+          <p><strong>Capacity:</strong> 8</p><img src="./image/509.png">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 509 & 514 (Merged)</h3>
+          <p><strong>Capacity:</strong> 16</p>
+          <img src="./image/509-514.png">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 510</h3>
+          <p><strong>Capacity:</strong> 8</p><img src="./image/510.png">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 510 & 513 (Merged)</h3>
+          <p><strong>Capacity:</strong> 16</p>
+          <img src="./image/510-513-1.png">
+          <img src="./image/510-513-2.png" style="margin-top:10px;">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 511</h3>
+          <p><strong>Capacity:</strong> 8</p><img src="./image/511.png">
+        </div>
+        <div class="event-card">
+          <h3>Room 512</h3>
+          <p><strong>Capacity:</strong> 8</p><img src="./image/512.png">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 511 & 512 (Merged)</h3>
+          <p><strong>Capacity:</strong> 16</p>
+          <img src="./image/511-512-1.png">
+          <img src="./image/511-512-2.png" style="margin-top:10px;">
+        </div>
+
+        <div class="event-card">
+          <h3>Rooms 508, 509, 514 & 515 (Merged)</h3>
+          <p><strong>Capacity:</strong> 40</p>
+          <img src="./image/508-509-514-515-1.png">
+          <img src="./image/508-509-514-515-2.png" style="margin-top:10px;">
+          <img src="./image/508-509-514-515-3.png" style="margin-top:10px;">
+          <img src="./image/508-509-514-515-4.png" style="margin-top:10px;">
+        </div>
+
+        <div class="event-card">
+          <h3>Rooms 510, 511, 512 & 513 (Merged)</h3>
+          <p><strong>Capacity:</strong> 40</p>
+          <img src="./image/510-511-512-513-1.png">
+          <img src="./image/510-511-512-513-2.png" style="margin-top:10px;">
+          <img src="./image/510-511-512-513-3.png" style="margin-top:10px;">
+          <img src="./image/510-511-512-513-4.png" style="margin-top:10px;">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 516</h3>
+          <p><strong>Capacity:</strong> 20</p><img src="./image/516.png">
+        </div>
+        <div class="event-card">
+          <h3>Room 517</h3>
+          <p><strong>Capacity:</strong> 20</p><img src="./image/517.png">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 516 & 517 (Merged)</h3>
+          <p><strong>Capacity:</strong> 40</p>
+          <img src="./image/516-517-1.png">
+          <img src="./image/516-517-2.png" style="margin-top:10px;">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 518</h3>
+          <p><strong>Capacity:</strong> 12</p><img src="./image/518.png">
+        </div>
+        <div class="event-card">
+          <h3>Room 519</h3>
+          <p><strong>Capacity:</strong> 12</p><img src="./image/519.png">
+        </div>
+        <div class="event-card">
+          <h3>Room 520</h3>
+          <p><strong>Capacity:</strong> 12</p><img src="./image/520.png">
+        </div>
+        <div class="event-card">
+          <h3>Room 521</h3>
+          <p><strong>Capacity:</strong> 8</p><img src="./image/521.png">
+        </div>
+        <div class="event-card">
+          <h3>Room 522</h3>
+          <p><strong>Capacity:</strong> 8</p><img src="./image/522.png">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 521 & 522 (Merged)</h3>
+          <p><strong>Capacity:</strong> 16</p>
+          <img src="./image/521-522.png">
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- 6TH FLOOR MODAL -->
+  <div id="sixthFloorModal" class="flowchart-modal-overlay" onclick="closeSixthFloor()">
+    <div class="flowchart-modal-content" onclick="event.stopPropagation()">
+      <span class="close-btn" onclick="closeSixthFloor()">×</span>
+
+      <h2 style="color:#800000;">6th Floor – Room Directory</h2>
+
+      <!-- FLOOR PLAN -->
+      <img src="./image/6th-floor-plan.png" style="width:100%;margin:20px 0;border-radius:12px;">
+
+      <div class="events-container">
+
+        <!-- UNILAB HALL -->
+        <div class="event-card">
+          <h3>UNILAB HALL</h3>
+          <p><strong>Capacity:</strong> 70 persons</p>
+          <img src="./image/unilab-1.png">
+          <img src="./image/unilab-2.png" style="margin-top:10px;">
+        </div>
+
+        <!-- VICENTE TIU LIM HALL -->
+        <div class="event-card">
+          <h3>VICENTE TIU LIM HALL</h3>
+          <p><strong>Capacity:</strong> 70 persons</p>
+          <img src="./image/vicente-1.png">
+          <img src="./image/vicente-2.png" style="margin-top:10px;">
+        </div>
+
+        <!-- MERGED -->
+        <div class="event-card" style="border:2px solid #800000;">
+          <h3>UNILAB & VICENTE TIU LIM (Merged)</h3>
+          <p><strong>Capacity:</strong> 140 persons</p>
+          <img src="./image/unilab-vicente-1.png">
+          <img src="./image/unilab-vicente-2.png" style="margin-top:10px;">
+          <img src="./image/unilab-vicente-3.png" style="margin-top:10px;">
+        </div>
+
+        <!-- SIMULATION ROOMS -->
+        <div class="event-card" style="grid-column:1/-1;">
+          <h3>🧠 Simulation Room</h3>
+          <p>15 Individual Simulation Rooms</p>
+
+          <div class="events-container">
+
+            <div class="event-card">
+              <h4>Simulation Room 1</h4><img src="./image/sim-1.png">
+            </div>
+            <div class="event-card">
+              <h4>Simulation Room 2</h4><img src="./image/sim-2.png">
+            </div>
+            <div class="event-card">
+              <h4>Simulation Room 3</h4><img src="./image/sim-3.png">
+            </div>
+            <div class="event-card">
+              <h4>Simulation Room 4</h4><img src="./image/sim-4.png">
+            </div>
+            <div class="event-card">
+              <h4>Simulation Room 5</h4><img src="./image/sim-5.png">
+            </div>
+            <div class="event-card">
+              <h4>Simulation Room 6</h4><img src="./image/sim-6.png">
+            </div>
+            <div class="event-card">
+              <h4>Simulation Room 7</h4><img src="./image/sim-7.png">
+            </div>
+            <div class="event-card">
+              <h4>Simulation Room 8</h4><img src="./image/sim-8.png">
+            </div>
+            <div class="event-card">
+              <h4>Simulation Room 9</h4><img src="./image/sim-9.png">
+            </div>
+            <div class="event-card">
+              <h4>Simulation Room 10</h4><img src="./image/sim-10.png">
+            </div>
+            <div class="event-card">
+              <h4>Simulation Room 11</h4><img src="./image/sim-11.png">
+            </div>
+            <div class="event-card">
+              <h4>Simulation Room 12</h4><img src="./image/sim-12.png">
+            </div>
+            <div class="event-card">
+              <h4>Simulation Room 13</h4><img src="./image/sim-13.png">
+            </div>
+            <div class="event-card">
+              <h4>Simulation Room 14</h4><img src="./image/sim-14.png">
+            </div>
+            <div class="event-card">
+              <h4>Simulation Room 15</h4><img src="./image/sim-15.png">
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 7TH FLOOR MODAL -->
+  <div id="seventhFloorModal" class="flowchart-modal-overlay" onclick="closeSeventhFloor()">
+    <div class="flowchart-modal-content" onclick="event.stopPropagation()">
+      <span class="close-btn" onclick="closeSeventhFloor()">×</span>
+
+      <h2 style="color:#800000;">7th Floor – Plenary Hall</h2>
+
+      <!-- FLOOR PLAN -->
+      <img src="./image/7th-floor-plan.png" style="width:100%;margin:20px 0;border-radius:12px;">
+
+      <div class="events-container">
+
+        <!-- 300 CAPACITY -->
+        <div class="event-card" style="border:2px solid #800000;">
+          <h3>Plenary Hall – With Tables & Chairs</h3>
+          <p><strong>Capacity:</strong> 300 persons</p>
+          <img src="./image/7f-300-1.png">
+          <img src="./image/7f-300-2.png" style="margin-top:10px;">
+          <img src="./image/7f-300-3.png" style="margin-top:10px;">
+        </div>
+
+        <!-- 600 CAPACITY -->
+        <div class="event-card" style="border:2px dashed #800000;">
+          <h3>Plenary Hall – Without Tables</h3>
+          <p><strong>Capacity:</strong> 600 persons</p>
+          <img src="./image/7f-600-1.png">
+          <img src="./image/7f-600-2.png" style="margin-top:10px;">
+          <img src="./image/7f-600-3.png" style="margin-top:10px;">
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 8TH FLOOR MODAL -->
+  <div id="eighthFloorModal" class="flowchart-modal-overlay" onclick="closeEighthFloor()">
+    <div class="flowchart-modal-content" onclick="event.stopPropagation()">
+      <span class="close-btn" onclick="closeEighthFloor()">×</span>
+
+      <h2 style="color:#800000;">8th Floor – Facilities</h2>
+
+      <!-- FLOOR PLAN -->
+      <img src="./image/8th-floor-plan.png" style="width:100%;margin:20px 0;border-radius:12px;">
+
+      <div class="events-container">
+
+        <!-- LOBBY -->
+        <div class="event-card">
+          <h3>Lobby</h3>
+          <img src="./image/8f-lobby-1.png">
+          <img src="./image/8f-lobby-2.png" style="margin-top:10px;">
+          <img src="./image/8f-lobby-3.png" style="margin-top:10px;">
+        </div>
+
+        <!-- FACULTY ROOM -->
+        <div class="event-card">
+          <h3>Faculty Room</h3>
+          <img src="./image/8f-faculty-1.png">
+          <img src="./image/8f-faculty-2.png" style="margin-top:10px;">
+        </div>
+
+        <!-- MEDICAL STUDENT ROOM -->
+        <div class="event-card">
+          <h3>Medical Student Room</h3>
+          <img src="./image/8f-student-1.png">
+          <img src="./image/8f-student-2.png" style="margin-top:10px;">
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 9TH FLOOR MODAL -->
+  <div id="ninthFloorModal" class="flowchart-modal-overlay" onclick="closeNinthFloor()">
+    <div class="flowchart-modal-content" onclick="event.stopPropagation()">
+      <span class="close-btn" onclick="closeNinthFloor()">×</span>
+
+      <h2 style="color:#800000;">9th Floor – Room Directory</h2>
+
+      <!-- FLOOR PLAN -->
+      <img src="./image/9th-floor-plan.png" style="width:100%;margin:20px 0;border-radius:12px;">
+
+      <div class="events-container">
+
+        <div class="event-card">
+          <h3>Room 1</h3>
+          <img src="./image/9f-room1-1.png">
+          <img src="./image/9f-room1-2.png" style="margin-top:10px;">
+          <img src="./image/9f-room1-3.png" style="margin-top:10px;">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 2</h3>
+          <img src="./image/9f-room2.png">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 3</h3>
+          <img src="./image/9f-room3-1.png">
+          <img src="./image/9f-room3-2.png" style="margin-top:10px;">
+          <img src="./image/9f-room3-3.png" style="margin-top:10px;">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 4</h3>
+          <img src="./image/9f-room4-1.png">
+          <img src="./image/9f-room4-2.png" style="margin-top:10px;">
+          <img src="./image/9f-room4-3.png" style="margin-top:10px;">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 5</h3>
+          <img src="./image/9f-room5-1.png">
+          <img src="./image/9f-room5-2.png" style="margin-top:10px;">
+          <img src="./image/9f-room5-3.png" style="margin-top:10px;">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 6</h3>
+          <img src="./image/9f-room6-1.png">
+          <img src="./image/9f-room6-2.png" style="margin-top:10px;">
+          <img src="./image/9f-room6-3.png" style="margin-top:10px;">
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 10TH FLOOR MODAL -->
+  <div id="tenthFloorModal" class="flowchart-modal-overlay" onclick="closeTenthFloor()">
+    <div class="flowchart-modal-content" onclick="event.stopPropagation()">
+      <span class="close-btn" onclick="closeTenthFloor()">×</span>
+
+      <h2 style="color:#800000;">10th Floor – Room Directory</h2>
+
+      <!-- FLOOR PLAN -->
+      <img src="./image/10th-floor-plan.png" style="width:100%;margin:20px 0;border-radius:12px;">
+
+      <div class="events-container">
+
+        <div class="event-card">
+          <h3>Room 1</h3>
+          <img src="./image/10f-room1-1.png">
+          <img src="./image/10f-room1-2.png" style="margin-top:10px;">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 2</h3>
+          <img src="./image/10f-room2.png">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 3</h3>
+          <img src="./image/10f-room3.png">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 4</h3>
+          <img src="./image/10f-room4.png">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 5</h3>
+          <img src="./image/10f-room5.png">
+        </div>
+
+        <div class="event-card">
+          <h3>Room 6</h3>
+          <img src="./image/10f-room6.png">
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 11TH FLOOR MODAL -->
+  <div id="eleventhFloorModal" class="flowchart-modal-overlay" onclick="closeEleventhFloor()">
+    <div class="flowchart-modal-content" onclick="event.stopPropagation()">
+      <span class="close-btn" onclick="closeEleventhFloor()">×</span>
+
+      <h2 style="color:#800000;">11th Floor – Facilities</h2>
+
+      <!-- FLOOR PLAN -->
+      <img src="./image/11th-floor-plan.png" style="width:100%;margin:20px 0;border-radius:12px;">
+
+      <div class="events-container">
+
+        <!-- THESIS HALL -->
+        <div class="event-card" style="border:2px solid #800000;">
+          <h3>Thesis Hall</h3>
+          <img src="./image/11f-thesis-1.png">
+          <img src="./image/11f-thesis-2.png" style="margin-top:10px;">
+          <img src="./image/11f-thesis-3.png" style="margin-top:10px;">
+        </div>
+
+        <!-- LIBRARY -->
+        <div class="event-card">
+          <h3>Library Room</h3>
+          <img src="./image/11f-library-1.png">
+          <img src="./image/11f-library-2.png" style="margin-top:10px;">
+        </div>
+
+        <!-- PANTRY -->
+        <div class="event-card">
+          <h3>Pantry</h3>
+          <img src="./image/11f-pantry.png">
+        </div>
+
+        <!-- PGIM -->
+        <div class="event-card">
+          <h3>PGIM</h3>
+          <img src="./image/11f-pgim-1.png">
+          <img src="./image/11f-pgim-2.png" style="margin-top:10px;">
+        </div>
+
+        <!-- DIRECTOR -->
+        <div class="event-card">
+          <h3>Director Room</h3>
+          <img src="./image/11f-director.png">
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
 
   <section class="notice">
     <h3>📧 General Scheduling Requests Contact</h3>
@@ -945,22 +1666,7 @@
         </div>
       </div>
 
-      <!-- <div id="upcoming-events-tab" class="tab-content calendar-tab-content">
-        <div class="events-container" style="margin-top: 0;">
-          <div class="event-card">
-            <h3>Department of Medicine Research Forum</h3>
-            <p>Dec 2, 2025 @ 7th Floor</p>
-          </div>
-          <div class="event-card">
-            <h3>Year-End Celebration</h3>
-            <p>Dec 16, 2025 @ Plenary Hall</p>
-          </div>
-          <div class="event-card">
-            <h3>UPMAS Symposium</h3>
-            <p>Dec 15, 2025 @ Plenary Hall</p>
-          </div>
-        </div>
-      </div> -->
+
     </div>
   </section>
 
@@ -1153,6 +1859,24 @@
 
   <script>
 
+    function openFloorSelector() {
+      document.getElementById("floorModal").style.display = "flex";
+    }
+
+    function closeFloorSelector() {
+      document.getElementById("floorModal").style.display = "none";
+    }
+
+    function openSecondFloor() {
+      closeFloorSelector();
+      document.getElementById("secondFloorModal").style.display = "flex";
+    }
+
+    function closeSecondFloor() {
+      document.getElementById("secondFloorModal").style.display = "none";
+    }
+
+
     // Mobile menu auto-close when link is clicked
     document.querySelectorAll('#menu a').forEach(link => {
       link.addEventListener('click', () => {
@@ -1161,8 +1885,26 @@
     });
 
 
+    // STEP 3: 3RD FLOOR FUNCTIONS
+    function openThirdFloor() {
+      closeFloorSelector();
+      document.getElementById("thirdFloorModal").style.display = "flex";
+    }
+
+    function closeThirdFloor() {
+      document.getElementById("thirdFloorModal").style.display = "none";
+    }
 
 
+    // STEP 3: 4TH FLOOR FUNCTIONS
+    function openFourthFloor() {
+      closeFloorSelector();
+      document.getElementById("fourthFloorModal").style.display = "flex";
+    }
+
+    function closeFourthFloor() {
+      document.getElementById("fourthFloorModal").style.display = "none";
+    }
 
 
     function openAedModal() {
@@ -1172,6 +1914,90 @@
     function closeAedModal() {
       document.getElementById("aedModal").style.display = "none";
     }
+
+    // STEP 3: 5TH FLOOR FUNCTIONS
+    function openFifthFloor() {
+      closeFloorSelector();
+      document.getElementById("fifthFloorModal").style.display = "flex";
+    }
+
+    function closeFifthFloor() {
+      document.getElementById("fifthFloorModal").style.display = "none";
+    }
+
+
+    // STEP 3: 6TH FLOOR FUNCTIONS
+    function openSixthFloor() {
+      closeFloorSelector();
+      document.getElementById("sixthFloorModal").style.display = "flex";
+    }
+
+    function closeSixthFloor() {
+      document.getElementById("sixthFloorModal").style.display = "none";
+    }
+
+
+    // STEP 3: 7TH FLOOR FUNCTIONS
+    function openSeventhFloor() {
+      closeFloorSelector();
+      document.getElementById("seventhFloorModal").style.display = "flex";
+    }
+
+    function closeSeventhFloor() {
+      document.getElementById("seventhFloorModal").style.display = "none";
+    }
+
+    // STEP 3: 8TH FLOOR FUNCTIONS
+    function openEighthFloor() {
+      closeFloorSelector();
+      document.getElementById("eighthFloorModal").style.display = "flex";
+    }
+
+    function closeEighthFloor() {
+      document.getElementById("eighthFloorModal").style.display = "none";
+    }
+
+    // STEP 3: 9TH FLOOR FUNCTIONS
+    function openNinthFloor() {
+      closeFloorSelector();
+      document.getElementById("ninthFloorModal").style.display = "flex";
+    }
+
+    function closeNinthFloor() {
+      document.getElementById("ninthFloorModal").style.display = "none";
+    }
+
+    // STEP 3: 10TH FLOOR FUNCTIONS
+    function openTenthFloor() {
+      closeFloorSelector();
+      document.getElementById("tenthFloorModal").style.display = "flex";
+    }
+
+    function closeTenthFloor() {
+      document.getElementById("tenthFloorModal").style.display = "none";
+    }
+
+    // STEP 3: 11TH FLOOR FUNCTIONS
+    function openEleventhFloor() {
+      closeFloorSelector();
+      document.getElementById("eleventhFloorModal").style.display = "flex";
+    }
+
+    function closeEleventhFloor() {
+      document.getElementById("eleventhFloorModal").style.display = "none";
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
     // 1. HERO SLIDESHOW
     const heroSection = document.getElementById('hero');
@@ -1209,23 +2035,7 @@
     setInterval(burstConfetti, 15000);
     burstConfetti();
 
-    // // 3. IDLE TIMER (Kiosk Mode)
-    // // Returns to top if no activity for 60 seconds
-    // let idleTimer;
-    // function resetTimer() {
-    //   clearTimeout(idleTimer);
-    //   idleTimer = setTimeout(() => {
-    //     window.scrollTo({ top: 0, behavior: 'smooth' });
-    //     // Also reset calendar tab if open
-    //     if (document.querySelector('#view-calendar.active')) {
-    //       location.reload(); // Hard refresh to reset state for next user
-    //     }
-    //   }, 60000);
-    // }
-    // document.onmousemove = document.onkeypress = document.ontouchstart = resetTimer;
-    // resetTimer();
 
-    // 4. SCROLL ELEMENTS (Back to top / Arrows)
     const backToTopBtn = document.getElementById('back-to-top');
     const upArrow = document.querySelector('.up-arrow');
     const downArrow = document.querySelector('.down-arrow');
@@ -1271,9 +2081,6 @@
     window.openCalendarTab = (name, btn) => openTab(name, btn, 'calendar-tab-content', 'calendar-tab-btn');
     window.openDrrmTab = (name, btn) => openTab(name, btn, 'drrm-tab-content', 'drrm-tab-btn');
 
-    // Modals
-    function openFlowchartModal() { document.getElementById("flowchartModal").style.display = "flex"; }
-    function closeFlowchartModal() { document.getElementById("flowchartModal").style.display = "none"; }
 
     function openQrModal(e) {
       if (e) e.preventDefault();
