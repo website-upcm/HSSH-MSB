@@ -247,7 +247,18 @@
       object-fit: cover;
       border-radius: 10px;
       margin-bottom: 15px;
+
     }
+
+    .event-card img {
+      transition: transform 0.3s ease;
+    }
+
+    .event-card img:hover {
+      transform: scale(1.02);
+    }
+
+
 
     .event-card h3 {
       color: #800000;
@@ -482,6 +493,11 @@
       position: relative;
     }
 
+    .flowchart-modal-content {
+      content-visibility: auto;
+      contain: content;
+    }
+
     .qr-modal-content {
       max-width: 350px;
       text-align: center;
@@ -552,7 +568,7 @@
       display: block;
     }
 
-    /* =========================================
+    /* /* /* =========================================
        ANIMATIONS & EFFECTS
        ========================================= */
     @keyframes fadeIn {
@@ -567,46 +583,6 @@
       }
     }
 
-    /* Confetti */
-    .confetti-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: 1;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.3s ease-in-out;
-    }
-
-    .confetti-overlay.active {
-      opacity: 1;
-    }
-
-    .snowflake {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      background: #ffd700;
-      border-radius: 50%;
-      transform: translateY(-100vh);
-      animation: fall linear 10s forwards;
-      box-shadow: 0 0 5px #fff;
-    }
-
-    @keyframes fall {
-      0% {
-        transform: translateY(-10vh) rotate(0deg);
-        opacity: 1;
-      }
-
-      100% {
-        transform: translateY(100vh) rotate(720deg);
-        opacity: 0;
-      }
-    }
 
     /* Back to Top */
     #back-to-top {
@@ -826,8 +802,11 @@
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     }
 
-    .flowchart-modal-overlay {
+    .lazy-modal {
       content-visibility: auto;
+      contain-intrinsic-size: 200px;
+      display: block;
+      width: 100%;
     }
   </style>
 </head>
@@ -919,22 +898,23 @@
       <h2 style="color:#800000;">Ground Floor – Facilities</h2>
 
       <!-- FLOOR PLAN -->
-      <img src="./image/ground-floor-plan.png " style="width:100%;margin:20px 0;border-radius:12px;">
+      <img data-src="./image/ground-floor-plan.png" class="lazy-modal"
+        style="width:100%;margin:20px 0;border-radius:12px;">
 
       <div class="events-container">
 
         <!-- LOBBY -->
         <div class="event-card">
           <h3>Lobby</h3>
-          <img src="./image/ground-lobby-1.png">
-          <img src="./image/ground-lobby-2.png" style="margin-top:10px;">
+          <img data-src="./image/ground-lobby-1.png" class="lazy-modal">
+          <img data-src="./image/ground-lobby-2.png" class="lazy-modal" style="margin-top:10px;">
         </div>
 
         <!-- PORTICO -->
         <div class="event-card">
           <h3>Portico</h3>
-          <img src="./image/ground-portico-1.png">
-          <img src="./image/ground-portico-2.png" style="margin-top:10px;">
+          <img data-src="./image/ground-portico-1.png" class="lazy-modal">
+          <img data-src="./image/ground-portico-2.png" class="lazy-modal" style="margin-top:10px;">
         </div>
 
       </div>
@@ -949,7 +929,8 @@
       <h2 style="color:#800000;">2nd Floor – Room Directory</h2>
 
       <!-- FLOOR PLAN -->
-      <img src="./image/2nd-floor-plan.png" style="width:100%;margin:20px 0;border-radius:12px;">
+      <img data-src="./image/2nd-floor-plan.png" class="lazy-modal"
+        style="width:100%;margin:20px 0;border-radius:12px;">
 
       <!-- ROOMS -->
       <div class="events-container">
@@ -958,36 +939,36 @@
         <div class="event-card">
           <h3>Room 201,202,203 – Boardroom</h3>
           <p><strong>Capacity:</strong> 40 persons</p>
-          <img src="./image/room201-1.png">
-          <img src="./image/room201-2.png" style="margin-top:10px;">
+          <img data-src="./image/room201-1.png" class="lazy-modal">
+          <img data-src="./image/room201-2.png" class="lazy-modal" style="margin-top:10px;">
         </div>
 
         <!-- ROOM 204 -->
         <div class="event-card">
           <h3>Room 204</h3>
           <p><strong>Capacity:</strong> 14 persons</p>
-          <img src="./image/room204.png">
+          <img data-src="./image/room204.png" class="lazy-modal">
         </div>
 
         <!-- ROOM 205 -->
         <div class="event-card">
           <h3>Room 205</h3>
           <p><strong>Capacity:</strong> 10 persons</p>
-          <img src="./image/room205.png">
+          <img data-src="./image/room205.png" class="lazy-modal">
         </div>
 
         <!-- ROOM 206 -->
         <div class="event-card">
           <h3>Room 206 – Alumni Lounge</h3>
           <p><strong>Capacity:</strong> 10 persons</p>
-          <img src="./image/room206.png">
+          <img data-src="./image/room206.png" class="lazy-modal">
         </div>
 
         <!-- ROOM 207 -->
         <div class="event-card">
           <h3>Room 207 – Cardio Room</h3>
           <p><strong>Capacity:</strong> 10 persons</p>
-          <img src="./image/room207.png">
+          <img data-src="./image/room207.png" class="lazy-modal">
         </div>
 
       </div>
@@ -1001,88 +982,89 @@
       <h2 style="color:#800000;">3rd Floor – Room Directory</h2>
 
       <!-- FLOOR PLAN -->
-      <img src="./image/3rd-floor-plan.png" style="width:100%;margin:20px 0;border-radius:12px;">
+      <img data-src="./image/3rd-floor-plan.png" class="lazy-modal"
+        style="width:100%;margin:20px 0;border-radius:12px;">
 
       <div class="events-container">
 
         <!-- STANDARD ROOMS -->
         <div class="event-card">
           <h3>Room 301 - UPCM Class 1986</h3>
-          <p><strong>Capacity:</strong> 10</p><img src="./image/301.png">
+          <p><strong>Capacity:</strong> 10</p><img data-src="./image/301.png" class="lazy-modal">
         </div>
         <div class="event-card">
           <h3>Room 302 - GREGORIO B. MAKABALI</h3>
-          <p><strong>Capacity:</strong> 10</p><img src="./image/302.png">
+          <p><strong>Capacity:</strong> 10</p><img data-src="./image/302.png" class="lazy-modal">
         </div>
         <div class="event-card">
           <h3>Room 303 - UPCM Class 1998</h3>
-          <p><strong>Capacity:</strong> 15</p><img src="./image/303.png">
+          <p><strong>Capacity:</strong> 15</p><img data-src="./image/303.png" class="lazy-modal">
         </div>
         <div class="event-card">
           <h3>Room 304 -UPCM 1966</h3>
           <p><strong>Capacity:</strong> 24</p>
-          <img src="./image/304.png">
-          <img src="./image/304-2.png" style="margin-top:10px;">
+          <img data-src="./image/304.png" class="lazy-modal">
+          <img data-src="./image/304-2.png" class="lazy-modal" style="margin-top:10px;">
 
         </div>
         <div class="event-card">
           <h3>Room 305 - UPCM Class 1990</h3>
-          <p><strong>Capacity:</strong> 24</p><img src="./image/305.png">
+          <p><strong>Capacity:</strong> 24</p><img data-src="./image/305.png" class="lazy-modal">
         </div>
 
         <!-- MERGED ROOMS -->
         <div class="event-card">
           <h3>Room 304 & 305 (Merged)</h3>
           <p><strong>Capacity:</strong> 50</p>
-          <img src="./image/304-305-1.png">
-          <img src="./image/304-305-2.png" style="margin-top:10px;">
-          <img src="./image/304-305-3.png" style="margin-top:10px;">
+          <img data-src="./image/304-305-1.png" class="lazy-modal">
+          <img data-src="./image/304-305-2.png" class="lazy-modal" style="margin-top:10px;">
+          <img data-src="./image/304-305-3.png" class="lazy-modal" style="margin-top:10px;">
         </div>
 
         <div class="event-card">
           <h3>Room 306 & 313 (Merged) - UPCM 1967 & UPCM 1978
           </h3>
           <p><strong>Capacity:</strong> 16</p>
-          <img src="./image/306-313.png">
+          <img data-src="./image/306-313.png" class="lazy-modal">
         </div>
 
         <!-- OTHER ROOMS -->
         <div class="event-card">
           <h3>Room 307 - CABRAL FAMILY</h3>
-          <p><strong>Capacity:</strong> 8</p><img src="./image/307.png">
+          <p><strong>Capacity:</strong> 8</p><img data-src="./image/307.png" class="lazy-modal">
         </div>
         <div class="event-card">
           <h3>Room 308 - UPCM 1966</h3>
-          <p><strong>Capacity:</strong> 16</p><img src="./image/308.png">
+          <p><strong>Capacity:</strong> 16</p><img data-src="./image/308.png" class="lazy-modal">
         </div>
         <div class="event-card">
           <h3>Room 309 - Amb. Antonio L. Cabangon Chua and Gaisano Capital Foundation </h3>
-          <p><strong>Capacity:</strong> 12</p><img src="./image/309.png">
+          <p><strong>Capacity:</strong> 12</p><img data-src="./image/309.png" class="lazy-modal">
         </div>
         <div class="event-card">
           <h3>Room 310 - UPCM 1944 & UPCM 1976</h3>
-          <p><strong>Capacity:</strong> 24</p><img src="./image/310.png">
+          <p><strong>Capacity:</strong> 24</p><img data-src="./image/310.png" class="lazy-modal">
         </div>
         <div class="event-card">
           <h3>Room 311 - UPCM 1913 & UPCM 1942</h3>
-          <p><strong>Capacity:</strong> 24</p><img src="./image/311.png">
+          <p><strong>Capacity:</strong> 24</p><img data-src="./image/311.png" class="lazy-modal">
         </div>
         <div class="event-card">
           <h3>Room 312 UPCM 1978</h3>
-          <p><strong>Capacity:</strong> 8</p><img src="./image/312.png">
+          <p><strong>Capacity:</strong> 8</p><img data-src="./image/312.png" class="lazy-modal">
         </div>
         <div class="event-card">
           <h3>Room 313 - UPCM 1966</h3>
-          <p><strong>Capacity:</strong> 8</p><img src="./image/313.png">
+          <p><strong>Capacity:</strong> 8</p><img data-src="./image/313.png" class="lazy-modal">
         </div>
 
         <!-- AUDITORIUM -->
         <div class="event-card" style="border:2px solid #800000;">
           <h3>🎭 RAMON S. ANG (AUDITORIUM)</h3>
           <p><strong>Capacity:</strong> 218 persons</p>
-          <img src="./image/auditorium-1.png">
-          <img src="./image/auditorium-2.png" style="margin-top:10px;">
-          <img src="./image/auditorium-3.png" style="margin-top:10px;">
+          <img data-src="./image/auditorium-1.png" class="lazy-modal">
+          <img data-src="./image/auditorium-2.png" class="lazy-modal" style="margin-top:10px;">
+          <img data-src="./image/auditorium-3.png" class="lazy-modal" style="margin-top:10px;">
         </div>
 
       </div>
@@ -1098,58 +1080,59 @@
       <h2 style="color:#800000;">4th Floor – Room Directory</h2>
 
       <!-- FLOOR PLAN -->
-      <img src="./image/4th-floor-plan.png" style="width:100%;margin:20px 0;border-radius:12px;">
+      <img data-src="./image/4th-floor-plan.png" class="lazy-modal"
+        style="width:100%;margin:20px 0;border-radius:12px;">
 
       <div class="events-container">
 
         <div class="event-card">
           <h3>Room 401 - UPCM Class 1953</h3>
           <p><strong>Capacity:</strong> 16</p>
-          <img src="./image/401.png">
+          <img data-src="./image/401.png" class="lazy-modal">
         </div>
 
         <div class="event-card">
           <h3>Room 402 - UPCM Class 1965</h3>
           <p><strong>Capacity:</strong> 16</p>
-          <img src="./image/402.png">
+          <img data-src="./image/402.png" class="lazy-modal">
         </div>
 
         <div class="event-card">
           <h3>Room 401 & 402 (Merged)</h3>
           <p><strong>Capacity:</strong> 32</p>
-          <img src="./image/401-402-1.png">
-          <img src="./image/401-402-2.png" style="margin-top:10px;">
+          <img data-src="./image/401-402-1.png" class="lazy-modal">
+          <img data-src="./image/401-402-2.png" class="lazy-modal" style="margin-top:10px;">
         </div>
 
         <div class="event-card">
           <h3>Room 403 - UPCM Class 1941</h3>
           <p><strong>Capacity:</strong> 16</p>
-          <img src="./image/403.png">
+          <img data-src="./image/403.png" class="lazy-modal">
         </div>
 
         <div class="event-card">
           <h3>Room 404 - VICENTE AND TERESITA CUEVAS ROOM</h3>
           <p><strong>Capacity:</strong> 16</p>
-          <img src="./image/404.png">
+          <img data-src="./image/404.png" class="lazy-modal">
         </div>
 
         <div class="event-card">
           <h3>Room 403 & 404 (Merged)</h3>
           <p><strong>Capacity:</strong> 32</p>
-          <img src="./image/403-404-1.png">
-          <img src="./image/403-404-2.png" style="margin-top:10px;">
+          <img data-src="./image/403-404-1.png" class="lazy-modal">
+          <img data-src="./image/403-404-2.png" class="lazy-modal" style="margin-top:10px;">
         </div>
 
         <div class="event-card">
           <h3>Room 405 - UPCM Class 1967</h3>
           <p><strong>Capacity:</strong> 8</p>
-          <img src="./image/405.png">
+          <img data-src="./image/405.png" class="lazy-modal">
         </div>
 
         <div class="event-card">
           <h3>Room 406 - UPCM Class 1968</h3>
           <p><strong>Capacity:</strong> 8</p>
-          <img src="./image/406.png">
+          <img data-src="./image/406.png" class="lazy-modal">
         </div>
 
       </div>
@@ -1167,30 +1150,31 @@
       <h2 style="color:#800000;">5th Floor – Room Directory</h2>
 
       <!-- FLOOR PLAN -->
-      <img src="./image/5th-floor-plan.png " loading="lazy" style="width:100%;margin:20px 0;border-radius:12px;">
+      <img data-src="./image/5th-floor-plan.png" class="lazy-modal"
+        style="width:100%;margin:20px 0;border-radius:12px;">
 
       <div class="events-container">
 
         <!-- INDIVIDUAL ROOMS -->
         <div class="event-card">
           <h3>Room 501 - UPCM Class 1974</h3>
-          <p><strong>Capacity:</strong> 12</p><img src="./image/501.png" loading="lazy">
+          <p><strong>Capacity:</strong> 12</p><img data-src="./image/501.png" class="lazy-modal">
         </div>
         <div class="event-card">
           <h3>Room 502 - UPCM Class 1979</h3>
-          <p><strong>Capacity:</strong> 12</p><img src="./image/502.png" loading="lazy">
+          <p><strong>Capacity:</strong> 12</p><img data-src="./image/502.png" class="lazy-modal">
         </div>
         <div class="event-card">
           <h3>Room 503 - Asian United Bank. Jacinto L. Ng Family</h3>
-          <p><strong>Capacity:</strong> 24</p><img src="./image/503.png" loading="lazy">
+          <p><strong>Capacity:</strong> 24</p><img data-src="./image/503.png" class="lazy-modal">
         </div>
         <div class="event-card">
           <h3>Room 504 - UPCM Class 1994</h3>
-          <p><strong>Capacity:</strong> 16</p><img src="./image/504.png" loading="lazy">
+          <p><strong>Capacity:</strong> 16</p><img data-src="./image/504.png" class="lazy-modal">
         </div>
         <div class="event-card">
           <h3>Room 505 - UPCM Class 1993</h3>
-          <p><strong>Capacity:</strong> 16</p><img src="./image/505.png" loading="lazy">
+          <p><strong>Capacity:</strong> 16</p><img data-src="./image/505.png" class="lazy-modal">
         </div>
 
         <!-- MERGED -->
@@ -1199,8 +1183,7 @@
           <p><strong>Capacity:</strong> 32</p>
 
           <!-- FIRST IMAGE ONLY -->
-          <img src="./image/504-505-1.png" loading="lazy">
-
+          <img data-src="./image/504-505-1.png" class="lazy-modal">
           <!-- BUTTON -->
           <button class="btn" onclick="this.nextElementSibling.style.display='block'; this.style.display='none';">
             View More Photos
@@ -1208,18 +1191,18 @@
 
           <!-- HIDDEN IMAGES -->
           <div style="display:none;">
-            <img src="./image/504-505-2.png" loading="lazy" style="margin-top:10px;">
+            <img data-src="./image/504-505-2.png" class="lazy-modal" style="margin-top:10px;">
           </div>
 
         </div>
 
         <div class="event-card">
           <h3>Room 506 - UPCM Class 2000</h3>
-          <p><strong>Capacity:</strong> 16</p><img src="./image/506.png" loading="lazy">
+          <p><strong>Capacity:</strong> 16</p><img data-src="./image/506.png" class="lazy-modal">
         </div>
         <div class="event-card">
           <h3>Room 507 - UPCM Class 1996</h3>
-          <p><strong>Capacity:</strong> 16</p><img src="./image/507.png" loading="lazy">
+          <p><strong>Capacity:</strong> 16</p><img data-src="./image/507.png" class="lazy-modal">
         </div>
 
         <div class="event-card">
@@ -1227,7 +1210,7 @@
           <p><strong>Capacity:</strong> 32</p>
 
           <!-- FIRST IMAGE (VISIBLE) -->
-          <img src="./image/506-507-1.png" loading="lazy">
+          <img data-src="./image/506-507-1.png" class="lazy-modal">
 
           <!-- VIEW MORE BUTTON -->
           <button class="btn" style="margin-top:10px;"
@@ -1237,7 +1220,7 @@
 
           <!-- HIDDEN IMAGE -->
           <div style="display:none;">
-            <img src="./image/506-507-2.png" loading="lazy" style="margin-top:10px;">
+            <img data-src="./image/506-507-2.png" class="lazy-modal" style="margin-top:10px;">
           </div>
 
         </div>
@@ -1245,7 +1228,7 @@
 
         <div class="event-card">
           <h3>Room 508 - UPCM Class 1945</h3>
-          <p><strong>Capacity:</strong> 8</p><img src="./image/508.png" loading="lazy">
+          <p><strong>Capacity:</strong> 8</p><img data-src="./image/508.png" class="lazy-modal">
         </div>
 
         <div class="event-card">
@@ -1253,7 +1236,7 @@
           <p><strong>Capacity:</strong> 16</p>
 
           <!-- FIRST IMAGE -->
-          <img src="./image/508-515-1.png" loading="lazy">
+          <img data-src="./image/508-515-1.png" class="lazy-modal">
 
           <!-- BUTTON -->
           <button class="btn" style="margin-top:10px;"
@@ -1263,7 +1246,7 @@
 
           <!-- HIDDEN IMAGE -->
           <div style="display:none;">
-            <img src="./image/508-515-2.png" loading="lazy" style="margin-top:10px;">
+            <img data-src="./image/508-515-2.png" class="lazy-modal" style="margin-top:10px;">
           </div>
 
         </div>
@@ -1271,56 +1254,56 @@
 
         <div class="event-card">
           <h3>Room 509 - UPCM Class 2003</h3>
-          <p><strong>Capacity:</strong> 8</p><img src="./image/509.png" loading="lazy">
+          <p><strong>Capacity:</strong> 8</p><img data-src="./image/509.png" class="lazy-modal">
         </div>
 
         <div class="event-card">
           <h3>Room 509 & 514 (Merged)</h3>
           <p><strong>Capacity:</strong> 16</p>
-          <img src="./image/509-514.png" loading="lazy">
+          <img data-src="./image/509-514.png" class="lazy-modal">
         </div>
 
         <div class="event-card">
           <h3>Room 510 - UPCM Class 2001</h3>
-          <p><strong>Capacity:</strong> 8</p><img src="./image/510.png" loading="lazy">
+          <p><strong>Capacity:</strong> 8</p><img data-src="./image/510.png" class="lazy-modal">
         </div>
 
         <div class="event-card">
           <h3>Room 510 & 513 (Merged)</h3>
           <p><strong>Capacity:</strong> 16</p>
-          <img src="./image/510-513-1.png" loading="lazy">
-          <img src="./image/510-513-2.png" loading="lazy" style="margin-top:10px;">
+          <img data-src="./image/510-513-1.png" class="lazy-modal">
+          <img data-src="./image/510-513-2.png" class="lazy-modal" style="margin-top:10px;">
         </div>
 
         <div class="event-card">
           <h3>Room 511 - UPCM Class 1969</h3>
-          <p><strong>Capacity:</strong> 8</p><img src="./image/511.png" loading="lazy">
+          <p><strong>Capacity:</strong> 8</p><img data-src="./image/511.png" class="lazy-modal">
         </div>
         <div class="event-card">
           <h3>Room 512 - UPCM Class 1991</h3>
-          <p><strong>Capacity:</strong> 8</p><img src="./image/512.png" loading="lazy">
+          <p><strong>Capacity:</strong> 8</p><img data-src="./image/512.png" class="lazy-modal">
         </div>
 
         <div class="event-card">
           <h3>Room 511 & 512 (Merged)</h3>
           <p><strong>Capacity:</strong> 16</p>
-          <img src="./image/511-512-1.png" loading="lazy">
-          <img src="./image/511-512-2.png" loading="lazy" style="margin-top:10px;">
+          <img data-src="./image/511-512-1.png" class="lazy-modal">
+          <img data-src="./image/511-512-2.png" class="lazy-modal" style="margin-top:10px;">
         </div>
 
         <div class="event-card">
           <h3>Room 513 - UPCM Class 1975</h3>
-          <p><strong>Capacity:</strong> 8</p><img src="./image/513.png" loading="lazy">
+          <p><strong>Capacity:</strong> 8</p><img data-src="./image/513.png" class="lazy-modal">
         </div>
 
         <div class="event-card">
           <h3>Room 514 - UP PGH CARDIOLOGY ALUMNI ASSOCIATION</h3>
-          <p><strong>Capacity:</strong> 8</p><img src="./image/514.png" loading="lazy">
+          <p><strong>Capacity:</strong> 8</p><img data-src="./image/514.png" class="lazy-modal">
         </div>
 
         <div class="event-card">
           <h3>Room 515 - UPCM Class 1997</h3>
-          <p><strong>Capacity:</strong> 8</p><img src="./image/515.png" loading="lazy">
+          <p><strong>Capacity:</strong> 8</p><img data-src="./image/515.png" class="lazy-modal">
         </div>
 
         <div class="event-card">
@@ -1328,7 +1311,7 @@
           <p><strong>Capacity:</strong> 40</p>
 
           <!-- FIRST IMAGE (VISIBLE) -->
-          <img src="./image/508-509-514-515-1.png" loading="lazy">
+          <img data-src="./image/508-509-514-515-1.png" class="lazy-modal">
 
           <!-- BUTTON -->
           <button class="btn" style="margin-top:10px;"
@@ -1338,9 +1321,9 @@
 
           <!-- HIDDEN IMAGES -->
           <div style="display:none;">
-            <img src="./image/508-509-514-515-2.png" loading="lazy" style="margin-top:10px;">
-            <img src="./image/508-509-514-515-3.png" loading="lazy" style="margin-top:10px;">
-            <img src="./image/508-509-514-515-4.png" loading="lazy" style="margin-top:10px;">
+            <img data-src="./image/508-509-514-515-2.png" class="lazy-modal" style="margin-top:10px;">
+            <img data-src="./image/508-509-514-515-3.png" class="lazy-modal" style="margin-top:10px;">
+            <img data-src="./image/508-509-514-515-4.png" class="lazy-modal" style="margin-top:10px;">
           </div>
 
         </div>
@@ -1351,7 +1334,7 @@
           <p><strong>Capacity:</strong> 40</p>
 
           <!-- FIRST IMAGE (VISIBLE) -->
-          <img src="./image/510-511-512-513-1.png" loading="lazy">
+          <img data-src="./image/510-511-512-513-1.png" class="lazy-modal">
 
           <!-- BUTTON -->
           <button class="btn" style="margin-top:10px;"
@@ -1361,9 +1344,9 @@
 
           <!-- HIDDEN IMAGES -->
           <div style="display:none;">
-            <img src="./image/510-511-512-513-2.png" loading="lazy" style="margin-top:10px;">
-            <img src="./image/510-511-512-513-3.png" loading="lazy" style="margin-top:10px;">
-            <img src="./image/510-511-512-513-4.png" loading="lazy" style="margin-top:10px;">
+            <img data-src="./image/510-511-512-513-2.png" class="lazy-modal" style="margin-top:10px;">
+            <img data-src="./image/510-511-512-513-3.png" class="lazy-modal" style="margin-top:10px;">
+            <img data-src="./image/510-511-512-513-4.png" class="lazy-modal" style="margin-top:10px;">
           </div>
 
         </div>
@@ -1371,45 +1354,45 @@
 
         <div class="event-card">
           <h3>Room 516 - KOC LE YU</h3>
-          <p><strong>Capacity:</strong> 12 </p><img src="./image/516.png" loading="lazy">
+          <p><strong>Capacity:</strong> 12 </p><img data-src="./image/516.png" class="lazy-modal">
         </div>
         <div class="event-card">
           <h3>Room 517 - UPCM Class 1964</h3>
-          <p><strong>Capacity:</strong> 12</p><img src="./image/517.png" loading="lazy">
+          <p><strong>Capacity:</strong> 12</p><img data-src="./image/517.png" class="lazy-modal">
         </div>
 
         <div class="event-card">
           <h3>Room 516 & 517 (Merged)</h3>
           <p><strong>Capacity:</strong>24</p>
-          <img src="./image/516-517-1.png" loading="lazy">
-          <img src="./image/516-517-2.png" loading="lazy" style="margin-top:10px;">
+          <img data-src="./image/516-517-1.png" class="lazy-modal">
+          <img data-src="./image/516-517-2.png" class="lazy-modal" style="margin-top:10px;">
         </div>
 
         <div class="event-card">
           <h3>Room 518 - UPCM Class 1981</h3>
-          <p><strong>Capacity:</strong> 10</p><img src="./image/518.png" loading="lazy">
+          <p><strong>Capacity:</strong> 10</p><img data-src="./image/518.png" class="lazy-modal">
         </div>
         <div class="event-card">
           <h3>Room 519- UPCM Class 1978</h3>
-          <p><strong>Capacity:</strong>12</p><img src="./image/519.png" loading="lazy">
+          <p><strong>Capacity:</strong>12</p><img data-src="./image/519.png" class="lazy-modal">
         </div>
         <div class="event-card">
           <h3>Room 520 - UPCM Class 1980</h3>
-          <p><strong>Capacity:</strong>8</p><img src="./image/520.png" loading="lazy">
+          <p><strong>Capacity:</strong>8</p><img data-src="./image/520.png" class="lazy-modal">
         </div>
         <div class="event-card">
           <h3>Room 521 - UPCM Class 1982</h3>
-          <p><strong>Capacity:</strong> 8</p><img src="./image/521.png" loading="lazy">
+          <p><strong>Capacity:</strong> 8</p><img data-src="./image/521.png" class="lazy-modal">
         </div>
         <div class="event-card">
           <h3>Room 522 - UPCM Class 1977</h3>
-          <p><strong>Capacity:</strong> 8</p><img src="./image/522.png" loading="lazy">
+          <p><strong>Capacity:</strong> 8</p><img data-src="./image/522.png" class="lazy-modal">
         </div>
 
         <div class="event-card">
           <h3>Room 521 & 522 (Merged)</h3>
           <p><strong>Capacity:</strong> 16</p>
-          <img src="./image/521-522.png" loading="lazy">
+          <img data-src="./image/521-522.png" class="lazy-modal">
         </div>
 
       </div>
@@ -1428,7 +1411,8 @@
       <h2 style="color:#800000;">6th Floor – Room Directory</h2>
 
       <!-- FLOOR PLAN -->
-      <img src="./image/6th-floor-plan.png" style="width:100%;margin:20px 0;border-radius:12px;">
+      <img data-src="./image/6th-floor-plan.png" class="lazy-modal"
+        style="width:100%;margin:20px 0;border-radius:12px;">
 
       <div class="events-container">
 
@@ -1436,25 +1420,25 @@
         <div class="event-card">
           <h3>UNILAB HALL</h3>
           <p><strong>Capacity:</strong> 70 persons</p>
-          <img src="./image/unilab-1.png">
-          <img src="./image/unilab-2.png" style="margin-top:10px;">
+          <img data-src="./image/unilab-1.png" class="lazy-modal">
+          <img data-src="./image/unilab-2.png" class="lazy-modal" style="margin-top:10px;">
         </div>
 
         <!-- VICENTE TIU LIM HALL -->
         <div class="event-card">
           <h3>VICENTE TIU LIM HALL</h3>
           <p><strong>Capacity:</strong> 70 persons</p>
-          <img src="./image/vicente-1.png">
-          <img src="./image/vicente-2.png" style="margin-top:10px;">
+          <img data-src="./image/vicente-1.png" class="lazy-modal">
+          <img data-src="./image/vicente-2.png" class="lazy-modal" style="margin-top:10px;">
         </div>
 
         <!-- MERGED -->
         <div class="event-card" style="border:2px solid #800000;">
           <h3>UNILAB & VICENTE TIU LIM (Merged)</h3>
           <p><strong>Capacity:</strong> 140 persons</p>
-          <img src="./image/unilab-vicente-1.png">
-          <img src="./image/unilab-vicente-2.png" style="margin-top:10px;">
-          <img src="./image/unilab-vicente-3.png" style="margin-top:10px;">
+          <img data-src="./image/unilab-vicente-1.png" class="lazy-modal">
+          <img data-src="./image/unilab-vicente-2.png" class="lazy-modal" style="margin-top:10px;">
+          <img data-src="./image/unilab-vicente-3.png" class="lazy-modal" style="margin-top:10px;">
         </div>
 
         <!-- SIMULATION ROOMS -->
@@ -1465,49 +1449,49 @@
           <div class="events-container">
 
             <div class="event-card">
-              <h4>Simulation Room 1</h4><img src="./image/sim-1.png">
+              <h4>Simulation Room 1</h4><img data-src="./image/sim-1.png" class="lazy-modal">
             </div>
             <div class="event-card">
-              <h4>Simulation Room 2</h4><img src="./image/sim-2.png">
+              <h4>Simulation Room 2</h4><img data-src="./image/sim-2.png" class="lazy-modal">
             </div>
             <div class="event-card">
-              <h4>Simulation Room 3</h4><img src="./image/sim-3.png">
+              <h4>Simulation Room 3</h4><img data-src="./image/sim-3.png" class="lazy-modal">
             </div>
             <div class="event-card">
-              <h4>Simulation Room 4</h4><img src="./image/sim-4.png">
+              <h4>Simulation Room 4</h4><img data-src="./image/sim-4.png" class="lazy-modal">
             </div>
             <div class="event-card">
-              <h4>Simulation Room 5</h4><img src="./image/sim-5.png">
+              <h4>Simulation Room 5</h4><img data-src="./image/sim-5.png" class="lazy-modal">
             </div>
             <div class="event-card">
-              <h4>Simulation Room 6</h4><img src="./image/sim-6.png">
+              <h4>Simulation Room 6</h4><img data-src="./image/sim-6.png" class="lazy-modal">
             </div>
             <div class="event-card">
-              <h4>Simulation Room 7</h4><img src="./image/sim-7.png">
+              <h4>Simulation Room 7</h4><img data-src="./image/sim-7.png" class="lazy-modal">
             </div>
             <div class="event-card">
-              <h4>Simulation Room 8</h4><img src="./image/sim-8.png">
+              <h4>Simulation Room 8</h4><img data-src="./image/sim-8.png" class="lazy-modal">
             </div>
             <div class="event-card">
-              <h4>Simulation Room 9</h4><img src="./image/sim-9.png">
+              <h4>Simulation Room 9</h4><img data-src="./image/sim-9.png" class="lazy-modal">
             </div>
             <div class="event-card">
-              <h4>Simulation Room 10</h4><img src="./image/sim-10.png">
+              <h4>Simulation Room 10</h4><img data-src="./image/sim-10.png" class="lazy-modal">
             </div>
             <div class="event-card">
-              <h4>Simulation Room 11</h4><img src="./image/sim-11.png">
+              <h4>Simulation Room 11</h4><img data-src="./image/sim-11.png" class="lazy-modal">
             </div>
             <div class="event-card">
-              <h4>Simulation Room 12</h4><img src="./image/sim-12.png">
+              <h4>Simulation Room 12</h4><img data-src="./image/sim-12.png" class="lazy-modal">
             </div>
             <div class="event-card">
-              <h4>Simulation Room 13</h4><img src="./image/sim-13.png">
+              <h4>Simulation Room 13</h4><img data-src="./image/sim-13.png" class="lazy-modal">
             </div>
             <div class="event-card">
-              <h4>Simulation Room 14</h4><img src="./image/sim-14.png">
+              <h4>Simulation Room 14</h4><img data-src="./image/sim-14.png" class="lazy-modal">
             </div>
             <div class="event-card">
-              <h4>Simulation Room 15</h4><img src="./image/sim-15.png">
+              <h4>Simulation Room 15</h4><img data-src="./image/sim-15.png" class="lazy-modal">
             </div>
 
           </div>
@@ -1526,7 +1510,8 @@
       <h2 style="color:#800000;">7th Floor – Plenary Hall</h2>
 
       <!-- FLOOR PLAN -->
-      <img src="./image/7th-floor-plan.png" style="width:100%;margin:20px 0;border-radius:12px;">
+      <img data-src="./image/7th-floor-plan.png" class="lazy-modal"
+        style="width:100%;margin:20px 0;border-radius:12px;">
 
       <div class="events-container">
 
@@ -1534,18 +1519,18 @@
         <div class="event-card" style="border:2px solid #800000;">
           <h3>Plenary Hall – With Tables & Chairs</h3>
           <p><strong>Capacity:</strong> 300 persons</p>
-          <img src="./image/7f-300-1.png">
-          <img src="./image/7f-300-2.png" style="margin-top:10px;">
-          <img src="./image/7f-300-3.png" style="margin-top:10px;">
+          <img data-src="./image/7f-300-1.png" class="lazy-modal">
+          <img data-src="./image/7f-300-2.png" class="lazy-modal" style="margin-top:10px;">
+          <img data-src="./image/7f-300-3.png" class="lazy-modal" style="margin-top:10px;">
         </div>
 
         <!-- 600 CAPACITY -->
         <div class="event-card" style="border:2px dashed #800000;">
           <h3>Plenary Hall – Without Tables</h3>
           <p><strong>Capacity:</strong> 600 persons</p>
-          <img src="./image/7f-600-1.png">
-          <img src="./image/7f-600-2.png" style="margin-top:10px;">
-          <img src="./image/7f-600-3.png" style="margin-top:10px;">
+          <img data-src="./image/7f-600-1.png" class="lazy-modal">
+          <img data-src="./image/7f-600-2.png" class="lazy-modal" style="margin-top:10px;">
+          <img data-src="./image/7f-600-3.png" class="lazy-modal" style="margin-top:10px;">
         </div>
 
       </div>
@@ -1560,30 +1545,31 @@
       <h2 style="color:#800000;">8th Floor – Facilities</h2>
 
       <!-- FLOOR PLAN -->
-      <img src="./image/8th-floor-plan.png" style="width:100%;margin:20px 0;border-radius:12px;">
+      <img data-src="./image/8th-floor-plan.png" class="lazy-modal"
+        style="width:100%;margin:20px 0;border-radius:12px;">
 
       <div class="events-container">
 
         <!-- LOBBY -->
         <div class="event-card">
           <h3>Lobby</h3>
-          <img src="./image/8f-lobby-1.png">
-          <img src="./image/8f-lobby-2.png" style="margin-top:10px;">
-          <img src="./image/8f-lobby-3.png" style="margin-top:10px;">
+          <img data-src="./image/8f-lobby-1.png" class="lazy-modal">
+          <img data-src="./image/8f-lobby-2.png" class="lazy-modal" style="margin-top:10px;">
+          <img data-src="./image/8f-lobby-3.png" class="lazy-modal" style="margin-top:10px;">
         </div>
 
         <!-- FACULTY ROOM -->
         <div class="event-card">
           <h3>Faculty Room</h3>
-          <img src="./image/8f-faculty-1.png">
-          <img src="./image/8f-faculty-2.png" style="margin-top:10px;">
+          <img data-src="./image/8f-faculty-1.png" class="lazy-modal">
+          <img data-src="./image/8f-faculty-2.png" class="lazy-modal" style="margin-top:10px;">
         </div>
 
         <!-- MEDICAL STUDENT ROOM -->
         <div class="event-card">
           <h3>Medical Student Room</h3>
-          <img src="./image/8f-student-1.png">
-          <img src="./image/8f-student-2.png" style="margin-top:10px;">
+          <img data-src="./image/8f-student-1.png" class="lazy-modal">
+          <img data-src="./image/8f-student-2.png" class="lazy-modal" style="margin-top:10px;">
         </div>
 
       </div>
@@ -1598,48 +1584,49 @@
       <h2 style="color:#800000;">9th Floor – Room Directory</h2>
 
       <!-- FLOOR PLAN -->
-      <img src="./image/9th-floor-plan.png" style="width:100%;margin:20px 0;border-radius:12px;">
+      <img data-src="./image/9th-floor-plan.png" class="lazy-modal"
+        style="width:100%;margin:20px 0;border-radius:12px;">
 
       <div class="events-container">
 
         <div class="event-card">
           <h3>Room 1</h3>
-          <img src="./image/9f-room1-1.png">
-          <img src="./image/9f-room1-2.png" style="margin-top:10px;">
-          <img src="./image/9f-room1-3.png" style="margin-top:10px;">
+          <img data-src="./image/9f-room1-1.png" class="lazy-modal">
+          <img data-src="./image/9f-room1-2.png" class="lazy-modal" style="margin-top:10px;">
+          <img data-src="./image/9f-room1-3.png" class="lazy-modal" style="margin-top:10px;">
         </div>
 
         <div class="event-card">
           <h3>Room 2</h3>
-          <img src="./image/9f-room2.png">
+          <img data-src="./image/9f-room2.png" class="lazy-modal">
         </div>
 
         <div class="event-card">
           <h3>Room 3</h3>
-          <img src="./image/9f-room3-1.png">
-          <img src="./image/9f-room3-2.png" style="margin-top:10px;">
-          <img src="./image/9f-room3-3.png" style="margin-top:10px;">
+          <img data-src="./image/9f-room3-1.png" class="lazy-modal">
+          <img data-src="./image/9f-room3-2.png" class="lazy-modal" style="margin-top:10px;">
+          <img data-src="./image/9f-room3-3.png" class="lazy-modal" style="margin-top:10px;">
         </div>
 
         <div class="event-card">
           <h3>Room 4</h3>
-          <img src="./image/9f-room4-1.png">
-          <img src="./image/9f-room4-2.png" style="margin-top:10px;">
-          <img src="./image/9f-room4-3.png" style="margin-top:10px;">
+          <img data-src="./image/9f-room4-1.png" class="lazy-modal">
+          <img data-src="./image/9f-room4-2.png" class="lazy-modal" style="margin-top:10px;">
+          <img data-src="./image/9f-room4-3.png" class="lazy-modal" style="margin-top:10px;">
         </div>
 
         <div class="event-card">
           <h3>Room 5</h3>
-          <img src="./image/9f-room5-1.png">
-          <img src="./image/9f-room5-2.png" style="margin-top:10px;">
-          <img src="./image/9f-room5-3.png" style="margin-top:10px;">
+          <img data-src="./image/9f-room5-1.png" class="lazy-modal">
+          <img data-src="./image/9f-room5-2.png" class="lazy-modal" style="margin-top:10px;">
+          <img data-src="./image/9f-room5-3.png" class="lazy-modal" style="margin-top:10px;">
         </div>
 
         <div class="event-card">
           <h3>Room 6</h3>
-          <img src="./image/9f-room6-1.png">
-          <img src="./image/9f-room6-2.png" style="margin-top:10px;">
-          <img src="./image/9f-room6-3.png" style="margin-top:10px;">
+          <img data-src="./image/9f-room6-1.png" class="lazy-modal">
+          <img data-src="./image/9f-room6-2.png" class="lazy-modal" style="margin-top:10px;">
+          <img data-src="./image/9f-room6-3.png" class="lazy-modal" style="margin-top:10px;">
         </div>
 
       </div>
@@ -1654,39 +1641,40 @@
       <h2 style="color:#800000;">10th Floor – Room Directory</h2>
 
       <!-- FLOOR PLAN -->
-      <img src="./image/10th-floor-plan.png" style="width:100%;margin:20px 0;border-radius:12px;">
+      <img data-src="./image/10th-floor-plan.png" class="lazy-modal"
+        style="width:100%;margin:20px 0;border-radius:12px;">
 
       <div class="events-container">
 
         <div class="event-card">
           <h3>Room 1</h3>
-          <img src="./image/10f-room1-1.png">
-          <img src="./image/10f-room1-2.png" style="margin-top:10px;">
+          <img data-src="./image/10f-room1-1.png" class="lazy-modal">
+          <img data-src="./image/10f-room1-2.png" class="lazy-modal" style="margin-top:10px;">
         </div>
 
         <div class="event-card">
           <h3>Room 2</h3>
-          <img src="./image/10f-room2.png">
+          <img data-src="./image/10f-room2.png" class="lazy-modal">
         </div>
 
         <div class="event-card">
           <h3>Room 3</h3>
-          <img src="./image/10f-room3.png">
+          <img data-src="./image/10f-room3.png" class="lazy-modal">
         </div>
 
         <div class="event-card">
           <h3>Room 4</h3>
-          <img src="./image/10f-room4.png">
+          <img data-src="./image/10f-room4.png" class="lazy-modal">
         </div>
 
         <div class="event-card">
           <h3>Room 5</h3>
-          <img src="./image/10f-room5.png">
+          <img data-src="./image/10f-room5.png" class="lazy-modal">
         </div>
 
         <div class="event-card">
           <h3>Room 6</h3>
-          <img src="./image/10f-room6.png">
+          <img data-src="./image/10f-room6.png" class="lazy-modal">
         </div>
 
       </div>
@@ -1702,42 +1690,43 @@
       <h2 style="color:#800000;">11th Floor – Facilities</h2>
 
       <!-- FLOOR PLAN -->
-      <img src="./image/11th-floor-plan.png" style="width:100%;margin:20px 0;border-radius:12px;">
+      <img data-src="./image/11th-floor-plan.png" class="lazy-modal"
+        style="width:100%;margin:20px 0;border-radius:12px;">
 
       <div class="events-container">
 
         <!-- THESIS HALL -->
         <div class="event-card" style="border:2px solid #800000;">
           <h3>Thesis Hall</h3>
-          <img src="./image/11f-thesis-1.png">
-          <img src="./image/11f-thesis-2.png" style="margin-top:10px;">
-          <img src="./image/11f-thesis-3.png" style="margin-top:10px;">
+          <img data-src="./image/11f-thesis-1.png" class="lazy-modal">
+          <img data-src="./image/11f-thesis-2.png" class="lazy-modal" style="margin-top:10px;">
+          <img data-src="./image/11f-thesis-3.png" class="lazy-modal" style="margin-top:10px;">
         </div>
 
         <!-- LIBRARY -->
         <div class="event-card">
           <h3>Library Room</h3>
-          <img src="./image/11f-library-1.png">
-          <img src="./image/11f-library-2.png" style="margin-top:10px;">
+          <img data-src="./image/11f-library-1.png" class="lazy-modal">
+          <img data-src="./image/11f-library-2.png" class="lazy-modal" style="margin-top:10px;">
         </div>
 
         <!-- PANTRY -->
         <div class="event-card">
           <h3>Pantry</h3>
-          <img src="./image/11f-pantry.png">
+          <img data-src="./image/11f-pantry.png" class="lazy-modal">
         </div>
 
         <!-- PGIM -->
         <div class="event-card">
           <h3>PGIM</h3>
-          <img src="./image/11f-pgim-1.png">
-          <img src="./image/11f-pgim-2.png" style="margin-top:10px;">
+          <img data-src="./image/11f-pgim-1.png" class="lazy-modal">
+          <img data-src="./image/11f-pgim-2.png" class="lazy-modal" style="margin-top:10px;">
         </div>
 
         <!-- DIRECTOR -->
         <div class="event-card">
           <h3>Director Room</h3>
-          <img src="./image/11f-director.png">
+          <img data-src="./image/11f-director.png" class="lazy-modal">
         </div>
 
       </div>
@@ -1855,22 +1844,6 @@
   </section>
 
 
-  <section id="aed-guide">
-    <h2>❤️ Automated External Defibrillator (AED) Guide</h2>
-
-    <p style="max-width:900px;margin:0 auto 25px;color:#555;">
-      This guide shows the proper steps on how to use an Automated External Defibrillator (AED) during cardiac
-      emergencies.
-    </p>
-
-    <div style="max-width:900px;margin:0 auto;cursor:pointer;" onclick="openAedModal()">
-      <img src="./image/aed-guide.png" class="aed-image" alt="AED Step-by-Step Guide">
-      <p style="margin-top:10px;color:#800000;font-weight:600;">
-        🔍 Click image to enlarge
-      </p>
-    </div>
-  </section>
-
 
 
 
@@ -1979,12 +1952,8 @@
     </div>
   </div>
 
-  <div id="aedModal" class="flowchart-modal-overlay" onclick="closeAedModal()">
-    <div class="flowchart-modal-content" onclick="event.stopPropagation()">
-      <span class="close-btn" onclick="closeAedModal()">×</span>
-      <img src="./image/aed-guide.png" alt="AED Guide" style="width:100%;height:auto;">
-    </div>
-  </div>
+
+
 
 
   <script>
@@ -1995,15 +1964,6 @@
 
     function closeFloorSelector() {
       document.getElementById("floorModal").style.display = "none";
-    }
-
-    function openSecondFloor() {
-      closeFloorSelector();
-      document.getElementById("secondFloorModal").style.display = "flex";
-    }
-
-    function closeSecondFloor() {
-      document.getElementById("secondFloorModal").style.display = "none";
     }
 
 
@@ -2017,18 +1977,31 @@
     // GROUND FLOOR FUNCTIONS
     function openGroundFloor() {
       closeFloorSelector();
+      loadModalImages("groundFloorModal"); // 🔥 load images only when opened
       document.getElementById("groundFloorModal").style.display = "flex";
     }
 
     function closeGroundFloor() {
       document.getElementById("groundFloorModal").style.display = "none";
     }
+    // 2nd Floor 
+    function openSecondFloor() {
+      closeFloorSelector();
+      loadModalImages("secondFloorModal"); // 🔥 lazy load images
+      document.getElementById("secondFloorModal").style.display = "flex";
+    }
+
+    function closeSecondFloor() {
+      document.getElementById("secondFloorModal").style.display = "none";
+    }
+
 
 
 
     // STEP 3: 3RD FLOOR FUNCTIONS
     function openThirdFloor() {
       closeFloorSelector();
+      loadModalImages("thirdFloorModal"); // 🔥 lazy load images
       document.getElementById("thirdFloorModal").style.display = "flex";
     }
 
@@ -2036,10 +2009,10 @@
       document.getElementById("thirdFloorModal").style.display = "none";
     }
 
-
     // STEP 3: 4TH FLOOR FUNCTIONS
     function openFourthFloor() {
       closeFloorSelector();
+      loadModalImages("fourthFloorModal"); // 🔥 lazy load images
       document.getElementById("fourthFloorModal").style.display = "flex";
     }
 
@@ -2048,7 +2021,9 @@
     }
 
 
+    // AED MODAL
     function openAedModal() {
+      loadModalImages("aedModal"); // 🔥 para di agad load image
       document.getElementById("aedModal").style.display = "flex";
     }
 
@@ -2059,6 +2034,7 @@
     // STEP 3: 5TH FLOOR FUNCTIONS
     function openFifthFloor() {
       closeFloorSelector();
+      loadModalImages("fifthFloorModal"); // 🔥 lazy load images
       document.getElementById("fifthFloorModal").style.display = "flex";
     }
 
@@ -2070,6 +2046,7 @@
     // STEP 3: 6TH FLOOR FUNCTIONS
     function openSixthFloor() {
       closeFloorSelector();
+      loadModalImages("sixthFloorModal"); // 🔥 lazy load images
       document.getElementById("sixthFloorModal").style.display = "flex";
     }
 
@@ -2078,9 +2055,11 @@
     }
 
 
+
     // STEP 3: 7TH FLOOR FUNCTIONS
     function openSeventhFloor() {
       closeFloorSelector();
+      loadModalImages("seventhFloorModal"); // 🔥 lazy load images
       document.getElementById("seventhFloorModal").style.display = "flex";
     }
 
@@ -2091,6 +2070,7 @@
     // STEP 3: 8TH FLOOR FUNCTIONS
     function openEighthFloor() {
       closeFloorSelector();
+      loadModalImages("eighthFloorModal"); // 🔥 lazy load images
       document.getElementById("eighthFloorModal").style.display = "flex";
     }
 
@@ -2098,9 +2078,11 @@
       document.getElementById("eighthFloorModal").style.display = "none";
     }
 
+
     // STEP 3: 9TH FLOOR FUNCTIONS
     function openNinthFloor() {
       closeFloorSelector();
+      loadModalImages("ninthFloorModal"); // 🔥 lazy load images
       document.getElementById("ninthFloorModal").style.display = "flex";
     }
 
@@ -2111,6 +2093,7 @@
     // STEP 3: 10TH FLOOR FUNCTIONS
     function openTenthFloor() {
       closeFloorSelector();
+      loadModalImages("tenthFloorModal"); // 🔥 lazy load images
       document.getElementById("tenthFloorModal").style.display = "flex";
     }
 
@@ -2121,6 +2104,7 @@
     // STEP 3: 11TH FLOOR FUNCTIONS
     function openEleventhFloor() {
       closeFloorSelector();
+      loadModalImages("eleventhFloorModal"); // 🔥 lazy load images
       document.getElementById("eleventhFloorModal").style.display = "flex";
     }
 
@@ -2138,13 +2122,43 @@
       document.getElementById("imageViewerModal").style.display = "none";
     }
 
-    // Make all room images clickable
-    document.querySelectorAll('.event-card img').forEach(img => {
-      img.style.cursor = "pointer";
-      img.addEventListener("click", function () {
-        openImageViewer(this.src);
+    // PRO EVENT DELEGATION (FASTER)
+    document.addEventListener("click", function (e) {
+      if (e.target.matches('.event-card img')) {
+        openImageViewer(e.target.currentSrc || e.target.src || e.target.dataset.src);
+      }
+    });
+
+
+    const modalImageObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+
+          if (img.dataset.src) {
+            img.src = img.dataset.src;
+            img.loading = "lazy";
+            img.decoding = "async";
+            img.removeAttribute("data-src");
+          }
+
+          modalImageObserver.unobserve(img);
+        }
       });
     });
+
+    function loadModalImages(modalId) {
+      const modal = document.getElementById(modalId);
+      if (!modal) return;
+
+      modal.querySelectorAll("img[data-src]").forEach(img => {
+        modalImageObserver.observe(img);
+      });
+    }
+
+
+
+
 
 
 
@@ -2170,27 +2184,7 @@
     setInterval(changeHeroBackground, 5000);
     changeHeroBackground(); // Initial load
 
-    // 2. CONFETTI EFFECT (Loops)
-    const confettiContainer = document.getElementById('confetti-container');
-    function createConfetti() {
-      const snowflake = document.createElement('div');
-      snowflake.classList.add('snowflake');
-      snowflake.style.left = Math.random() * 100 + 'vw';
-      snowflake.style.width = snowflake.style.height = (Math.random() * 8 + 5) + 'px';
-      snowflake.style.animationDuration = (Math.random() * 5 + 5) + 's';
-      confettiContainer.appendChild(snowflake);
-      setTimeout(() => snowflake.remove(), 10000);
-    }
 
-    function burstConfetti() {
-      confettiContainer.innerHTML = '';
-      confettiContainer.classList.add('active');
-      for (let i = 0; i < 50; i++) setTimeout(createConfetti, Math.random() * 500);
-      setTimeout(() => confettiContainer.classList.remove('active'), 5000); // Stop after 5s
-    }
-    // Run confetti every 15 seconds so it's not annoying on Kiosk
-    setInterval(burstConfetti, 15000);
-    burstConfetti();
 
 
     const backToTopBtn = document.getElementById('back-to-top');
