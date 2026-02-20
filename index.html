@@ -1841,6 +1841,39 @@
   </section>
 
 
+  <section id="aed-guide">
+    <h2>❤️ Automated External Defibrillator (AED) Guide</h2>
+
+    <p style="max-width:900px;margin:0 auto 25px;color:#555;">
+      This guide shows the proper steps on how to use an Automated External Defibrillator (AED) during cardiac
+      emergencies.
+    </p>
+
+    <div style="max-width:900px;margin:0 auto;cursor:pointer;" onclick="openAedModal()">
+
+      <img src="./image/aed-guide.png" class="aed-image" alt="AED Step-by-Step Guide">
+
+      <p style="margin-top:10px;color:#800000;font-weight:600;">
+        🔍 Click image to enlarge
+      </p>
+
+    </div>
+  </section>
+
+
+
+
+
+  <div id="aedModal" class="flowchart-modal-overlay" onclick="closeAedModal()">
+    <div class="flowchart-modal-content" onclick="event.stopPropagation()">
+      <span class="close-btn" onclick="closeAedModal()">×</span>
+
+      <img data-src="./image/aed-guide.png" class="lazy-modal" style="width:100%;height:auto;border-radius:12px;">
+    </div>
+  </div>
+
+
+
 
 
 
@@ -1948,6 +1981,8 @@
       <p style="margin-top:10px;">Thank you for visiting!</p>
     </div>
   </div>
+
+
 
 
 
