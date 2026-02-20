@@ -442,23 +442,39 @@
        FOOTER
        ========================================= */
     footer {
-      background: #1a1a1a;
-      color: #ccc;
-      padding: 40px 20px;
+      background: linear-gradient(to right, #111, #1a1a1a);
+      color: #d9d9d9;
+      padding: 45px 20px 35px;
       text-align: center;
-      line-height: 1.8;
+      line-height: 1.9;
       font-size: 0.95rem;
-      border-top: 5px solid #800000;
+      border-top: 4px solid #800000;
+      box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    footer .footer-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 15px;
+    }
+
+    footer .footer-credits {
+      margin-top: 15px;
+      font-size: 0.95rem;
+      color: #cfcfcf;
     }
 
     footer a {
       color: #ffd700;
+      font-weight: 700;
       text-decoration: none;
+      transition: 0.3s ease;
     }
 
     footer a:hover {
-      text-decoration: underline;
       color: #fff;
+      text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
     }
 
     /* =========================================
@@ -1877,63 +1893,60 @@
 
 
 
-<section id="drrm-guide">
-  <h2>🚨 Disaster Risk Reduction Guide</h2>
+  <section id="drrm-guide">
+    <h2>🚨 Disaster Risk Reduction Guide</h2>
 
-  <div class="tab-container">
-    <div class="tab-buttons">
+    <div class="tab-container">
+      <div class="tab-buttons">
 
-      <button class="tab-btn drrm-tab-btn active"
-        onclick="openDrrmTab('earthquake', this)">
-        🌍 Earthquake Drill
-      </button>
+        <button class="tab-btn drrm-tab-btn active" onclick="openDrrmTab('earthquake', this)">
+          🌍 Earthquake Drill
+        </button>
 
-      <button class="tab-btn drrm-tab-btn"
-        onclick="openDrrmTab('fire', this)">
-        🔥 Fire Safety
-      </button>
-
-    </div>
-
-    <!-- EARTHQUAKE TAB -->
-    <div id="earthquake" class="tab-content drrm-tab-content active">
-      <div class="notice" style="background:#fff; border-left:6px solid #ffd700;">
-        <h3>Nationwide Simultaneous Earthquake Drill (NSED)</h3>
-
-        <img src="./image/earthquick.jpg"
-          alt="Earthquake Drill"
-          style="max-width:100%; height:auto; margin-top:15px; border-radius:8px;"
-          onerror="this.src='https://via.placeholder.com/600x400?text=Earthquake+Drill+Infographic'">
+        <button class="tab-btn drrm-tab-btn" onclick="openDrrmTab('fire', this)">
+          🔥 Fire Safety
+        </button>
 
       </div>
-    </div>
 
-    <!-- FIRE SAFETY TAB -->
-    <div id="fire" class="tab-content drrm-tab-content">
-      <div class="notice" style="background:#fff; border-left:6px solid #ff4500;">
+      <!-- EARTHQUAKE TAB -->
+      <div id="earthquake" class="tab-content drrm-tab-content active">
+        <div class="notice" style="background:#fff; border-left:6px solid #ffd700;">
+          <h3>Nationwide Simultaneous Earthquake Drill (NSED)</h3>
 
-        <h3>In Case of Fire: <strong>RACE</strong> Protocol</h3>
+          <img src="./image/earthquick.jpg" alt="Earthquake Drill"
+            style="max-width:100%; height:auto; margin-top:15px; border-radius:8px;"
+            onerror="this.src='https://via.placeholder.com/600x400?text=Earthquake+Drill+Infographic'">
 
-        <ul style="list-style:none; text-align:left; margin-top:10px;">
-          <li><strong>R - Rescue:</strong> Rescue persons in immediate danger.</li>
-          <li><strong>A - Alarm:</strong> Activate fire alarm / Call UPM Emergency (8554-8434).</li>
-          <li><strong>C - Confine:</strong> Close doors/windows.</li>
-          <li><strong>E - Evacuate:</strong> Proceed to muster area.</li>
-        </ul>
-
-        <h3 style="margin-top:20px;">Fire Extinguisher: <strong>PASS</strong></h3>
-        <p>
-          <strong>P</strong>ull,
-          <strong>A</strong>im,
-          <strong>S</strong>queeze,
-          <strong>S</strong>weep.
-        </p>
-
+        </div>
       </div>
-    </div>
 
-  </div>
-</section>
+      <!-- FIRE SAFETY TAB -->
+      <div id="fire" class="tab-content drrm-tab-content">
+        <div class="notice" style="background:#fff; border-left:6px solid #ff4500;">
+
+          <h3>In Case of Fire: <strong>RACE</strong> Protocol</h3>
+
+          <ul style="list-style:none; text-align:left; margin-top:10px;">
+            <li><strong>R - Rescue:</strong> Rescue persons in immediate danger.</li>
+            <li><strong>A - Alarm:</strong> Activate fire alarm / Call UPM Emergency (8554-8434).</li>
+            <li><strong>C - Confine:</strong> Close doors/windows.</li>
+            <li><strong>E - Evacuate:</strong> Proceed to muster area.</li>
+          </ul>
+
+          <h3 style="margin-top:20px;">Fire Extinguisher: <strong>PASS</strong></h3>
+          <p>
+            <strong>P</strong>ull,
+            <strong>A</strong>im,
+            <strong>S</strong>queeze,
+            <strong>S</strong>weep.
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
 
 
 
@@ -1970,26 +1983,28 @@
   </section>
 
   <footer>
-    <p>© <span id="current-year">2025</span> UP College of Medicine – Henry Sy Sr. Hall</p>
-    <p style="margin-top: 10px;">
-      <a href="#" onclick="openQrModal(event)" style="font-weight: 700; color: #ffd700;">
-        📱 Scan QR Code for Mobile
-      </a>
-    </p>
-   <div style="margin-top: 20px; font-size: 0.9rem; line-height:1.7;">
-  Design Concept by <strong>Dr. Arsenio Claro A. Cabungcal</strong><br>
 
-  Building Architectural Design & 3D Visualization by 
-  <strong>Engr. Michael Bondoc</strong><br>
+  <div class="footer-title">
+    UP College of Medicine – Henry Sy Sr. Hall
+  </div>
 
-  Programmed by 
-  <a href="https://eduardsoncortez.github.io/MY-PORTFOLIO-WEBSITE/"
-     target="_blank"
-     style="color:#ffd700; font-weight:700; text-decoration:none;">
-     Eduardson Cortez
-  </a>
-</div>
-  </footer>
+  <p>© <span id="current-year">2025</span> All Rights Reserved</p>
+
+  <div class="footer-credits">
+    Design Concept by <strong>Dr. Arsenio Claro A. Cabungcal</strong><br>
+
+    Building Architectural Design & 3D Visualization by
+    <strong>Engr. Michael Bondoc</strong><br>
+
+    Programmed by
+    <a href="https://eduardsoncortez.github.io/MY-PORTFOLIO-WEBSITE/"
+       target="_blank"
+       rel="noopener noreferrer">
+      Eduardson Cortez
+    </a>
+  </div>
+
+</footer>
 
   <a id="back-to-top" href="#hero">Back to Top ↑</a>
 
