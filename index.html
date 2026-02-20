@@ -1877,43 +1877,63 @@
 
 
 
-  <section id="drrm-guide">
-    <h2>🚨 Disaster Risk Reduction Guide</h2>
+<section id="drrm-guide">
+  <h2>🚨 Disaster Risk Reduction Guide</h2>
 
-    <div class="tab-container">
-      <div class="tab-buttons">
-        <button class="tab-btn drrm-tab-btn active" onclick="openDrrmTab('earthquake', this)">
-          🌍 Earthquake Drill
-        </button>
-        <button class="tab-btn drrm-tab-btn" onclick="openDrrmTab('fire', this)">
-          🔥 Fire Safety
-        </button>
-      </div>
+  <div class="tab-container">
+    <div class="tab-buttons">
 
-      <div id="earthquake" class="tab-content drrm-tab-content active">
-        <div class="notice" style="background: #fff; border-left: 6px solid #ffd700;">
-          <h3>Nationwide Simultaneous Earthquake Drill (NSED)</h3>
-          <img src="./image/earthquick.jpg" alt="Earthquake Drill"
-            style="max-width: 100%; height: auto; margin-top: 15px; border-radius: 8px;"
-            onerror="this.src='https://via.placeholder.com/600x400?text=Earthquake+Drill+Infographic'">
-        </div>
-      </div>
+      <button class="tab-btn drrm-tab-btn active"
+        onclick="openDrrmTab('earthquake', this)">
+        🌍 Earthquake Drill
+      </button>
 
-      <div id="fire" class="tab-content drrm-tab-content">
-        <div class="notice" style="background: #fff; border-left: 6px solid #ff4500;">
-          <h3>In Case of Fire: **RACE** Protocol</h3>
-          <ul style="list-style: none; text-align: left; margin-top: 10px;">
-            <li><strong>R - Rescue:</strong> Rescue persons in immediate danger.</li>
-            <li><strong>A - Alarm:</strong> Activate fire alarm / Call 141.</li>
-            <li><strong>C - Confine:</strong> Close doors/windows.</li>
-            <li><strong>E - Evacuate:</strong> Proceed to muster area.</li>
-          </ul>
-          <h3 style="margin-top: 20px;">Fire Extinguisher: **PASS**</h3>
-          <p><strong>P</strong>ull, <strong>A</strong>im, <strong>S</strong>queeze, <strong>S</strong>weep.</p>
-        </div>
+      <button class="tab-btn drrm-tab-btn"
+        onclick="openDrrmTab('fire', this)">
+        🔥 Fire Safety
+      </button>
+
+    </div>
+
+    <!-- EARTHQUAKE TAB -->
+    <div id="earthquake" class="tab-content drrm-tab-content active">
+      <div class="notice" style="background:#fff; border-left:6px solid #ffd700;">
+        <h3>Nationwide Simultaneous Earthquake Drill (NSED)</h3>
+
+        <img src="./image/earthquick.jpg"
+          alt="Earthquake Drill"
+          style="max-width:100%; height:auto; margin-top:15px; border-radius:8px;"
+          onerror="this.src='https://via.placeholder.com/600x400?text=Earthquake+Drill+Infographic'">
+
       </div>
     </div>
-  </section>
+
+    <!-- FIRE SAFETY TAB -->
+    <div id="fire" class="tab-content drrm-tab-content">
+      <div class="notice" style="background:#fff; border-left:6px solid #ff4500;">
+
+        <h3>In Case of Fire: <strong>RACE</strong> Protocol</h3>
+
+        <ul style="list-style:none; text-align:left; margin-top:10px;">
+          <li><strong>R - Rescue:</strong> Rescue persons in immediate danger.</li>
+          <li><strong>A - Alarm:</strong> Activate fire alarm / Call UPM Emergency (8554-8434).</li>
+          <li><strong>C - Confine:</strong> Close doors/windows.</li>
+          <li><strong>E - Evacuate:</strong> Proceed to muster area.</li>
+        </ul>
+
+        <h3 style="margin-top:20px;">Fire Extinguisher: <strong>PASS</strong></h3>
+        <p>
+          <strong>P</strong>ull,
+          <strong>A</strong>im,
+          <strong>S</strong>queeze,
+          <strong>S</strong>weep.
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+</section>
 
 
 
