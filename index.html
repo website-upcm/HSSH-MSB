@@ -4,861 +4,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Official directory and room reservation guide for the UP College of Medicine – Henry Sy Sr. Hall (Medical Sciences Building). View room availability, floor directory, safety guides, and Wi-Fi access." />
+  <meta name="theme-color" content="#7b1113" />
+
   <title>UP College of Medicine – Henry Sy Sr. Hall</title>
-  <style>
-    /* =========================================
-       GLOBAL STYLES & RESET
-       ========================================= */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Segoe UI", Arial, sans-serif;
-    }
 
-    html,
-    body {
-      scroll-behavior: smooth;
-      background: #fafafa;
-      color: #333;
-      /* Prevent horizontal scroll on mobile */
-      overflow-x: hidden;
-    }
-
-    /* =========================================
-       NAVIGATION BAR
-       ========================================= */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(128, 0, 0, 0.97);
-      padding: 14px 25px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1001;
-      /* Higher than confetti and modals */
-      transition: 0.3s ease;
-    }
-
-    nav.scrolled {
-      background: rgba(128, 0, 0, 0.98);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      padding: 10px 25px;
-      /* Slight shrink effect */
-    }
-
-    nav h2 {
-      color: #fff;
-      font-size: 1.2rem;
-      letter-spacing: 0.5px;
-      font-weight: 600;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-
-    nav ul li a {
-      display: inline-block;
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 8px 14px;
-      border-radius: 25px;
-      font-size: 0.9rem;
-      transition: all 0.3s ease;
-
-      /* NEW EFFECTS */
-      background: transparent;
-      border: 1px solid transparent;
-    }
-
-    /* HOVER = BUTTON FEEL */
-    nav ul li a:hover {
-      background: #ffd700;
-      color: #800000;
-      border: 1px solid #ffd700;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    /* CLICK EFFECT (IMPORTANT 🔥) */
-    nav ul li a:active {
-      transform: scale(0.95);
-      box-shadow: none;
-    }
-
-    .menu-toggle {
-      display: none;
-      font-size: 1.8rem;
-      color: #fff;
-      cursor: pointer;
-    }
-
-    .calendar-btn {
-      background: #ffd700;
-      color: #800000 !important;
-      padding: 8px 16px;
-      border-radius: 25px;
-      font-weight: bold;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .calendar-btn:hover {
-      background: #fff;
-      color: #800000 !important;
-      transform: translateY(-2px);
-    }
-
-
-
-    /* =========================================
-       HERO SECTION
-       ========================================= */
-    .hero {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      color: white;
-      text-align: center;
-      transition: opacity 0.5s ease-in-out, background-image 0.5s ease-in-out;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.55);
-      /* Slightly lighter overlay for better visibility */
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      /* Ensure text is above overlay/confetti */
-      max-width: 900px;
-      animation: fadeIn 1.2s ease;
-      padding: 0 20px;
-      transform: translateY(-40px);
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .hero h1 {
-      font-size: 4.5rem;
-      font-weight: 900;
-      margin-bottom: 0.5rem;
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-      line-height: 1.1;
-    }
-
-    .hero h2 {
-      font-size: 2rem;
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
-    }
-
-    .hero p {
-      font-size: 1.5rem;
-      margin-bottom: 2.5rem;
-      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
-      color: #f0f0f0;
-    }
-
-    /* BUTTON STYLES */
-    .btn {
-      display: inline-block;
-      padding: 12px 28px;
-      border-radius: 50px;
-      background: #800000;
-      color: #fff;
-      text-decoration: none;
-      margin: 8px;
-      font-weight: 600;
-      transition: 0.3s ease;
-      border: 2px solid transparent;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    }
-
-    .btn:hover {
-      background: #a52a2a;
-      transform: translateY(-3px);
-      border: 2px solid #ffd700;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    }
-
-    /* =========================================
-       SECTIONS GENERAL
-       ========================================= */
-    section {
-      padding: 80px 20px;
-      text-align: center;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: 0.8s ease;
-      overflow: hidden;
-      /* Prevent spillover */
-    }
-
-    section.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    section h2 {
-      font-size: 2.4rem;
-      color: #800000;
-      margin-bottom: 20px;
-      border-bottom: 3px solid #ffd700;
-      display: inline-block;
-      padding-bottom: 5px;
-    }
-
-    /* =========================================
-       VIDEO SECTION
-       ========================================= */
-    .video-container {
-      max-width: 900px;
-      margin: 40px auto;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-      background: #000;
-    }
-
-    .video-container iframe {
-      width: 100%;
-      aspect-ratio: 16/9;
-      /* Modern aspect ratio handling */
-      height: auto;
-      min-height: 400px;
-      border: none;
-    }
-
-    /* =========================================
-       EVENTS SECTION
-       ========================================= */
-    .events-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .event-card {
-      background: #fff;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-      padding: 20px;
-      transition: 0.3s ease;
-      text-align: left;
-      border: 1px solid #eee;
-    }
-
-    .event-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-      border-color: #ffd700;
-    }
-
-    .event-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 15px;
-      transition: transform 0.3s ease;
-    }
-
-
-    .event-card img:hover {
-      transform: scale(1.02);
-    }
-
-
-
-    .event-card h3 {
-      color: #800000;
-      font-size: 1.3rem;
-      margin-bottom: 10px;
-      line-height: 1.4;
-    }
-
-    .event-card p {
-      font-size: 0.95rem;
-      color: #666;
-      margin-bottom: 5px;
-    }
-
-    /* =========================================
-       NOTICE & INFO BOXES
-       ========================================= */
-    .notice {
-      background: #fff9e6;
-      border-left: 6px solid #800000;
-      padding: 35px;
-      width: 90%;
-      max-width: 900px;
-      margin: 40px auto;
-      border-radius: 8px;
-      text-align: left;
-      line-height: 1.7;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    }
-
-    .notice h3 {
-      color: #800000;
-      margin-bottom: 15px;
-      font-size: 1.4rem;
-    }
-
-    .notice a {
-      color: #800000;
-      font-weight: bold;
-      text-decoration: underline;
-    }
-
-    /* =========================================
-       CALENDAR & IFRAMES
-       ========================================= */
-    #map iframe,
-    #calendar-section iframe {
-      width: 100%;
-      max-width: 1200px;
-      height: 700px;
-      border: none;
-      border-radius: 12px;
-      margin-top: 25px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      background: #fff;
-      /* Placeholder while loading */
-    }
-
-    /* =========================================
-       WIFI GUIDE SECTION (IMPROVED)
-       ========================================= */
-    #wifi-guide {
-      background: #f8f8f8;
-      border-top: 1px solid #eee;
-      border-bottom: 1px solid #eee;
-    }
-
-    .wifi-guide-container {
-      max-width: 1000px;
-      margin: 0 auto;
-      background: #fff;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .wifi-guide-img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      display: block;
-    }
-
-    /* =========================================
-       TIMELINE / RESERVATION
-       ========================================= */
-    .timeline {
-      position: relative;
-      max-width: 1000px;
-      margin: 50px auto 0 auto;
-      padding: 20px 0;
-    }
-
-    .timeline::after {
-      content: '';
-      position: absolute;
-      width: 4px;
-      background-color: #800000;
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      margin-left: -2px;
-    }
-
-    .timeline-step {
-      padding: 20px 40px;
-      position: relative;
-      width: 50%;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      margin-bottom: 30px;
-      transition: transform 0.3s;
-    }
-
-    .timeline-step:hover {
-      transform: scale(1.02);
-    }
-
-    .timeline-step::after {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      right: -10px;
-      background-color: #ffd700;
-      border: 4px solid #800000;
-      top: 25px;
-      border-radius: 50%;
-      z-index: 1;
-    }
-
-    .timeline-step.left {
-      left: 0;
-      text-align: right;
-    }
-
-    .timeline-step.right {
-      left: 50%;
-      text-align: left;
-    }
-
-    .timeline-step.left::after {
-      right: -12px;
-    }
-
-    .timeline-step.right::after {
-      left: -12px;
-    }
-
-    .timeline-step h3 {
-      font-size: 1.3rem;
-      margin-bottom: 10px;
-      color: #800000;
-    }
-
-    .timeline-step p {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      color: #555;
-    }
-
-    /* =========================================
-       ORG CHART
-       ========================================= */
-    #organization {
-      background: #fff;
-    }
-
-    .org-chart-container {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 10px;
-    }
-
-    .org-chart-image {
-      width: 100%;
-      height: auto;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-    }
-
-    /* =========================================
-       FOOTER
-       ========================================= */
-    footer {
-      background: linear-gradient(to right, #111, #1a1a1a);
-      color: #d9d9d9;
-      padding: 45px 20px 35px;
-      text-align: center;
-      line-height: 1.9;
-      font-size: 0.95rem;
-      border-top: 4px solid #800000;
-      box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    footer .footer-title {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 15px;
-    }
-
-    footer .footer-credits {
-      margin-top: 15px;
-      font-size: 0.95rem;
-      color: #cfcfcf;
-    }
-
-    footer a {
-      color: #ffd700;
-      font-weight: 700;
-      text-decoration: none;
-      transition: 0.3s ease;
-    }
-
-    footer a:hover {
-      color: #fff;
-      text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
-    }
-
-    /* =========================================
-       MODALS & TABS
-       ========================================= */
-    .flowchart-modal-overlay,
-    .qr-modal-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      z-index: 2000;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-
-    .flowchart-modal-content,
-    .qr-modal-content {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      max-width: 95%;
-      max-height: 90vh;
-      overflow-y: auto;
-      position: relative;
-    }
-
-    .flowchart-modal-content {
-      content-visibility: auto;
-      contain: content;
-    }
-
-    .qr-modal-content {
-      max-width: 350px;
-      text-align: center;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      color: #800000;
-      font-size: 28px;
-      font-weight: bold;
-      cursor: pointer;
-      background: #ffd700;
-      border-radius: 50%;
-      width: 35px;
-      height: 35px;
-      line-height: 35px;
-      text-align: center;
-      transition: 0.3s;
-    }
-
-    .close-btn:hover {
-      background: #fff;
-      color: #000;
-    }
-
-    /* TABS */
-    .tab-container {
-      max-width: 1100px;
-      margin: 20px auto;
-      padding: 0 10px;
-    }
-
-    .tab-buttons {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 25px;
-      border-bottom: 2px solid #ddd;
-      flex-wrap: wrap;
-    }
-
-    .tab-btn {
-      padding: 12px 25px;
-      margin: 0 5px 5px 5px;
-      cursor: pointer;
-      background: #f0f0f0;
-      border: none;
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
-      font-weight: 600;
-      color: #555;
-      transition: all 0.3s ease;
-    }
-
-    .tab-btn.active {
-      background: #800000;
-      color: #fff;
-      border-bottom: 4px solid #ffd700;
-    }
-
-    .tab-content {
-      display: none;
-      animation: fadeIn 0.5s;
-    }
-
-    .tab-content.active {
-      display: block;
-    }
-
-    /* /* /* =========================================
-       ANIMATIONS & EFFECTS
-       ========================================= */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-
-    /* Back to Top */
-    #back-to-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: #ffd700;
-      color: #800000;
-      padding: 12px 20px;
-      border-radius: 50px;
-      font-weight: 700;
-      z-index: 900;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-      visibility: hidden;
-      opacity: 0;
-      transition: all 0.3s ease;
-      border: 2px solid #800000;
-    }
-
-    #back-to-top.show {
-      visibility: visible;
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    #back-to-top:hover {
-      background: #fff;
-      transform: scale(1.1);
-    }
-
-    /* Scroll Indicator (Bouncing Arrows) */
-    .scroll-indicator {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 5;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      animation: bounce 2s infinite;
-    }
-
-    .scroll-indicator a {
-      background: rgba(128, 0, 0, 0.8);
-      color: #ffd700;
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-decoration: none;
-      font-size: 1.5rem;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    }
-
-    @keyframes bounce {
-
-      0%,
-      20%,
-      50%,
-      80%,
-      100% {
-        transform: translateY(0) translateX(-50%);
-      }
-
-      40% {
-        transform: translateY(-10px) translateX(-50%);
-      }
-
-      60% {
-        transform: translateY(-5px) translateX(-50%);
-      }
-    }
-
-    /* Initially hide up arrow */
-    .scroll-indicator .up-arrow {
-      display: none;
-    }
-
-
-    /* =========================================
-       MEDIA QUERIES (RESPONSIVENESS)
-       ========================================= */
-
-    /* MOBILE DEVICES (Max 768px) */
-    @media (max-width: 768px) {
-
-      /* Navigation */
-      nav {
-        padding: 10px 15px;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      nav ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 100%;
-        background: rgba(128, 0, 0, 0.98);
-        padding: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      }
-
-      nav ul.active {
-        display: flex;
-      }
-
-      nav ul li {
-        text-align: center;
-        padding: 10px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      }
-
-      /* Hero */
-      .hero h1 {
-        font-size: 2.8rem;
-      }
-
-      .hero h2 {
-        font-size: 1.5rem;
-      }
-
-      .hero p {
-        font-size: 1.1rem;
-      }
-
-      /* Timeline */
-      .timeline::after {
-        left: 20px;
-      }
-
-      .timeline-step {
-        width: 100%;
-        padding-left: 50px;
-        padding-right: 20px;
-        margin-bottom: 30px;
-      }
-
-      .timeline-step.left,
-      .timeline-step.right {
-        left: 0;
-        text-align: left;
-      }
-
-      .timeline-step.left::after,
-      .timeline-step.right::after {
-        left: 10px;
-        right: auto;
-      }
-
-      /* Calendar/Map */
-      #map iframe,
-      #calendar-section iframe {
-        height: 500px;
-      }
-
-      /* General Padding */
-      section {
-        padding: 60px 15px;
-      }
-    }
-
-    /* KIOSK / TV SCREENS (Min 1600px) */
-    @media (min-width: 1600px) {
-      body {
-        font-size: 1.2rem;
-      }
-
-      /* Base font size increase */
-      .hero h1 {
-        font-size: 6rem;
-      }
-
-      .hero h2 {
-        font-size: 2.5rem;
-      }
-
-      .btn {
-        padding: 15px 40px;
-        font-size: 1.2rem;
-      }
-
-      section h2 {
-        font-size: 3rem;
-      }
-
-      .event-card h3 {
-        font-size: 1.6rem;
-      }
-
-      .event-card p {
-        font-size: 1.1rem;
-      }
-
-      #calendar-section iframe {
-        height: 900px;
-      }
-
-      /* Enhance visibility for standing viewers */
-      .notice,
-      .timeline-step,
-      .wifi-guide-container {
-        padding: 40px;
-      }
-    }
-
-    .aed-image {
-      width: 100%;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .lazy-modal {
-      content-visibility: auto;
-      contain-intrinsic-size: 200px;
-      display: block;
-      width: 100%;
-    }
-  </style>
+  <!-- Open Graph -->
+  <meta property="og:title" content="UP College of Medicine – Henry Sy Sr. Hall" />
+  <meta property="og:description" content="Room directory, availability calendar, and reservation guide for the HSS-MSB." />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./image/up.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap"
+    rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
+  <div id="scroll-progress"></div>
+
   <nav>
     <h2>UPCM HSS-MSB</h2>
     <div class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle navigation menu">☰</div>
@@ -902,8 +75,8 @@
     </div>
 
     <div class="scroll-indicator">
-      <a href="#video" class="down-arrow">↓</a>
-      <a href="#hero" class="up-arrow">↑</a>
+      <a href="#building-directory" class="down-arrow" aria-label="Scroll down">↓</a>
+      <a href="#hero" class="up-arrow" aria-label="Scroll to top">↑</a>
     </div>
   </div>
 
@@ -916,7 +89,7 @@
     <div style="max-width:900px;margin:0 auto;cursor:pointer;" onclick="openFloorSelector()">
       <img src="./image/building.png" alt="UPCM Building"
         style="width:100%;border-radius:15px;box-shadow:0 8px 20px rgba(0,0,0,0.2);">
-      <p style="margin-top:10px;color:#800000;font-weight:600;">
+      <p style="margin-top:10px;color:#7b1113;font-weight:600;">
         👆 Click the building to view floors & rooms
       </p>
     </div>
@@ -926,7 +99,7 @@
     <div class="flowchart-modal-content" onclick="event.stopPropagation()">
       <span class="close-btn" onclick="closeFloorSelector()">×</span>
 
-      <h2 style="color:#800000;text-align:center;">Select Floor</h2>
+      <h2 style="color:#7b1113;text-align:center;">Select Floor</h2>
 
       <div style="display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-top:20px;">
         <button class="btn" onclick="openGroundFloor()">Ground Floor</button>
@@ -949,7 +122,7 @@
     <div class="flowchart-modal-content" onclick="event.stopPropagation()">
       <span class="close-btn" onclick="closeGroundFloor()">×</span>
 
-      <h2 style="color:#800000;">Ground Floor – Facilities</h2>
+      <h2 style="color:#7b1113;">Ground Floor – Facilities</h2>
 
       <!-- FLOOR PLAN -->
       <img data-src="./image/ground-floor-plan.png" class="lazy-modal"
@@ -980,7 +153,7 @@
     <div class="flowchart-modal-content" onclick="event.stopPropagation()">
       <span class="close-btn" onclick="closeSecondFloor()">×</span>
 
-      <h2 style="color:#800000;">2nd Floor – Room Directory</h2>
+      <h2 style="color:#7b1113;">2nd Floor – Room Directory</h2>
 
       <!-- FLOOR PLAN -->
       <img data-src="./image/2nd-floor-plan.png" class="lazy-modal"
@@ -1033,7 +206,7 @@
     <div class="flowchart-modal-content" onclick="event.stopPropagation()">
       <span class="close-btn" onclick="closeThirdFloor()">×</span>
 
-      <h2 style="color:#800000;">3rd Floor – Room Directory</h2>
+      <h2 style="color:#7b1113;">3rd Floor – Room Directory</h2>
 
       <!-- FLOOR PLAN -->
       <img data-src="./image/3rd-floor-plan.png" class="lazy-modal"
@@ -1113,7 +286,7 @@
         </div>
 
         <!-- AUDITORIUM -->
-        <div class="event-card" style="border:2px solid #800000;">
+        <div class="event-card" style="border:2px solid #7b1113;">
           <h3>🎭 RAMON S. ANG (AUDITORIUM)</h3>
           <p><strong>Capacity:</strong> 218 persons</p>
           <img data-src="./image/auditorium-1.png" class="lazy-modal">
@@ -1131,7 +304,7 @@
     <div class="flowchart-modal-content" onclick="event.stopPropagation()">
       <span class="close-btn" onclick="closeFourthFloor()">×</span>
 
-      <h2 style="color:#800000;">4th Floor – Room Directory</h2>
+      <h2 style="color:#7b1113;">4th Floor – Room Directory</h2>
 
       <!-- FLOOR PLAN -->
       <img data-src="./image/4th-floor-plan.png" class="lazy-modal"
@@ -1190,7 +363,7 @@
         </div>
 
         <!-- AUDITORIUM -->
-        <div class="event-card" style="border:2px solid #800000;">
+        <div class="event-card" style="border:2px solid #7b1113;">
           <h3>🎭 UPMASA (AUDITORIUM)</h3>
           <p><strong>Capacity:</strong> 240 persons</p>
           <img data-src="./image/upmasa-1.png" class="lazy-modal">
@@ -1210,7 +383,7 @@
     <div class="flowchart-modal-content" onclick="event.stopPropagation()">
       <span class="close-btn" onclick="closeFifthFloor()">×</span>
 
-      <h2 style="color:#800000;">5th Floor – Room Directory</h2>
+      <h2 style="color:#7b1113;">5th Floor – Room Directory</h2>
 
       <!-- FLOOR PLAN -->
       <img data-src="./image/5th-floor-plan.png" class="lazy-modal"
@@ -1471,7 +644,7 @@
     <div class="flowchart-modal-content" onclick="event.stopPropagation()">
       <span class="close-btn" onclick="closeSixthFloor()">×</span>
 
-      <h2 style="color:#800000;">6th Floor – Room Directory</h2>
+      <h2 style="color:#7b1113;">6th Floor – Room Directory</h2>
 
       <!-- FLOOR PLAN -->
       <img data-src="./image/6th-floor-plan.png" class="lazy-modal"
@@ -1496,7 +669,7 @@
         </div>
 
         <!-- MERGED -->
-        <div class="event-card" style="border:2px solid #800000;">
+        <div class="event-card" style="border:2px solid #7b1113;">
           <h3>UNILAB & VICENTE TIU LIM (Merged)</h3>
           <p><strong>Capacity:</strong> 140 persons</p>
           <img data-src="./image/unilab-vicente-1.png" class="lazy-modal">
@@ -1511,7 +684,6 @@
 
     </div>
   </div>
-  </div>
 
 
   <!-- 7TH FLOOR MODAL -->
@@ -1519,7 +691,7 @@
     <div class="flowchart-modal-content" onclick="event.stopPropagation()">
       <span class="close-btn" onclick="closeSeventhFloor()">×</span>
 
-      <h2 style="color:#800000;">7th Floor – Plenary Hall</h2>
+      <h2 style="color:#7b1113;">7th Floor – Plenary Hall</h2>
 
       <!-- FLOOR PLAN -->
       <img data-src="./image/7th-floor-plan.png" class="lazy-modal"
@@ -1528,7 +700,7 @@
       <div class="events-container">
 
         <!-- 300 CAPACITY -->
-        <div class="event-card" style="border:2px solid #800000;">
+        <div class="event-card" style="border:2px solid #7b1113;">
           <h3>Plenary Hall – With Tables & Chairs</h3>
           <p><strong>Capacity:</strong> 300 persons</p>
           <img data-src="./image/7f-300-1.png" class="lazy-modal">
@@ -1537,7 +709,7 @@
         </div>
 
         <!-- 600 CAPACITY -->
-        <div class="event-card" style="border:2px dashed #800000;">
+        <div class="event-card" style="border:2px dashed #7b1113;">
           <h3>Plenary Hall – Without Tables</h3>
           <p><strong>Capacity:</strong> 600 persons</p>
           <img data-src="./image/7f-600-1.png" class="lazy-modal">
@@ -1554,7 +726,7 @@
     <div class="flowchart-modal-content" onclick="event.stopPropagation()">
       <span class="close-btn" onclick="closeEighthFloor()">×</span>
 
-      <h2 style="color:#800000;">8th Floor – Facilities</h2>
+      <h2 style="color:#7b1113;">8th Floor – Facilities</h2>
 
       <!-- FLOOR PLAN -->
       <img data-src="./image/8th-floor-plan.png" class="lazy-modal"
@@ -1593,7 +765,7 @@
     <div class="flowchart-modal-content" onclick="event.stopPropagation()">
       <span class="close-btn" onclick="closeNinthFloor()">×</span>
 
-      <h2 style="color:#800000;">9th Floor – Room Directory</h2>
+      <h2 style="color:#7b1113;">9th Floor – Room Directory</h2>
 
       <!-- FLOOR PLAN -->
       <img data-src="./image/9th-floor-plan.png" class="lazy-modal"
@@ -1650,7 +822,7 @@
     <div class="flowchart-modal-content" onclick="event.stopPropagation()">
       <span class="close-btn" onclick="closeTenthFloor()">×</span>
 
-      <h2 style="color:#800000;">10th Floor – Room Directory</h2>
+      <h2 style="color:#7b1113;">10th Floor – Room Directory</h2>
 
       <!-- FLOOR PLAN -->
       <img data-src="./image/10th-floor-plan.png" class="lazy-modal"
@@ -1699,7 +871,7 @@
     <div class="flowchart-modal-content" onclick="event.stopPropagation()">
       <span class="close-btn" onclick="closeEleventhFloor()">×</span>
 
-      <h2 style="color:#800000;">11th Floor – Facilities</h2>
+      <h2 style="color:#7b1113;">11th Floor – Facilities</h2>
 
       <!-- FLOOR PLAN -->
       <img data-src="./image/11th-floor-plan.png" class="lazy-modal"
@@ -1708,7 +880,7 @@
       <div class="events-container">
 
         <!-- THESIS HALL -->
-        <div class="event-card" style="border:2px solid #800000;">
+        <div class="event-card" style="border:2px solid #7b1113;">
           <h3>Thesis Hall</h3>
           <img data-src="./image/11f-thesis-1.png" class="lazy-modal">
           <img data-src="./image/11f-thesis-2.png" class="lazy-modal" style="margin-top:10px;">
@@ -1774,7 +946,7 @@
           scrolling="no"></iframe>
 
         <div style="margin-top: 30px;">
-          <a href="#room-process" class="btn" style="background: #008000; border: 2px solid #ffd700;">
+          <a href="#room-process" class="btn" style="background:#014421; border: 2px solid #ffd700;">
             ✅ Confirmed Availability? Proceed to Reservation
           </a>
         </div>
@@ -1823,7 +995,7 @@
 
       <p>
         Email:
-        <a href="mailto:mcbondoc3@up.edu.ph">
+        <a href="mailto:dsimperial1@up.edu.ph">
           dsimperial1@up.edu.ph
         </a>
       </p>
@@ -1834,7 +1006,7 @@
     <!-- FLOWCHART -->
     <div style="max-width:900px;margin:40px auto;">
 
-      <h3 style="color:#800000;margin-bottom:15px;">
+      <h3 style="color:#7b1113;margin-bottom:15px;">
         Reservation Process Overview
       </h3>
 
@@ -1845,7 +1017,7 @@
 
 
     <!-- TIMELINE -->
-    <h3 style="color:#800000;margin-top:30px;">
+    <h3 style="color:#7b1113;margin-top:30px;">
       Step-by-Step Reservation
     </h3>
 
@@ -1919,7 +1091,7 @@
     <div style="margin-top:40px;">
 
       <a href="mailto:hss-msb.upmanila@up.edu.ph?subject=Room%20Reservation" class="btn"
-        style="background:#008000;border:2px solid #ffd700;">
+        style="background:#014421;border:2px solid #ffd700;">
 
         📩 Start Reservation Email
 
@@ -1979,7 +1151,7 @@
 
       <img src="./image/aed-guide.png" class="aed-image" alt="AED Step-by-Step Guide">
 
-      <p style="margin-top:10px;color:#800000;font-weight:600;">
+      <p style="margin-top:10px;color:#7b1113;font-weight:600;">
         🔍 Click image to enlarge
       </p>
 
@@ -2080,7 +1252,8 @@
       width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
     </iframe>
     <div style="margin-top: 15px;">
-      <a href="https://goo.gl/maps/xyz" target="_blank" class="btn">Open in Google Maps</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=UP+Manila+Henry+Sy+Sr+Hall" target="_blank"
+        rel="noopener noreferrer" class="btn">Open in Google Maps</a>
     </div>
   </section>
 
@@ -2094,19 +1267,48 @@
 
   <footer>
 
-    <div class="footer-title">
-      UP College of Medicine – Henry Sy Sr. Hall
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <div class="footer-title">UP College of Medicine</div>
+        <p class="footer-sub">Henry Sy Sr. – Medical Sciences Building</p>
+        <p>Calderon Hall, 547 Pedro Gil Street,<br>Ermita, Manila, Philippines</p>
+        <p>☎ (632) 8526-4170</p>
+        <p>✉ <a href="mailto:hss-msb.upmanila@up.edu.ph">hss-msb.upmanila@up.edu.ph</a></p>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-title">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="https://cm.upm.edu.ph/" target="_blank" rel="noopener noreferrer">Official UPCM Website</a></li>
+          <li><a href="https://cm.upm.edu.ph/p/henry-sy-medical-sciences-building" target="_blank"
+              rel="noopener noreferrer">About the MSB</a></li>
+          <li><a href="#room-process">Room Reservation</a></li>
+          <li><a href="#building-directory">Room Directory</a></li>
+          <li><a href="#calendar-section">Availability Calendar</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-title">Connect</div>
+        <ul class="footer-links">
+          <li><a href="https://www.facebook.com/upmedicine/" target="_blank" rel="noopener noreferrer">Facebook –
+              UP College of Medicine</a></li>
+          <li><a href="mailto:upcm.upmanila@up.edu.ph">upcm.upmanila@up.edu.ph</a></li>
+        </ul>
+      </div>
+
     </div>
 
-    <p>© <span id="current-year">2025</span> All Rights Reserved</p>
-
-    <div class="footer-credits">
-      Design Concept by <strong>Dr. Arsenio Claro A. Cabungcal</strong><br>
-
-      Programmed by
-      <a href="https://eduardsoncortez.github.io/MY-PORTFOLIO-WEBSITE/" target="_blank" rel="noopener noreferrer">
-        Eduardson Cortez
-      </a>
+    <div class="footer-bottom">
+      <p>© <span id="current-year">2025</span> UP College of Medicine – Henry Sy Sr. Hall. All Rights Reserved.</p>
+      <div class="footer-credits">
+        Design Concept by <strong>Dr. Arsenio Claro A. Cabungcal</strong> &nbsp;•&nbsp;
+        Programmed by
+        <a href="https://eduardsoncortez.github.io/MY-PORTFOLIO-WEBSITE/" target="_blank" rel="noopener noreferrer">
+          Eduardson Cortez
+        </a>
+      </div>
     </div>
 
   </footer>
@@ -2124,7 +1326,7 @@
   <div id="qrCodeModal" class="qr-modal-overlay" onclick="closeQrModal()">
     <div class="qr-modal-content" onclick="event.stopPropagation()">
       <span class="close-btn" onclick="closeQrModal()">×</span>
-      <h3 style="color:#800000; margin-bottom:15px;">Scan to view on mobile</h3>
+      <h3 style="color:#7b1113; margin-bottom:15px;">Scan to view on mobile</h3>
       <img src="./image/qrcode.png" alt="QR Code" style="width:200px; height:200px; border:4px solid #ffd700;"
         onerror="this.src='https://via.placeholder.com/200x200?text=QR+Code'">
       <p style="margin-top:10px;">Thank you for visiting!</p>
@@ -2132,279 +1334,7 @@
   </div>
 
 
-  <script>
-
-    function openFloorSelector() {
-      document.getElementById("floorModal").style.display = "flex";
-    }
-
-    function closeFloorSelector() {
-      document.getElementById("floorModal").style.display = "none";
-    }
-
-
-    // Mobile menu auto-close when link is clicked
-    document.querySelectorAll('#menu a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.getElementById("menu").classList.remove("active");
-      });
-    });
-
-    // GROUND FLOOR FUNCTIONS
-    function openGroundFloor() {
-      closeFloorSelector();
-      loadModalImages("groundFloorModal"); // 🔥 load images only when opened
-      document.getElementById("groundFloorModal").style.display = "flex";
-    }
-
-    function closeGroundFloor() {
-      document.getElementById("groundFloorModal").style.display = "none";
-    }
-    // 2nd Floor 
-    function openSecondFloor() {
-      closeFloorSelector();
-      loadModalImages("secondFloorModal"); // 🔥 lazy load images
-      document.getElementById("secondFloorModal").style.display = "flex";
-    }
-
-    function closeSecondFloor() {
-      document.getElementById("secondFloorModal").style.display = "none";
-    }
-
-
-
-
-    // STEP 3: 3RD FLOOR FUNCTIONS
-    function openThirdFloor() {
-      closeFloorSelector();
-      loadModalImages("thirdFloorModal"); // 🔥 lazy load images
-      document.getElementById("thirdFloorModal").style.display = "flex";
-    }
-
-    function closeThirdFloor() {
-      document.getElementById("thirdFloorModal").style.display = "none";
-    }
-
-    // STEP 3: 4TH FLOOR FUNCTIONS
-    function openFourthFloor() {
-      closeFloorSelector();
-      loadModalImages("fourthFloorModal"); // 🔥 lazy load images
-      document.getElementById("fourthFloorModal").style.display = "flex";
-    }
-
-    function closeFourthFloor() {
-      document.getElementById("fourthFloorModal").style.display = "none";
-    }
-
-
-    // AED MODAL
-    function openAedModal() {
-      loadModalImages("aedModal"); // 🔥 para di agad load image
-      document.getElementById("aedModal").style.display = "flex";
-    }
-
-    function closeAedModal() {
-      document.getElementById("aedModal").style.display = "none";
-    }
-
-    // STEP 3: 5TH FLOOR FUNCTIONS
-    function openFifthFloor() {
-      closeFloorSelector();
-      loadModalImages("fifthFloorModal"); // 🔥 lazy load images
-      document.getElementById("fifthFloorModal").style.display = "flex";
-    }
-
-    function closeFifthFloor() {
-      document.getElementById("fifthFloorModal").style.display = "none";
-    }
-
-
-    // STEP 3: 6TH FLOOR FUNCTIONS
-    function openSixthFloor() {
-      closeFloorSelector();
-      loadModalImages("sixthFloorModal"); // 🔥 lazy load images
-      document.getElementById("sixthFloorModal").style.display = "flex";
-    }
-
-    function closeSixthFloor() {
-      document.getElementById("sixthFloorModal").style.display = "none";
-    }
-
-
-
-    // STEP 3: 7TH FLOOR FUNCTIONS
-    function openSeventhFloor() {
-      closeFloorSelector();
-      loadModalImages("seventhFloorModal"); // 🔥 lazy load images
-      document.getElementById("seventhFloorModal").style.display = "flex";
-    }
-
-    function closeSeventhFloor() {
-      document.getElementById("seventhFloorModal").style.display = "none";
-    }
-
-    // STEP 3: 8TH FLOOR FUNCTIONS
-    function openEighthFloor() {
-      closeFloorSelector();
-      loadModalImages("eighthFloorModal"); // 🔥 lazy load images
-      document.getElementById("eighthFloorModal").style.display = "flex";
-    }
-
-    function closeEighthFloor() {
-      document.getElementById("eighthFloorModal").style.display = "none";
-    }
-
-
-    // STEP 3: 9TH FLOOR FUNCTIONS
-    function openNinthFloor() {
-      closeFloorSelector();
-      loadModalImages("ninthFloorModal"); // 🔥 lazy load images
-      document.getElementById("ninthFloorModal").style.display = "flex";
-    }
-
-    function closeNinthFloor() {
-      document.getElementById("ninthFloorModal").style.display = "none";
-    }
-
-    // STEP 3: 10TH FLOOR FUNCTIONS
-    function openTenthFloor() {
-      closeFloorSelector();
-      loadModalImages("tenthFloorModal"); // 🔥 lazy load images
-      document.getElementById("tenthFloorModal").style.display = "flex";
-    }
-
-    function closeTenthFloor() {
-      document.getElementById("tenthFloorModal").style.display = "none";
-    }
-
-    // STEP 3: 11TH FLOOR FUNCTIONS
-    function openEleventhFloor() {
-      closeFloorSelector();
-      loadModalImages("eleventhFloorModal"); // 🔥 lazy load images
-      document.getElementById("eleventhFloorModal").style.display = "flex";
-    }
-
-    function closeEleventhFloor() {
-      document.getElementById("eleventhFloorModal").style.display = "none";
-    }
-
-
-    function openImageViewer(src) {
-      document.getElementById("imageViewerContent").src = src;
-      document.getElementById("imageViewerModal").style.display = "flex";
-    }
-
-    function closeImageViewer() {
-      document.getElementById("imageViewerModal").style.display = "none";
-    }
-
-    // PRO EVENT DELEGATION (FASTER)
-    document.addEventListener("click", function (e) {
-      if (e.target.matches('.event-card img')) {
-        openImageViewer(e.target.currentSrc || e.target.src || e.target.dataset.src);
-      }
-    });
-
-
-    const modalImageObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const img = entry.target;
-
-          if (img.dataset.src) {
-            img.src = img.dataset.src;
-            img.loading = "lazy";
-            img.decoding = "async";
-            img.removeAttribute("data-src");
-          }
-
-          modalImageObserver.unobserve(img);
-        }
-      });
-    });
-
-    function loadModalImages(modalId) {
-      const modal = document.getElementById(modalId);
-      if (!modal) return;
-
-      modal.querySelectorAll("img[data-src]").forEach(img => {
-        modalImageObserver.observe(img);
-      });
-    }
-
-
-    // 1. HERO SLIDESHOW
-    const heroSection = document.getElementById('hero');
-    // Ensure these image paths are correct
-    const images = ["./image/artwork.png", "./image/lobby_1.png", "./image/lobby_2.png", "./image/lobby_3.png", "./image/lobby_4.jpg"];
-    let currentImageIndex = 0;
-
-    function changeHeroBackground() {
-      heroSection.style.backgroundImage = `url('${images[currentImageIndex]}')`;
-      currentImageIndex = (currentImageIndex + 1) % images.length;
-    }
-    // Change every 5 seconds
-    setInterval(changeHeroBackground, 5000);
-    changeHeroBackground(); // Initial load
-
-
-
-
-    const backToTopBtn = document.getElementById('back-to-top');
-    const upArrow = document.querySelector('.up-arrow');
-    const downArrow = document.querySelector('.down-arrow');
-
-    window.addEventListener('scroll', () => {
-      const scrollPos = window.scrollY;
-      // Nav transparency
-      document.querySelector('nav').classList.toggle('scrolled', scrollPos > 50);
-
-      // Buttons visibility
-      if (scrollPos > 400) {
-        backToTopBtn.classList.add('show');
-        if (upArrow) upArrow.style.display = 'flex';
-        if (downArrow) downArrow.style.display = 'none';
-      } else {
-        backToTopBtn.classList.remove('show');
-        if (upArrow) upArrow.style.display = 'none';
-        if (downArrow) downArrow.style.display = 'flex';
-      }
-    });
-
-    // 5. OBSERVER (Fade-in on scroll)
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('show');
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('section').forEach(sec => observer.observe(sec));
-
-    // 6. UI FUNCTIONS
-    function toggleMenu() {
-      document.getElementById("menu").classList.toggle("active");
-    }
-
-    function openTab(tabName, btn, tabClass, btnClass) {
-      document.querySelectorAll('.' + tabClass).forEach(t => t.classList.remove('active'));
-      document.querySelectorAll('.' + btnClass).forEach(b => b.classList.remove('active'));
-      document.getElementById(tabName).classList.add('active');
-      btn.classList.add('active');
-    }
-
-    // Wrapper functions for specific sections
-    window.openCalendarTab = (name, btn) => openTab(name, btn, 'calendar-tab-content', 'calendar-tab-btn');
-    window.openDrrmTab = (name, btn) => openTab(name, btn, 'drrm-tab-content', 'drrm-tab-btn');
-
-
-    function openQrModal(e) {
-      if (e) e.preventDefault();
-      document.getElementById("qrCodeModal").style.display = "flex";
-    }
-    function closeQrModal() { document.getElementById("qrCodeModal").style.display = "none"; }
-
-    // Footer Year
-    document.getElementById('current-year').textContent = new Date().getFullYear();
-  </script>
+  <script src="script.js" defer></script>
 </body>
 
 </html>
